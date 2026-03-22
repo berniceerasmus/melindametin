@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3 — Irregular Verbs Part 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+
+:root{--cream:#fff8f0;--c1:#e85d4a;--c1d:rgba(232,93,74,.1);--c2:#2a9d8f;--c2d:rgba(42,157,143,.1);--c3:#f4a261;--c3d:rgba(244,162,97,.12);--c4:#4a90d9;--c4d:rgba(74,144,217,.1);--c5:#52b788;--c5d:rgba(82,183,136,.12);--c6:#e63946;--c6d:rgba(230,57,70,.1);--c7:#7c5cbf;--c7d:rgba(124,92,191,.1);--text:#2d3748;--muted:#718096;--border:#ede0d0;--surf:#fff;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);line-height:1.7;}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,rgba(232,93,74,.05) 1px,transparent 1px);background-size:44px 44px;pointer-events:none;z-index:0;}
+.page{max-width:820px;margin:0 auto;padding:34px 16px 80px;position:relative;z-index:1;}
+.lh{border-radius:22px;padding:26px 28px 30px;margin-bottom:20px;position:relative;overflow:hidden;}
+.lh::after{position:absolute;right:18px;top:8px;font-size:90px;opacity:.08;line-height:1;}
+.tag{display:inline-block;background:rgba(255,255,255,.25);border:2px solid rgba(255,255,255,.35);border-radius:50px;padding:3px 13px;font-size:11px;font-weight:900;color:#fff;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;}
+.lh h1{font-family:'Fredoka One',cursive;font-size:clamp(20px,5vw,38px);color:#fff;line-height:1.1;margin-bottom:7px;}
+.lh p{font-size:13px;color:rgba(255,255,255,.85);font-weight:700;margin-bottom:14px;}
+.meta{display:flex;gap:7px;flex-wrap:wrap;}
+.meta span{background:rgba(255,255,255,.2);border:1.5px solid rgba(255,255,255,.3);border-radius:50px;padding:3px 11px;font-size:11px;font-weight:800;color:#fff;}
+.prog{background:#fff;border:2px solid var(--border);border-radius:13px;padding:11px 15px;display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.prog-lbl{font-size:10px;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap;}
+.steps{display:flex;gap:4px;flex:1;}
+.step{flex:1;height:8px;border-radius:8px;background:var(--border);transition:background .3s;}
+.step.done{background:var(--c1);}
+.step.active{background:var(--c3);}
+.pct{font-family:'Fredoka One',cursive;font-size:15px;color:var(--c1);}
+.sec{background:var(--surf);border:2px solid var(--border);border-radius:18px;margin-bottom:13px;overflow:hidden;}
+.sh{display:flex;align-items:center;gap:11px;padding:13px 18px;border-bottom:2px dashed var(--border);cursor:pointer;user-select:none;}
+.si{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.sm{flex:1;}
+.sm h2{font-family:'Fredoka One',cursive;font-size:15px;color:var(--text);margin-bottom:1px;}
+.sm p{font-size:11px;font-weight:700;color:var(--muted);}
+.stag{font-size:10px;font-weight:900;padding:3px 10px;border-radius:50px;border:2px solid;white-space:nowrap;}
+.chev{color:var(--muted);font-size:12px;transition:transform .25s;flex-shrink:0;}
+.bdy{padding:0 18px;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;}
+.bdy.open{max-height:3000px;padding:16px 18px 20px;}
+.tip{border-radius:11px;padding:9px 13px;font-size:13px;font-weight:700;line-height:1.65;margin-bottom:11px;display:flex;gap:8px;}
+.ti{font-size:16px;flex-shrink:0;margin-top:1px;}
+.gram{border-radius:13px;padding:13px 15px;margin-bottom:11px;border:2px solid;}
+.gram h3{font-family:'Fredoka One',cursive;font-size:14px;margin-bottom:7px;}
+.gram p{font-size:13px;color:var(--muted);margin-bottom:7px;line-height:1.6;}
+.formula{border-radius:9px;padding:9px 12px;margin-bottom:7px;font-size:13px;font-weight:700;line-height:2;background:#fff;}
+.fok{color:var(--c5);}
+.ferr{color:var(--c6);}
+.trn{background:var(--c3d);border:2px solid var(--c3);border-radius:9px;padding:6px 10px;font-size:11.5px;font-weight:700;color:#92400e;margin-top:6px;display:flex;gap:7px;}
+.vt{width:100%;border-collapse:collapse;font-size:13px;border-radius:12px;overflow:hidden;border:2px solid var(--border);margin-bottom:11px;}
+.vt thead tr{background:linear-gradient(90deg,var(--c1),var(--c4));}
+.vt th{padding:8px 11px;font-weight:900;color:#fff;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.08em;}
+.vt tbody tr:nth-child(even){background:var(--c1d);}
+.vt tbody tr:nth-child(odd){background:#fff;}
+.vt td{padding:7px 11px;vertical-align:top;}
+.vb{font-family:'Fredoka One',cursive;font-size:14px;color:var(--c1);}
+.vp{font-family:'Fredoka One',cursive;font-size:14px;color:var(--c7);}
+.vtr{font-size:11px;font-weight:800;color:var(--muted);}
+.vex{font-size:11.5px;color:var(--muted);font-style:italic;}
+.fcg{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:6px;margin-bottom:11px;}
+.fc{background:var(--cream);border:2px solid var(--border);border-radius:11px;padding:9px 10px;cursor:pointer;transition:all .18s;text-align:center;}
+.fc:hover{border-color:var(--c1);transform:scale(1.03);}
+.fc.flip{background:var(--c1d);border-color:var(--c1);}
+.fca .fw{font-family:'Fredoka One',cursive;font-size:15px;color:var(--c1);}
+.fca .fh{font-size:9px;font-weight:800;color:var(--muted);text-transform:uppercase;margin-top:2px;}
+.fcb{display:none;}
+.fcb .fp{font-family:'Fredoka One',cursive;font-size:15px;color:var(--c7);}
+.fcb .ft{font-size:10px;font-weight:700;color:var(--muted);margin-top:2px;}
+.fc.flip .fca{display:none;}
+.fc.flip .fcb{display:block;}
+.exh{display:flex;align-items:center;gap:8px;margin-bottom:11px;padding-bottom:10px;border-bottom:2px dashed var(--border);}
+.exb{font-family:'Fredoka One',cursive;font-size:11px;padding:3px 11px;border-radius:50px;color:#fff;white-space:nowrap;}
+.exh h3{font-size:13px;font-weight:900;color:var(--text);flex:1;}
+.instr{background:var(--c3d);border:2px solid var(--c3);border-radius:9px;padding:7px 11px;font-size:12.5px;font-weight:700;color:#78350f;margin-bottom:10px;line-height:1.6;}
+.fi{display:flex;flex-wrap:wrap;align-items:center;gap:5px;background:var(--cream);border:2px solid var(--border);border-radius:11px;padding:9px 11px;margin-bottom:6px;font-size:13px;font-weight:700;line-height:1.8;}
+.fn{background:var(--c1);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;flex-shrink:0;}
+.fii{border:none;border-bottom:2.5px solid var(--border);background:transparent;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;color:var(--text);outline:none;min-width:90px;text-align:center;padding:2px 5px;transition:border-color .2s;}
+.fii:focus{border-bottom-color:var(--c1);}
+.fii.ok{border-bottom-color:var(--c5);color:var(--c5);background:rgba(82,183,136,.08);border-radius:4px;}
+.fii.no{border-bottom-color:var(--c6);color:var(--c6);background:var(--c6d);border-radius:4px;}
+.chk{background:var(--c1);color:#fff;border:none;border-radius:50px;padding:3px 10px;font-family:'Nunito',sans-serif;font-size:11px;font-weight:900;cursor:pointer;}
+.chk:hover{background:var(--c2);}
+.mc{background:var(--cream);border:2px solid var(--border);border-radius:11px;padding:10px 12px;margin-bottom:7px;}
+.mcq{font-size:13px;font-weight:800;margin-bottom:7px;line-height:1.5;}
+.mco{display:flex;gap:6px;flex-wrap:wrap;}
+.mcb{padding:5px 13px;border:2.5px solid var(--border);border-radius:50px;background:#fff;font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;color:var(--muted);cursor:pointer;transition:all .15s;}
+.mcb:hover{border-color:var(--c1);color:var(--c1);}
+.mcb.sel{background:var(--c1);color:#fff;border-color:var(--c1);}
+.mcb.cor{background:var(--c5);color:#fff;border-color:var(--c5);}
+.mcb.wrng{background:var(--c6);color:#fff;border-color:var(--c6);}
+.mcf{font-size:11px;font-weight:800;margin-top:5px;padding:4px 8px;border-radius:7px;display:none;}
+.mcf.show{display:block;}
+.mcf.ok{background:var(--c5d);color:#1a4731;}
+.mcf.no{background:var(--c6d);color:#7f1d1d;}
+.ec{background:var(--cream);border:2px solid var(--border);border-radius:11px;padding:10px 12px;margin-bottom:7px;}
+.ecn{font-size:10px;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;}
+.ecw{background:var(--c6d);border:2px solid rgba(230,57,70,.2);border-radius:8px;padding:6px 10px;font-size:13px;font-weight:800;color:#7f1d1d;margin-bottom:7px;}
+.ecw .err{text-decoration:line-through;opacity:.6;}
+.eci{width:100%;border:2px solid var(--border);border-radius:8px;padding:7px 10px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--text);outline:none;background:#fff;}
+.eci:focus{border-color:var(--c1);}
+.eci.ok{border-color:var(--c5);background:var(--c5d);}
+.eci.no{border-color:var(--c6);background:var(--c6d);}
+.wl{display:flex;align-items:flex-start;gap:7px;margin-bottom:7px;}
+.wln{width:21px;height:21px;background:var(--c1);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;flex-shrink:0;margin-top:3px;}
+.wli{flex:1;border:none;border-bottom:2px solid var(--border);background:transparent;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--text);outline:none;padding:2px 4px 3px;}
+.wli:focus{border-bottom-color:var(--c1);}
+.btn{width:100%;color:#fff;border:none;border-radius:12px;padding:12px;font-family:'Fredoka One',cursive;font-size:16px;cursor:pointer;margin-top:10px;box-shadow:0 4px 14px rgba(232,93,74,.22);transition:transform .15s;}
+.btn:hover{transform:translateY(-1px);}
+.scard{border-radius:15px;padding:18px 20px;text-align:center;display:none;margin-top:10px;}
+.scard.show{display:block;}
+.sn{font-family:'Fredoka One',cursive;font-size:50px;color:#fff;line-height:1;}
+.sn span{font-size:16px;}
+.st{font-family:'Fredoka One',cursive;font-size:18px;color:#fff;margin:4px 0 3px;}
+.sb{font-size:13px;color:rgba(255,255,255,.88);font-weight:700;}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;gap:10px;flex-wrap:wrap;}
+.nb{padding:10px 22px;border-radius:50px;border:2.5px solid var(--border);background:#fff;font-family:'Fredoka One',cursive;font-size:13px;cursor:pointer;transition:all .18s;color:var(--muted);}
+.nb.next{color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(232,93,74,.28);}
+.nb:hover{transform:translateY(-2px);}
+
+
+</style>
+</head>
+<body>
+<div class="page">
+<div class="lh" style="background:linear-gradient(135deg,#e9762b,#e85d4a,#7c5cbf);">
+  <div style="content:'🧙';"></div>
+  <div class="tag">📚 Phase 1 · Lesson 3 of 8</div>
+  <h1>Irregular Verbs<br>Part 1 — Top 10! 🧙</h1>
+  <p>These verbs don't follow the -ed rule — they are 'trick verbs' with completely different past forms!</p>
+  <div class="meta"><span>⏱ 45 minutes</span><span>✅ Top 10 irregular verbs</span><span>✅ Flip cards</span><span>✅ Story building</span></div>
+</div>
+<div class="prog">
+  <span class="prog-lbl">Progress</span>
+  <div class="steps" id="steps"><div class="step active"></div><div class="step"></div><div class="step"></div><div class="step"></div><div class="step"></div><div class="step"></div><div class="step"></div><div class="step"></div></div>
+  <span class="pct" id="pct">0%</span>
+</div><div class="sec" id="s0">
+  <div class="sh" onclick="tog(0)">
+    <div class="si" style="background:var(--c3d);">⚡</div>
+    <div class="sm"><h2>Warm-Up — Regular Verbs Speed Round!</h2><p>5-minute review before we start the trick verbs</p></div>
+    <span class="stag" style="border-color:#78350f;color:#78350f;">5 min</span>
+    <span class="chev" id="ch0" style="transform:rotate(180deg);">▼</span>
+  </div>
+  <div class="bdy open" id="b0" style="max-height:3000px;padding:16px 18px 20px;"><div class="tip" style="background:var(--c3d);border:2px solid var(--c3);"><span class="ti">⚡</span><div><strong>Quick Review!</strong> Write the Simple Past form. Watch the spelling rule! <span style='font-size:11px;color:#92400e;'>(Yazım kuralına dikkat et!)</span></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:11px;"><div class="fi"><div class="fn">1</div><span><span style="color:var(--c1);font-family:'Fredoka One',cursive;">dance</span></span><input class="fii" id="w1" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('w1','danced')">✓</button></div><div class="fi"><div class="fn">2</div><span><span style="color:var(--c1);font-family:'Fredoka One',cursive;">stop</span></span><input class="fii" id="w2" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('w2','stopped')">✓</button></div><div class="fi"><div class="fn">3</div><span><span style="color:var(--c1);font-family:'Fredoka One',cursive;">try</span></span><input class="fii" id="w3" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('w3','tried')">✓</button></div><div class="fi"><div class="fn">4</div><span><span style="color:var(--c1);font-family:'Fredoka One',cursive;">study</span></span><input class="fii" id="w4" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('w4','studied')">✓</button></div><div class="fi"><div class="fn">5</div><span><span style="color:var(--c1);font-family:'Fredoka One',cursive;">arrive</span></span><input class="fii" id="w5" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('w5','arrived')">✓</button></div><div class="fi"><div class="fn">6</div><span><span style="color:var(--c1);font-family:'Fredoka One',cursive;">plan</span></span><input class="fii" id="w6" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('w6','planned')">✓</button></div></div><button class="btn" style="background:linear-gradient(135deg,var(--c3),var(--c1));" onclick="done(0)">✅ Done! Start Lesson 3 →</button></div>
+</div><div class="sec" id="s1">
+  <div class="sh" onclick="tog(1)">
+    <div class="si" style="background:var(--c1d);">📖</div>
+    <div class="sm"><h2>Grammar — What Are Irregular Verbs?</h2><p>Why these verbs are special — and how to master them</p></div>
+    <span class="stag" style="border-color:var(--c1);color:var(--c1);">5 min</span>
+    <span class="chev" id="ch1" >▼</span>
+  </div>
+  <div class="bdy" id="b1" ><div class="gram" style="border-color:var(--c1);background:var(--c1d);"><h3 style="color:var(--c1);">🧙 Regular vs Irregular</h3><p>Regular verbs follow the -ed rule. Irregular verbs have <strong>completely different past forms</strong> that you must learn individually.</p><div class="formula"><div><strong>Regular:</strong> <span class="fok">watch→watched · play→played · cook→cooked</span></div><div style="margin-top:5px;"><strong>Irregular:</strong> <span style="color:var(--c1);">go→went · see→saw · eat→ate</span></div></div><div class="trn"><span>🇹🇷</span><span><strong>Düzensiz fiiller</strong> — kurala uymayan fiiller. Her birini ayrı ayrı öğrenmek gerekir. Ama sadece 20 tanesini bilmek büyük fark yaratır!</span></div></div><div class="tip" style="background:var(--c5d);border:2px solid var(--c5);"><span class="ti">💡</span><div><strong>Good news!</strong> You already use one perfectly: <strong>eat → ate!</strong> The best strategy: learn each verb in a real sentence about YOUR life — that's how 'ate' became automatic!</div></div><button class="btn" style="background:linear-gradient(135deg,var(--c1),var(--c7));" onclick="done(1)">📚 Got it! Learn the vocabulary →</button></div>
+</div><div class="sec" id="s2">
+  <div class="sh" onclick="tog(2)">
+    <div class="si" style="background:var(--c7d);">📚</div>
+    <div class="sm"><h2>Vocabulary — Top 10 Irregular Verbs</h2><p>Study the table, flip the cards, then practise!</p></div>
+    <span class="stag" style="border-color:var(--c7);color:var(--c7);">8 min</span>
+    <span class="chev" id="ch2" >▼</span>
+  </div>
+  <div class="bdy" id="b2" ><div class="tip" style="background:var(--c7d);border:2px solid rgba(124,92,191,.3);"><span class="ti">🧠</span><div>Study the table below. Then <strong>flip the cards</strong> — try to say the past form before you flip! Repeat out loud for each one.</div></div><table class="vt"><thead><tr><th>#</th><th>Base Form</th><th>Simple Past</th><th>🇹🇷 Meaning</th><th>Example Sentence</th></tr></thead><tbody><tr><td style="font-weight:900;color:var(--muted)">1</td><td><span class="vb">go</span></td><td><span class="vp">went</span></td><td><span class="vtr">gitmek</span></td><td><span class="vex">We went to the beach last Sunday.</span></td></tr><tr><td style="font-weight:900;color:var(--muted)">2</td><td><span class="vb">come</span></td><td><span class="vp">came</span></td><td><span class="vtr">gelmek</span></td><td><span class="vex">She came home late last night.</span></td></tr><tr><td style="font-weight:900;color:var(--muted)">3</td><td><span class="vb">see</span></td><td><span class="vp">saw</span></td><td><span class="vtr">görmek</span></td><td><span class="vex">I saw a great film at the weekend.</span></td></tr><tr><td style="font-weight:900;color:var(--muted)">4</td><td><span class="vb">eat</span></td><td><span class="vp">ate</span></td><td><span class="vtr">yemek</span></td><td><span class="vex">We ate pizza for dinner. (you know this! ✅)</span></td></tr><tr><td style="font-weight:900;color:var(--muted)">5</td><td><span class="vb">take</span></td><td><span class="vp">took</span></td><td><span class="vtr">almak / götürmek</span></td><td><span class="vex">She took lots of photos at the museum.</span></td></tr><tr><td style="font-weight:900;color:var(--muted)">6</td><td><span class="vb">have</span></td><td><span class="vp">had</span></td><td><span class="vtr">sahip olmak / yemek yemek</span></td><td><span class="vex">We had a wonderful time at the party.</span></td></tr><tr><td style="font-weight:900;color:var(--muted)">7</td><td><span class="vb">say</span></td><td><span class="vp">said</span></td><td><span class="vtr">söylemek</span></td><td><span class="vex">He said goodbye and walked away.</span></td></tr><tr><td style="font-weight:900;color:var(--muted)">8</td><td><span class="vb">think</span></td><td><span class="vp">thought</span></td><td><span class="vtr">düşünmek</span></td><td><span class="vex">I thought the film was very interesting.</span></td></tr><tr><td style="font-weight:900;color:var(--muted)">9</td><td><span class="vb">find</span></td><td><span class="vp">found</span></td><td><span class="vtr">bulmak</span></td><td><span class="vex">She found her keys under the sofa.</span></td></tr><tr><td style="font-weight:900;color:var(--muted)">10</td><td><span class="vb">know</span></td><td><span class="vp">knew</span></td><td><span class="vtr">bilmek</span></td><td><span class="vex">He knew the answer immediately.</span></td></tr></tbody></table><div style="font-size:12px;font-weight:900;color:var(--muted);margin-bottom:7px;">👆 Now cover the table — flip the cards and test yourself!</div><div class="fcg"><div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">go</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">went</div><div class="ft">gitmek</div></div></div><div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">come</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">came</div><div class="ft">gelmek</div></div></div><div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">see</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">saw</div><div class="ft">görmek</div></div></div><div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">eat</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">ate</div><div class="ft">yemek</div></div></div><div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">take</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">took</div><div class="ft">almak</div></div></div><div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">have</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">had</div><div class="ft">sahip olmak</div></div></div><div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">say</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">said</div><div class="ft">söylemek</div></div></div><div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">think</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">thought</div><div class="ft">düşünmek</div></div></div><div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">find</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">found</div><div class="ft">bulmak</div></div></div><div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">know</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">knew</div><div class="ft">bilmek</div></div></div></div><button class="btn" style="background:linear-gradient(135deg,var(--c7),var(--c4));" onclick="done(2)">✅ I know these! Start exercises →</button></div>
+</div><div class="sec" id="s3">
+  <div class="sh" onclick="tog(3)">
+    <div class="si" style="background:var(--c4d);">🔗</div>
+    <div class="sm"><h2>Exercise 1 — Write the Past Form</h2><p>10 irregular verbs — no looking at the table!</p></div>
+    <span class="stag" style="border-color:var(--c4);color:var(--c4);">5 min</span>
+    <span class="chev" id="ch3" >▼</span>
+  </div>
+  <div class="bdy" id="b3" ><div class="exh"><span class="exb" style="background:linear-gradient(135deg,var(--c4),var(--c7));">Exercise 1</span><h3>Matching — Write the Irregular Past</h3></div><div class="instr">📋 Write the irregular past form next to each verb. Cover the table above! <span style="color:#92400e;">(Tabloyu kapatıp yaz!)</span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;"><div class="fi"><div class="fn">1</div><span><span style="color:var(--c1);font-family:'Fredoka One',cursive;">go</span></span><input class="fii" id="m1" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('m1','went')">✓</button></div><div class="fi"><div class="fn">2</div><span><span style="color:var(--c1);font-family:'Fredoka One',cursive;">come</span></span><input class="fii" id="m2" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('m2','came')">✓</button></div><div class="fi"><div class="fn">3</div><span><span style="color:var(--c1);font-family:'Fredoka One',cursive;">see</span></span><input class="fii" id="m3" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('m3','saw')">✓</button></div><div class="fi"><div class="fn">4</div><span><span style="color:var(--c1);font-family:'Fredoka One',cursive;">eat</span></span><input class="fii" id="m4" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('m4','ate')">✓</button></div><div class="fi"><div class="fn">5</div><span><span style="color:var(--c1);font-family:'Fredoka One',cursive;">take</span></span><input class="fii" id="m5" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('m5','took')">✓</button></div><div class="fi"><div class="fn">6</div><span><span style="color:var(--c1);font-family:'Fredoka One',cursive;">have</span></span><input class="fii" id="m6" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('m6','had')">✓</button></div><div class="fi"><div class="fn">7</div><span><span style="color:var(--c1);font-family:'Fredoka One',cursive;">say</span></span><input class="fii" id="m7" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('m7','said')">✓</button></div><div class="fi"><div class="fn">8</div><span><span style="color:var(--c1);font-family:'Fredoka One',cursive;">think</span></span><input class="fii" id="m8" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('m8','thought')">✓</button></div><div class="fi"><div class="fn">9</div><span><span style="color:var(--c1);font-family:'Fredoka One',cursive;">find</span></span><input class="fii" id="m9" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('m9','found')">✓</button></div><div class="fi"><div class="fn">10</div><span><span style="color:var(--c1);font-family:'Fredoka One',cursive;">know</span></span><input class="fii" id="m10" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('m10','knew')">✓</button></div></div><button class="btn" style="background:linear-gradient(135deg,var(--c4),var(--c7));" onclick="chkMatch()">⭐ Check All!</button><div class="scard" id="matchSc"></div></div>
+</div><div class="sec" id="s4">
+  <div class="sh" onclick="tog(4)">
+    <div class="si" style="background:var(--c5d);">✏️</div>
+    <div class="sm"><h2>Exercise 2 — Fill in the Blank</h2><p>Complete sentences using the correct irregular past</p></div>
+    <span class="stag" style="border-color:var(--c5);color:var(--c5);">7 min</span>
+    <span class="chev" id="ch4" >▼</span>
+  </div>
+  <div class="bdy" id="b4" ><div class="exh"><span class="exb" style="background:linear-gradient(135deg,var(--c5),var(--c2));">Exercise 2</span><h3>Fill in the Blank</h3></div><div class="instr">📋 Write the correct irregular past form. The base verb is in brackets. <span style="color:#92400e;">(Doğru düzensiz past formunu yaz.)</span></div><div class="fi"><div class="fn">1</div><span>We</span><input class="fii" id="f1" placeholder="[go]" autocomplete="off" autocorrect="off"><span>to the cinema last Saturday evening.</span><button class="chk" onclick="cf('f1','went')">✓</button></div><div class="fi"><div class="fn">2</div><span>She</span><input class="fii" id="f2" placeholder="[see]" autocomplete="off" autocorrect="off"><span>a beautiful sunset on her walk home.</span><button class="chk" onclick="cf('f2','saw')">✓</button></div><div class="fi"><div class="fn">3</div><span>My dad</span><input class="fii" id="f3" placeholder="[take]" autocomplete="off" autocorrect="off"><span>lots of photos at the family dinner.</span><button class="chk" onclick="cf('f3','took')">✓</button></div><div class="fi"><div class="fn">4</div><span>They</span><input class="fii" id="f4" placeholder="[eat]" autocomplete="off" autocorrect="off"><span>the whole pizza in under ten minutes!</span><button class="chk" onclick="cf('f4','ate')">✓</button></div><div class="fi"><div class="fn">5</div><span>I</span><input class="fii" id="f5" placeholder="[think]" autocomplete="off" autocorrect="off"><span>the exam was quite difficult.</span><button class="chk" onclick="cf('f5','thought')">✓</button></div><div class="fi"><div class="fn">6</div><span>He</span><input class="fii" id="f6" placeholder="[find]" autocomplete="off" autocorrect="off"><span>a €10 note on the pavement.</span><button class="chk" onclick="cf('f6','found')">✓</button></div><div class="fi"><div class="fn">7</div><span>She</span><input class="fii" id="f7" placeholder="[say]" autocomplete="off" autocorrect="off"><span>she would arrive at 7 o'clock.</span><button class="chk" onclick="cf('f7','said')">✓</button></div><div class="fi"><div class="fn">8</div><span>They</span><input class="fii" id="f8" placeholder="[have]" autocomplete="off" autocorrect="off"><span>a great time at the festival.</span><button class="chk" onclick="cf('f8','had')">✓</button></div><div class="fi"><div class="fn">9</div><span>She</span><input class="fii" id="f9" placeholder="[come]" autocomplete="off" autocorrect="off"><span>to the party but left early.</span><button class="chk" onclick="cf('f9','came')">✓</button></div><div class="fi"><div class="fn">10</div><span>He</span><input class="fii" id="f10" placeholder="[know]" autocomplete="off" autocorrect="off"><span>the answers to almost every question.</span><button class="chk" onclick="cf('f10','knew')">✓</button></div><button class="btn" style="background:linear-gradient(135deg,var(--c5),var(--c2));" onclick="chkFill()">⭐ Check All!</button><div class="scard" id="fillSc"></div></div>
+</div><div class="sec" id="s5">
+  <div class="sh" onclick="tog(5)">
+    <div class="si" style="background:var(--c1d);">🎯</div>
+    <div class="sm"><h2>Exercise 3 — Multiple Choice</h2><p>Regular or irregular? Choose the correct past form</p></div>
+    <span class="stag" style="border-color:var(--c1);color:var(--c1);">5 min</span>
+    <span class="chev" id="ch5" >▼</span>
+  </div>
+  <div class="bdy" id="b5" ><div class="exh"><span class="exb" style="background:linear-gradient(135deg,var(--c1),var(--c3));">Exercise 3</span><h3>Multiple Choice — Watch Out for Tricks!</h3></div><div class="instr">📋 Choose the correct past form. Careful — some options look almost right! <span style="color:#92400e;">(Dikkat — bazı seçenekler neredeyse doğru görünüyor!)</span></div><div class="mc" id="mc1"><div class="mcq">1. "She ______ to the market in the morning." (go)</div><div class="mco"><button class="mcb" onclick="smc('mc1',this,'goed','went')">goed</button><button class="mcb" onclick="smc('mc1',this,'went','went')">went</button><button class="mcb" onclick="smc('mc1',this,'goes','went')">goes</button><button class="mcb" onclick="smc('mc1',this,'go','went')">go</button></div><div class="mcf" id="f-mc1"></div></div><div class="mc" id="mc2"><div class="mcq">2. "I ______ a great series on TV last night." (see)</div><div class="mco"><button class="mcb" onclick="smc('mc2',this,'sawed','saw')">sawed</button><button class="mcb" onclick="smc('mc2',this,'seed','saw')">seed</button><button class="mcb" onclick="smc('mc2',this,'saw','saw')">saw</button><button class="mcb" onclick="smc('mc2',this,'seen','saw')">seen</button></div><div class="mcf" id="f-mc2"></div></div><div class="mc" id="mc3"><div class="mcq">3. "He ______ a taxi to the airport." (take)</div><div class="mco"><button class="mcb" onclick="smc('mc3',this,'taked','took')">taked</button><button class="mcb" onclick="smc('mc3',this,'took','took')">took</button><button class="mcb" onclick="smc('mc3',this,'token','took')">token</button><button class="mcb" onclick="smc('mc3',this,'takeed','took')">takeed</button></div><div class="mcf" id="f-mc3"></div></div><div class="mc" id="mc4"><div class="mcq">4. "She ______ goodbye and walked away." (say)</div><div class="mco"><button class="mcb" onclick="smc('mc4',this,'sayed','said')">sayed</button><button class="mcb" onclick="smc('mc4',this,'saied','said')">saied</button><button class="mcb" onclick="smc('mc4',this,'said','said')">said</button><button class="mcb" onclick="smc('mc4',this,'says','said')">says</button></div><div class="mcf" id="f-mc4"></div></div><div class="mc" id="mc5"><div class="mcq">5. "I ______ the answer was wrong." (think)</div><div class="mco"><button class="mcb" onclick="smc('mc5',this,'thinked','thought')">thinked</button><button class="mcb" onclick="smc('mc5',this,'thought','thought')">thought</button><button class="mcb" onclick="smc('mc5',this,'thinkt','thought')">thinkt</button><button class="mcb" onclick="smc('mc5',this,'thunk','thought')">thunk</button></div><div class="mcf" id="f-mc5"></div></div><button class="btn" style="background:linear-gradient(135deg,var(--c1),var(--c3));" onclick="done(5)">✅ Done! Error correction →</button></div>
+</div><div class="sec" id="s6">
+  <div class="sh" onclick="tog(6)">
+    <div class="si" style="background:var(--c6d);">🔧</div>
+    <div class="sm"><h2>Exercise 4 — Error Correction</h2><p>These sentences use -ed for irregular verbs — fix them!</p></div>
+    <span class="stag" style="border-color:var(--c6);color:var(--c6);">7 min</span>
+    <span class="chev" id="ch6" >▼</span>
+  </div>
+  <div class="bdy" id="b6" ><div class="exh"><span class="exb" style="background:linear-gradient(135deg,var(--c6),var(--c1));">Exercise 4</span><h3>Error Correction — No -ed for Irregular Verbs!</h3></div><div class="instr">📋 The wrong verb is shown. Write the correct sentence. <span style="color:#92400e;">(Yanlış fiil gösterilmiş. Doğru cümleyi yaz.)</span></div><div class="ec"><div class="ecn">Sentence 1</div><div class="ecw">We <span class="err">goed</span> to the beach last Sunday and had a great time.</div><input class="eci" id="ec1" autocomplete="off" placeholder="Write the correct sentence..."><button class="chk" style="margin-top:7px;" onclick="cec('ec1','went')">✓ Check</button></div><div class="ec"><div class="ecn">Sentence 2</div><div class="ecw">She <span class="err">eated</span> a huge sandwich before the match.</div><input class="eci" id="ec2" autocomplete="off" placeholder="Write the correct sentence..."><button class="chk" style="margin-top:7px;" onclick="cec('ec2','ate')">✓ Check</button></div><div class="ec"><div class="ecn">Sentence 3</div><div class="ecw">He <span class="err">thinked</span> about the problem for a long time.</div><input class="eci" id="ec3" autocomplete="off" placeholder="Write the correct sentence..."><button class="chk" style="margin-top:7px;" onclick="cec('ec3','thought')">✓ Check</button></div><div class="ec"><div class="ecn">Sentence 4</div><div class="ecw">They <span class="err">comed</span> to visit us and we had dinner together.</div><input class="eci" id="ec4" autocomplete="off" placeholder="Write the correct sentence..."><button class="chk" style="margin-top:7px;" onclick="cec('ec4','came')">✓ Check</button></div><div class="ec"><div class="ecn">Sentence 5</div><div class="ecw">She <span class="err">finded</span> a beautiful café near the station.</div><input class="eci" id="ec5" autocomplete="off" placeholder="Write the correct sentence..."><button class="chk" style="margin-top:7px;" onclick="cec('ec5','found')">✓ Check</button></div><button class="btn" style="background:linear-gradient(135deg,var(--c6),var(--c1));" onclick="done(6)">✅ Done! Story building →</button></div>
+</div><div class="sec" id="s7">
+  <div class="sh" onclick="tog(7)">
+    <div class="si" style="background:var(--c2d);">✍️</div>
+    <div class="sm"><h2>Exercise 5 — Story Building + Free Writing</h2><p>Use all 10 irregular verbs — first complete, then create!</p></div>
+    <span class="stag" style="border-color:var(--c2);color:var(--c2);">8 min</span>
+    <span class="chev" id="ch7" >▼</span>
+  </div>
+  <div class="bdy" id="b7" ><div class="exh"><span class="exb" style="background:linear-gradient(135deg,var(--c2),var(--c5));">Exercise 5</span><h3>Story Building + Free Writing</h3></div><div class="instr">📋 Part A: fill in the blanks. Part B: write your own story using 6+ irregular verbs! <span style="color:#92400e;">(A bölümü: boşlukları doldur. B bölümü: kendi hikayeni yaz!)</span></div><div style="background:var(--c7d);border:2px solid rgba(124,92,191,.3);border-radius:12px;padding:13px 15px;margin-bottom:12px;"><h4 style="font-size:13px;font-weight:900;color:var(--c7);margin-bottom:8px;">📖 Part A — Complete Maya's Story</h4><p style="font-size:13px;font-weight:700;color:var(--text);line-height:1.7;">Last Saturday, Maya <input class="fii" id="s1" placeholder="[go]" style="min-width:60px;" autocomplete="off"> to the city centre. First, she <input class="fii" id="s2" placeholder="[have]" style="min-width:60px;" autocomplete="off"> breakfast at a nice café. Then she <input class="fii" id="s3" placeholder="[see]" style="min-width:60px;" autocomplete="off"> a beautiful art exhibition. She <input class="fii" id="s4" placeholder="[take]" style="min-width:60px;" autocomplete="off"> lots of photos. Her friend <input class="fii" id="s5" placeholder="[say]" style="min-width:60px;" autocomplete="off"> it was amazing. Later, Maya <input class="fii" id="s6" placeholder="[eat]" style="min-width:60px;" autocomplete="off"> a delicious meal and <input class="fii" id="s7" placeholder="[think]" style="min-width:60px;" autocomplete="off"> it was a perfect day. She <input class="fii" id="s8" placeholder="[come]" style="min-width:60px;" autocomplete="off"> home very happy.</p><div style="display:flex;gap:6px;margin-top:9px;flex-wrap:wrap;"><button class="chk" onclick="cf('s1','went')">s1✓</button><button class="chk" onclick="cf('s2','had')">s2✓</button><button class="chk" onclick="cf('s3','saw')">s3✓</button><button class="chk" onclick="cf('s4','took')">s4✓</button><button class="chk" onclick="cf('s5','said')">s5✓</button><button class="chk" onclick="cf('s6','ate')">s6✓</button><button class="chk" onclick="cf('s7','thought')">s7✓</button><button class="chk" onclick="cf('s8','came')">s8✓</button></div></div><div class="tip" style="background:var(--c2d);border:2px solid rgba(42,157,143,.3);"><span class="ti">✍️</span><div><strong>Part B — Write YOUR story!</strong> Write 6 sentences about something you did recently. Use at least 6 irregular verbs: went · came · saw · ate · took · had · said · thought · found · knew</div></div><div class="wl"><div class="wln">1</div><input class="wli" placeholder="Last weekend / yesterday, I went to ..."></div><div class="wl"><div class="wln">2</div><input class="wli" placeholder="I saw / I had / I ate ..."></div><div class="wl"><div class="wln">3</div><input class="wli" placeholder="Then I took / I found / I came ..."></div><div class="wl"><div class="wln">4</div><input class="wli" placeholder="My friend said / I thought ..."></div><div class="wl"><div class="wln">5</div><input class="wli" placeholder="I knew / I found ..."></div><div class="wl"><div class="wln">6</div><input class="wli" placeholder="In the end, I came home and ..."></div><div class="tip" style="background:var(--c5d);border:2px solid var(--c5);"><span class="ti">✅</span><div><strong>Self-check:</strong> went ✓ not goed ✗ · saw ✓ not seed ✗ · thought ✓ not thinked ✗</div></div><button class="btn" style="background:linear-gradient(135deg,var(--c1),var(--c7));" onclick="finish()">🏆 Lesson 3 Complete!</button><div class="scard" id="finalSc"></div></div>
+</div>
+<div class="nav">
+  <button class="nb" onclick="alert('Go to Lesson 2!')">← Lesson 2</button>
+  <div style="font-size:12px;font-weight:800;color:var(--muted);text-align:center;">Phase 1 · Lesson 3 of 8<br><span style="color:var(--c1);">Lesson 4 → Irregular Verbs Part 2</span></div>
+  <button class="nb next" style="background:linear-gradient(135deg,var(--c1),var(--c4));" onclick="alert('Open Lesson 4!')">Lesson 4 →</button>
+</div>
+</div>
+<script>
+
+const comp=new Array(8).fill(false);
+function upd(){const d=comp.filter(Boolean).length;const s=document.getElementById('steps').children;for(let i=0;i<s.length;i++){s[i].classList.remove('done','active');if(i<d)s[i].classList.add('done');else if(i===d)s[i].classList.add('active');}document.getElementById('pct').textContent=Math.round(d/8*100)+'%';}
+function tog(i){const b=document.getElementById('b'+i);const c=document.getElementById('ch'+i);if(!b)return;b.classList.toggle('open');if(b.classList.contains('open')){b.style.maxHeight='3000px';b.style.padding='16px 18px 20px';if(c)c.style.transform='rotate(180deg)';}else{b.style.maxHeight='0';b.style.padding='0 18px';if(c)c.style.transform='';}}
+function done(i){comp[i]=true;upd();const ni='b'+(i+1);const nb=document.getElementById(ni);if(nb&&!nb.classList.contains('open')){nb.classList.add('open');nb.style.maxHeight='3000px';nb.style.padding='16px 18px 20px';const nc=document.getElementById('ch'+(i+1));if(nc)nc.style.transform='rotate(180deg)';document.getElementById('s'+(i+1))?.scrollIntoView({behavior:'smooth',block:'start'});}}
+function cf(id,a,b2){const el=document.getElementById(id);if(!el)return;const v=el.value.trim().toLowerCase();const ok=v===a||(b2&&v===b2);el.classList.toggle('ok',ok);el.classList.toggle('no',!ok);}
+function smc(pid,btn,val,correct){const par=document.getElementById(pid);par.querySelectorAll('.mcb').forEach(b=>b.classList.remove('sel','cor','wrng'));btn.classList.add('sel');const fb=document.getElementById('f-'+pid);const ok=val===correct;if(ok){btn.classList.remove('sel');btn.classList.add('cor');fb.textContent='✅ Correct!';fb.className='mcf show ok';}else{btn.classList.remove('sel');btn.classList.add('wrng');par.querySelectorAll('.mcb').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('cor');});fb.textContent='❌ Correct answer highlighted in green.';fb.className='mcf show no';}}
+function cec(id,verb){const el=document.getElementById(id);if(!el)return;const v=el.value.trim().toLowerCase();const ok=v.includes(verb);el.classList.toggle('ok',ok);el.classList.toggle('no',!ok);}
+function showSc(id,got,total,lbl,bg){const el=document.getElementById(id);if(!el)return;const p=Math.round(got/total*100);el.style.background=bg||'linear-gradient(135deg,#e85d4a,#f4a261)';el.innerHTML=`<div class="sn">${got}<span>/${total}</span></div><div class="st">${p>=80?'🌟 Excellent!':p>=60?'👍 Good!':'💪 Keep going!'}</div><p class="sb">${p>=80?'Great work!':'Review the red answers and try again.'}</p>`;el.classList.add('show');el.scrollIntoView({behavior:'smooth',block:'nearest'});}
+document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('b0');if(b){b.style.maxHeight='3000px';b.style.padding='16px 18px 20px';}const c=document.getElementById('ch0');if(c)c.style.transform='rotate(180deg)';});
+
+
+function chkMatch(){const a={m1:'went',m2:'came',m3:'saw',m4:'ate',m5:'took',m6:'had',m7:'said',m8:'thought',m9:'found',m10:'knew'};let ok=0;Object.entries(a).forEach(([id,v])=>{cf(id,v);if(document.getElementById(id)?.classList.contains('ok'))ok++;});comp[3]=ok>=7;upd();showSc('matchSc',ok,10,'Exercise 1');}
+function chkFill(){const a={f1:'went',f2:'saw',f3:'took',f4:'ate',f5:'thought',f6:'found',f7:'said',f8:'had',f9:'came',f10:'knew'};let ok=0;Object.entries(a).forEach(([id,v])=>{cf(id,v);if(document.getElementById(id)?.classList.contains('ok'))ok++;});comp[4]=ok>=7;upd();showSc('fillSc',ok,10,'Exercise 2');done(4);}
+function finish(){comp[7]=true;upd();const sc=document.getElementById('finalSc');sc.style.background='linear-gradient(135deg,var(--c1),var(--c7))';sc.innerHTML='<div class="sn">🎉</div><div class="st">Lesson 3 Complete!</div><p class="sb">You know the Top 10 irregular verbs! went·came·saw·ate·took·had·said·thought·found·knew. See you in Lesson 4! 🌟</p>';sc.classList.add('show');sc.scrollIntoView({behavior:'smooth'});}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homework 3 — Irregular Verbs Part 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fffbf0;--c1:#e85d4a;--c1d:rgba(232,93,74,.1);--c2:#2a9d8f;--c2d:rgba(42,157,143,.1);--c3:#f4a261;--c3d:rgba(244,162,97,.12);--c4:#4a90d9;--c4d:rgba(74,144,217,.1);--c5:#52b788;--c5d:rgba(82,183,136,.12);--c6:#e63946;--c6d:rgba(230,57,70,.1);--c7:#7c5cbf;--c7d:rgba(124,92,191,.1);--text:#2d3748;--muted:#718096;--border:#ede0d0;--surf:#fff;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);line-height:1.7;}
+.page{max-width:780px;margin:0 auto;padding:30px 16px 80px;}
+.hw-hdr{border-radius:20px;padding:22px 26px 26px;margin-bottom:18px;}
+.hw-hdr h1{font-family:'Fredoka One',cursive;font-size:clamp(18px,4.5vw,32px);color:#fff;margin-bottom:5px;}
+.hw-hdr p{font-size:13px;color:rgba(255,255,255,.85);font-weight:700;margin-bottom:12px;}
+.hw-tag{display:inline-block;background:rgba(255,255,255,.22);border:2px solid rgba(255,255,255,.35);border-radius:50px;padding:3px 12px;font-size:10px;font-weight:900;color:#fff;letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px;}
+.meta{display:flex;gap:6px;flex-wrap:wrap;}
+.meta span{background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.3);border-radius:50px;padding:2px 10px;font-size:11px;font-weight:800;color:#fff;}
+.part{background:var(--surf);border:2px solid var(--border);border-radius:16px;margin-bottom:12px;overflow:hidden;}
+.ph{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:2px dashed var(--border);}
+.pb-num{font-family:'Fredoka One',cursive;font-size:12px;padding:3px 11px;border-radius:50px;color:#fff;}
+.ph h2{font-family:'Fredoka One',cursive;font-size:14px;color:var(--text);flex:1;}
+.ph .pts{font-size:11px;font-weight:900;color:var(--muted);}
+.pb{padding:14px 16px 18px;}
+.instr{background:var(--c3d);border:2px solid var(--c3);border-radius:9px;padding:7px 11px;font-size:12px;font-weight:700;color:#78350f;margin-bottom:10px;line-height:1.6;}
+.fi{display:flex;flex-wrap:wrap;align-items:center;gap:5px;background:var(--cream);border:2px solid var(--border);border-radius:10px;padding:8px 10px;margin-bottom:5px;font-size:13px;font-weight:700;line-height:1.8;}
+.fn{background:var(--c1);color:#fff;border-radius:50%;width:21px;height:21px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;flex-shrink:0;}
+.fii{border:none;border-bottom:2.5px solid var(--border);background:transparent;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;color:var(--text);outline:none;min-width:85px;text-align:center;padding:2px 4px;}
+.fii:focus{border-bottom-color:var(--c1);}
+.fii.ok{border-bottom-color:var(--c5);color:var(--c5);background:rgba(82,183,136,.08);border-radius:4px;}
+.fii.no{border-bottom-color:var(--c6);color:var(--c6);background:var(--c6d);border-radius:4px;}
+.chk{background:var(--c1);color:#fff;border:none;border-radius:50px;padding:3px 9px;font-family:'Nunito',sans-serif;font-size:10px;font-weight:900;cursor:pointer;}
+.chk:hover{background:var(--c2);}
+.mc{background:var(--cream);border:2px solid var(--border);border-radius:10px;padding:9px 11px;margin-bottom:6px;}
+.mcq{font-size:13px;font-weight:800;margin-bottom:6px;line-height:1.5;}
+.mco{display:flex;gap:5px;flex-wrap:wrap;}
+.mcb{padding:4px 12px;border:2.5px solid var(--border);border-radius:50px;background:#fff;font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;color:var(--muted);cursor:pointer;transition:all .15s;}
+.mcb:hover{border-color:var(--c1);color:var(--c1);}
+.mcb.cor{background:var(--c5);color:#fff;border-color:var(--c5);}
+.mcb.wrng{background:var(--c6);color:#fff;border-color:var(--c6);}
+.mcf{font-size:11px;font-weight:800;margin-top:4px;padding:3px 8px;border-radius:7px;display:none;}
+.mcf.show{display:block;}
+.mcf.ok{background:var(--c5d);color:#1a4731;}
+.mcf.no{background:var(--c6d);color:#7f1d1d;}
+.ec{background:var(--cream);border:2px solid var(--border);border-radius:10px;padding:9px 11px;margin-bottom:6px;}
+.ecn{font-size:10px;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px;}
+.ecw{background:var(--c6d);border:2px solid rgba(230,57,70,.2);border-radius:7px;padding:6px 9px;font-size:13px;font-weight:800;color:#7f1d1d;margin-bottom:6px;}
+.ecw .err{text-decoration:line-through;opacity:.6;}
+.eci{width:100%;border:2px solid var(--border);border-radius:7px;padding:6px 9px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--text);outline:none;background:#fff;}
+.eci:focus{border-color:var(--c1);}
+.eci.ok{border-color:var(--c5);background:var(--c5d);}
+.eci.no{border-color:var(--c6);background:var(--c6d);}
+.wl{display:flex;align-items:flex-start;gap:6px;margin-bottom:6px;}
+.wln{width:20px;height:20px;background:var(--c1);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;flex-shrink:0;margin-top:4px;}
+.wli{flex:1;border:none;border-bottom:2px solid var(--border);background:transparent;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--text);outline:none;padding:2px 3px 3px;}
+.wli:focus{border-bottom-color:var(--c1);}
+.btn{width:100%;color:#fff;border:none;border-radius:11px;padding:11px;font-family:'Fredoka One',cursive;font-size:15px;cursor:pointer;margin-top:10px;transition:transform .15s;}
+.btn:hover{transform:translateY(-1px);}
+.score-card{border-radius:14px;padding:16px 18px;text-align:center;display:none;margin-top:10px;}
+.score-card.show{display:block;}
+.sc-n{font-family:'Fredoka One',cursive;font-size:46px;color:#fff;line-height:1;}
+.sc-n span{font-size:15px;}
+.sc-t{font-family:'Fredoka One',cursive;font-size:17px;color:#fff;margin:4px 0 2px;}
+.sc-b{font-size:12px;color:rgba(255,255,255,.88);font-weight:700;}
+.tip{border-radius:10px;padding:8px 12px;font-size:12.5px;font-weight:700;line-height:1.6;margin-bottom:10px;display:flex;gap:7px;}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="hw-hdr" style="background:linear-gradient(135deg,#e9762b,#e85d4a,#7c5cbf);">
+  <div class="hw-tag">📚 Lesson 3 Homework</div>
+  <h1>Homework 3 — Irregular Verbs Part 1</h1>
+  <p>Top 10 irregular verbs practised — 100 points!</p>
+  <div class="meta"><span>⏱ 20-25 min</span><span>📝 100 points</span><span>✅ go·come·see·eat·take·have·say·think·find·know</span></div>
+</div>
+<div class="part">
+  <div class="ph"><span class="pb-num" style="background:linear-gradient(135deg,#e9762b,#e85d4a);">1</span><h2>Write the irregular past form</h2><span class="pts">30 pts</span></div>
+  <div class="pb"><div class="instr">📋 Write the irregular past. No looking at notes! <span style="color:#92400e;">(Notlara bakmadan yaz!)</span></div><div class="fi"><div class="fn">1</div><span>go →</span><input class="fii" id="p1a" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('p1a','went')">✓</button></div><div class="fi"><div class="fn">2</div><span>see →</span><input class="fii" id="p1b" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('p1b','saw')">✓</button></div><div class="fi"><div class="fn">3</div><span>eat →</span><input class="fii" id="p1c" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('p1c','ate')">✓</button></div><div class="fi"><div class="fn">4</div><span>take →</span><input class="fii" id="p1d" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('p1d','took')">✓</button></div><div class="fi"><div class="fn">5</div><span>find →</span><input class="fii" id="p1e" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('p1e','found')">✓</button></div><div class="fi"><div class="fn">6</div><span>think →</span><input class="fii" id="p1f" placeholder="past form" autocomplete="off" autocorrect="off"><span></span><button class="chk" onclick="cf('p1f','thought')">✓</button></div><button class="btn" style="background:linear-gradient(135deg,#e9762b,#7c5cbf);" onclick="chkP1()">✓ Check Part 1</button><div class="score-card" id="sc1"></div></div>
+</div><div class="part">
+  <div class="ph"><span class="pb-num" style="background:var(--c7);">2</span><h2>Fill in the blank with the correct irregular past</h2><span class="pts">20 pts</span></div>
+  <div class="pb"><div class="instr">📋 Fill in the correct irregular past. <span style="color:#92400e;">(Doğru düzensiz past formunu yaz.)</span></div><div class="fi"><div class="fn">1</div><span>They</span><input class="fii" id="p2a" placeholder="[go]" autocomplete="off" autocorrect="off"><span>to the concert last night.</span><button class="chk" onclick="cf('p2a','went')">✓</button></div><div class="fi"><div class="fn">2</div><span>She</span><input class="fii" id="p2b" placeholder="[see]" autocomplete="off" autocorrect="off"><span>a beautiful sunset on her walk.</span><button class="chk" onclick="cf('p2b','saw')">✓</button></div><div class="fi"><div class="fn">3</div><span>I</span><input class="fii" id="p2c" placeholder="[think]" autocomplete="off" autocorrect="off"><span>the book was really interesting.</span><button class="chk" onclick="cf('p2c','thought')">✓</button></div><div class="fi"><div class="fn">4</div><span>He</span><input class="fii" id="p2d" placeholder="[find]" autocomplete="off" autocorrect="off"><span>his keys under the sofa cushion.</span><button class="chk" onclick="cf('p2d','found')">✓</button></div></div>
+</div><div class="part">
+  <div class="ph"><span class="pb-num" style="background:var(--c1);">3</span><h2>Error Correction — replace the wrong form</h2><span class="pts">20 pts</span></div>
+  <div class="pb"><div class="instr">📋 These sentences use wrong past forms. Fix them. <span style="color:#92400e;">(Yanlış past formları düzelt.)</span></div><div class="ec"><div class="ecn">Sentence 1</div><div class="ecw">We <span class="err">goed</span> to the beach and sawed some dolphins.</div><input class="eci" id="ec1" autocomplete="off" placeholder="Write the correct sentence..."><button class="chk" style="margin-top:6px;" onclick="cec('ec1','went')">✓</button></div><div class="ec"><div class="ecn">Sentence 2</div><div class="ecw">She <span class="err">eated</span> all the cake before we arrived.</div><input class="eci" id="ec2" autocomplete="off" placeholder="Write the correct sentence..."><button class="chk" style="margin-top:6px;" onclick="cec('ec2','ate')">✓</button></div><div class="ec"><div class="ecn">Sentence 3</div><div class="ecw">He <span class="err">thinked</span> the answer was easy but it wasn't.</div><input class="eci" id="ec3" autocomplete="off" placeholder="Write the correct sentence..."><button class="chk" style="margin-top:6px;" onclick="cec('ec3','thought')">✓</button></div></div>
+</div><div class="part">
+  <div class="ph"><span class="pb-num" style="background:var(--c2);">4</span><h2>Use all 10 verbs in a short story</h2><span class="pts">30 pts</span></div>
+  <div class="pb"><div class="instr">📋 Write 5-6 sentences using as many of the Top 10 irregular verbs as possible. Use the past form! <span style="color:#92400e;">(Top 10 düzensiz fiilin geçmiş hallerini kullanarak 5-6 cümle yaz!)</span></div><div class="tip" style="background:var(--c7d);border:2px solid var(--c7);"><span>💡</span><div>went · came · saw · ate · took · had · said · thought · found · knew</div></div><div class="wl"><div class="wln">1</div><input class="wli" placeholder="Last weekend, I went to ..."></div><div class="wl"><div class="wln">2</div><input class="wli" placeholder="I saw / I met / We ate ..."></div><div class="wl"><div class="wln">3</div><input class="wli" placeholder="She said / I thought / He took ..."></div><div class="wl"><div class="wln">4</div><input class="wli" placeholder="I found / I knew / We had ..."></div><div class="wl"><div class="wln">5</div><input class="wli" placeholder="In the end, I came home and ..."></div><button class="btn" style="background:linear-gradient(135deg,#e9762b,#7c5cbf);" onclick="subHW3()">⭐ Submit Homework</button><div class="score-card" id="finalSc"></div></div>
+</div>
+</div>
+<script>
+
+function cf(id,a,b2){const el=document.getElementById(id);if(!el)return;const v=el.value.trim().toLowerCase();const ok=v===a||(b2&&v===b2);el.classList.toggle('ok',ok);el.classList.toggle('no',!ok);}
+function cec(id,kw){const el=document.getElementById(id);if(!el)return;const v=el.value.trim().toLowerCase();const ok=v.includes(kw);el.classList.toggle('ok',ok);el.classList.toggle('no',!ok);}
+function smc(pid,btn,val,correct){const par=document.getElementById(pid);par.querySelectorAll('.mcb').forEach(b=>b.classList.remove('cor','wrng'));const ok=val===correct;btn.classList.add(ok?'cor':'wrng');if(!ok)par.querySelectorAll('.mcb').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('cor');});const fb=document.getElementById('f-'+pid);fb.textContent=ok?'✅ Correct!':'❌ Correct answer highlighted in green.';fb.className='mcf show '+(ok?'ok':'no');}
+function showSc(id,got,total,bg){const el=document.getElementById(id);if(!el)return;const p=Math.round(got/total*100);el.style.background=bg||'linear-gradient(135deg,#e85d4a,#f4a261)';el.innerHTML=`<div class="sc-n">${got}<span>/${total}</span></div><div class="sc-t">${p>=80?'🌟 Excellent!':p>=60?'👍 Good job!':'💪 Keep practising!'}</div><p class="sc-b">${p>=80?'Great work! Review any red answers.':'Check the red answers and try again.'}</p>`;el.classList.add('show');el.scrollIntoView({behavior:'smooth',block:'nearest'});}
+
+
+function chkP1(){const a={p1a:'went',p1b:'saw',p1c:'ate',p1d:'took',p1e:'found',p1f:'thought'};let ok=0;Object.entries(a).forEach(([id,v])=>{cf(id,v);if(document.getElementById(id)?.classList.contains('ok'))ok++;});showSc('sc1',ok,6,'linear-gradient(135deg,#e9762b,#7c5cbf)');}
+function subHW3(){const a={p1a:'went',p1b:'saw',p1c:'ate',p1d:'took',p1e:'found',p1f:'thought',p2a:'went',p2b:'saw',p2c:'thought',p2d:'found'};let ok=0;Object.entries(a).forEach(([id,v])=>{cf(id,v);if(document.getElementById(id)?.classList.contains('ok'))ok++;});showSc('finalSc',ok,10,'linear-gradient(135deg,#e9762b,#7c5cbf)');}
+
+</script>
+</body>
+</html>

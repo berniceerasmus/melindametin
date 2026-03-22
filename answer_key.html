@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Answer Key — All 8 Homeworks</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f8fffe;--c1:#2a9d8f;--c2:#e85d4a;--c3:#f4a261;--c4:#4a90d9;--c5:#52b788;--c6:#7c5cbf;--c7:#e9762b;--text:#2d3748;--muted:#718096;--border:#c8e6e2;--surf:#fff;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);line-height:1.7;}
+.page{max-width:800px;margin:0 auto;padding:30px 16px 80px;}
+.header{background:linear-gradient(135deg,#2a9d8f,#4a90d9,#7c5cbf);border-radius:20px;padding:24px 26px;margin-bottom:20px;text-align:center;}
+.header h1{font-family:'Fredoka One',cursive;font-size:clamp(22px,5vw,38px);color:#fff;margin-bottom:6px;}
+.header p{font-size:13px;color:rgba(255,255,255,.88);font-weight:700;}
+.hw-block{background:var(--surf);border:2px solid var(--border);border-radius:18px;margin-bottom:14px;overflow:hidden;}
+.hw-title{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:2px dashed var(--border);cursor:pointer;user-select:none;}
+.hw-num{font-family:'Fredoka One',cursive;font-size:12px;padding:4px 13px;border-radius:50px;color:#fff;white-space:nowrap;}
+.hw-title h2{font-family:'Fredoka One',cursive;font-size:15px;color:var(--text);flex:1;}
+.chev{color:var(--muted);font-size:12px;transition:transform .25s;}
+.hw-body{padding:0 18px;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;}
+.hw-body.open{max-height:5000px;padding:16px 18px 22px;}
+.part-hdr{font-family:'Fredoka One',cursive;font-size:13px;margin-bottom:8px;margin-top:14px;padding:5px 12px;border-radius:8px;color:#fff;display:inline-block;}
+.ans-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px;margin-bottom:10px;}
+.ans{background:var(--cream);border:2px solid var(--border);border-radius:10px;padding:8px 11px;display:flex;gap:8px;align-items:flex-start;}
+.an{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:#fff;flex-shrink:0;}
+.av{font-size:13px;font-weight:800;color:var(--c1);line-height:1.4;}
+.note{background:rgba(244,162,97,.1);border:2px solid rgba(244,162,97,.4);border-radius:10px;padding:9px 12px;font-size:12.5px;font-weight:700;color:#78350f;margin-bottom:10px;display:flex;gap:7px;}
+.story-box{background:var(--cream);border:2px solid var(--border);border-radius:12px;padding:13px 15px;margin-bottom:10px;font-size:13px;font-weight:700;line-height:2;color:var(--text);}
+.story-box strong{color:var(--c1);}
+.toc{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:7px;margin-bottom:16px;}
+.toc-btn{background:#fff;border:2px solid var(--border);border-radius:11px;padding:8px 11px;text-align:center;cursor:pointer;transition:all .15s;text-decoration:none;}
+.toc-btn:hover{border-color:var(--c1);transform:translateY(-2px);}
+.toc-btn .tb-n{font-family:'Fredoka One',cursive;font-size:13px;color:var(--c1);}
+.toc-btn .tb-s{font-size:10px;font-weight:900;color:var(--muted);}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <h1>📋 Answer Key — All 8 Homeworks</h1>
+  <p>Phase 1 · Simple Past · Complete Answer Reference</p>
+</div>
+
+<div class="toc">
+  <a class="toc-btn" onclick="openHw(0)"><div class="tb-n">HW 1</div><div class="tb-s">Regular Verbs</div></a>
+  <a class="toc-btn" onclick="openHw(1)"><div class="tb-n">HW 2</div><div class="tb-s">Spelling Rules</div></a>
+  <a class="toc-btn" onclick="openHw(2)"><div class="tb-n">HW 3</div><div class="tb-s">Irregular Part 1</div></a>
+  <a class="toc-btn" onclick="openHw(3)"><div class="tb-n">HW 4</div><div class="tb-s">Irregular Part 2</div></a>
+  <a class="toc-btn" onclick="openHw(4)"><div class="tb-n">HW 5</div><div class="tb-s">Was / Were</div></a>
+  <a class="toc-btn" onclick="openHw(5)"><div class="tb-n">HW 6</div><div class="tb-s">Negative Past</div></a>
+  <a class="toc-btn" onclick="openHw(6)"><div class="tb-n">HW 7</div><div class="tb-s">Questions</div></a>
+  <a class="toc-btn" onclick="openHw(7)"><div class="tb-n">HW 8</div><div class="tb-s">Storytelling</div></a>
+</div>
+
+<!-- HW 1 -->
+<div class="hw-block" id="hw0">
+  <div class="hw-title" onclick="tog(0)"><span class="hw-num" style="background:linear-gradient(135deg,#e85d4a,#f4a261);">HW 1</span><h2>Regular Verbs — Answers</h2><span class="chev" id="ch0">▼</span></div>
+  <div class="hw-body" id="b0">
+    <div class="note"><span>📌</span><span>Parts 3 & 4 require teacher review (error correction depends on student sentence; writing is assessed holistically).</span></div>
+    <div class="part-hdr" style="background:linear-gradient(135deg,#e85d4a,#f4a261);">Part 1 — Fill in the blank (30 pts · 5 pts each)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:#e85d4a;">1</div><div><div class="av">watched</div><div style="font-size:11px;color:var(--muted);">watch → +ed</div></div></div>
+      <div class="ans"><div class="an" style="background:#e85d4a;">2</div><div><div class="av">walked</div><div style="font-size:11px;color:var(--muted);">walk → +ed</div></div></div>
+      <div class="ans"><div class="an" style="background:#e85d4a;">3</div><div><div class="av">cooked</div><div style="font-size:11px;color:var(--muted);">cook → +ed</div></div></div>
+      <div class="ans"><div class="an" style="background:#e85d4a;">4</div><div><div class="av">listened</div><div style="font-size:11px;color:var(--muted);">listen → +ed</div></div></div>
+      <div class="ans"><div class="an" style="background:#e85d4a;">5</div><div><div class="av">cleaned</div><div style="font-size:11px;color:var(--muted);">clean → +ed</div></div></div>
+      <div class="ans"><div class="an" style="background:#e85d4a;">6</div><div><div class="av">enjoyed</div><div style="font-size:11px;color:var(--muted);">enjoy → +ed</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c4);">Part 2 — Multiple Choice (20 pts · 5 pts each)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:var(--c4);">1</div><div><div class="av">watched</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c4);">2</div><div><div class="av">listened</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c4);">3</div><div><div class="av">visited</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c4);">4</div><div><div class="av">posted</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c5);">Part 3 — Error Correction (20 pts)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:var(--c5);">1</div><div><div class="av">watched</div><div style="font-size:11px;color:var(--muted);">watchd → watched</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c5);">2</div><div><div class="av">cooked</div><div style="font-size:11px;color:var(--muted);">cookt → cooked</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c5);">3</div><div><div class="av">enjoyed</div><div style="font-size:11px;color:var(--muted);">enjoied → enjoyed</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c6);">Part 4 — Free Writing (30 pts) · Teacher Review</div>
+    <div class="note"><span>✅</span><span>Award up to 30 pts. Check: correct -ed forms, subject-verb agreement, and that sentences make sense. Deduct 3-5 pts per error type.</span></div>
+  </div>
+</div>
+
+<!-- HW 2 -->
+<div class="hw-block" id="hw1">
+  <div class="hw-title" onclick="tog(1)"><span class="hw-num" style="background:linear-gradient(135deg,#2a9d8f,#4a90d9);">HW 2</span><h2>Spelling Rules — Answers</h2><span class="chev" id="ch1">▼</span></div>
+  <div class="hw-body" id="b1">
+    <div class="part-hdr" style="background:linear-gradient(135deg,#2a9d8f,#4a90d9);">Part 1 — Fill in the blank (30 pts · 5 pts each)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:#2a9d8f;">1</div><div><div class="av">dropped</div><div style="font-size:11px;color:var(--muted);">Rule 3: CVC → double p</div></div></div>
+      <div class="ans"><div class="an" style="background:#2a9d8f;">2</div><div><div class="av">tried</div><div style="font-size:11px;color:var(--muted);">Rule 4: y → ied</div></div></div>
+      <div class="ans"><div class="an" style="background:#2a9d8f;">3</div><div><div class="av">planned</div><div style="font-size:11px;color:var(--muted);">Rule 3: CVC → double n</div></div></div>
+      <div class="ans"><div class="an" style="background:#2a9d8f;">4</div><div><div class="av">hurried</div><div style="font-size:11px;color:var(--muted);">Rule 4: y → ied</div></div></div>
+      <div class="ans"><div class="an" style="background:#2a9d8f;">5</div><div><div class="av">danced</div><div style="font-size:11px;color:var(--muted);">Rule 2: -e → +d</div></div></div>
+      <div class="ans"><div class="an" style="background:#2a9d8f;">6</div><div><div class="av">chatted</div><div style="font-size:11px;color:var(--muted);">Rule 3: CVC → double t</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c4);">Part 2 — Multiple Choice (20 pts)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:var(--c4);">1</div><div><div class="av">hurried</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c4);">2</div><div><div class="av">dropped</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c4);">3</div><div><div class="av">planned</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c4);">4</div><div><div class="av">danced</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c2);">Part 3 — Error Correction (20 pts)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:var(--c2);">1</div><div><div class="av">tried</div><div style="font-size:11px;color:var(--muted);">tryed → tried</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c2);">2</div><div><div class="av">stopped</div><div style="font-size:11px;color:var(--muted);">stoped → stopped</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c2);">3</div><div><div class="av">studied</div><div style="font-size:11px;color:var(--muted);">studyed → studied</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c6);">Part 4 — Sentences (30 pts) · Teacher Review</div>
+    <div class="note"><span>✅</span><span>Check that each sentence clearly uses the stated rule. Award up to 6 pts per sentence. Deduct if wrong rule applied or spelling error remains.</span></div>
+  </div>
+</div>
+
+<!-- HW 3 -->
+<div class="hw-block" id="hw2">
+  <div class="hw-title" onclick="tog(2)"><span class="hw-num" style="background:linear-gradient(135deg,#e9762b,#7c5cbf);">HW 3</span><h2>Irregular Verbs Part 1 — Answers</h2><span class="chev" id="ch2">▼</span></div>
+  <div class="hw-body" id="b2">
+    <div class="part-hdr" style="background:linear-gradient(135deg,#e9762b,#e85d4a);">Part 1 — Write past form (30 pts · 5 pts each)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:#e9762b;">1</div><div><div class="av">went</div></div></div>
+      <div class="ans"><div class="an" style="background:#e9762b;">2</div><div><div class="av">saw</div></div></div>
+      <div class="ans"><div class="an" style="background:#e9762b;">3</div><div><div class="av">ate</div></div></div>
+      <div class="ans"><div class="an" style="background:#e9762b;">4</div><div><div class="av">took</div></div></div>
+      <div class="ans"><div class="an" style="background:#e9762b;">5</div><div><div class="av">found</div></div></div>
+      <div class="ans"><div class="an" style="background:#e9762b;">6</div><div><div class="av">thought</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c6);">Part 2 — Fill in (20 pts · 5 pts each)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:var(--c6);">1</div><div><div class="av">went</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c6);">2</div><div><div class="av">saw</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c6);">3</div><div><div class="av">thought</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c6);">4</div><div><div class="av">found</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c2);">Part 3 — Error Correction (20 pts)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:var(--c2);">1</div><div><div class="av">went / saw</div><div style="font-size:11px;color:var(--muted);">goed→went, sawed→saw</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c2);">2</div><div><div class="av">ate</div><div style="font-size:11px;color:var(--muted);">eated → ate</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c2);">3</div><div><div class="av">thought</div><div style="font-size:11px;color:var(--muted);">thinked → thought</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c1);">Part 4 — Story (30 pts) · Teacher Review</div>
+    <div class="note"><span>✅</span><span>Check: all 10 verbs (went·came·saw·ate·took·had·said·thought·found·knew) used in correct past form. Award 3 pts per correct irregular verb use, up to 30 pts.</span></div>
+  </div>
+</div>
+
+<!-- HW 4 -->
+<div class="hw-block" id="hw3">
+  <div class="hw-title" onclick="tog(3)"><span class="hw-num" style="background:linear-gradient(135deg,#7c5cbf,#4a90d9);">HW 4</span><h2>Irregular Verbs Part 2 + All 20 — Answers</h2><span class="chev" id="ch3">▼</span></div>
+  <div class="hw-body" id="b3">
+    <div class="part-hdr" style="background:linear-gradient(135deg,#7c5cbf,#4a90d9);">Part 1 — New verbs (20 pts · 4 pts each)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:#7c5cbf;">1</div><div><div class="av">made</div></div></div>
+      <div class="ans"><div class="an" style="background:#7c5cbf;">2</div><div><div class="av">gave</div></div></div>
+      <div class="ans"><div class="an" style="background:#7c5cbf;">3</div><div><div class="av">bought</div></div></div>
+      <div class="ans"><div class="an" style="background:#7c5cbf;">4</div><div><div class="av">wrote</div></div></div>
+      <div class="ans"><div class="an" style="background:#7c5cbf;">5</div><div><div class="av">left</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c5);">Part 2 — Fill in (30 pts · 5 pts each)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:var(--c5);">1</div><div><div class="av">wrote</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c5);">2</div><div><div class="av">bought</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c5);">3</div><div><div class="av">met</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c5);">4</div><div><div class="av">felt</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c5);">5</div><div><div class="av">began</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c5);">6</div><div><div class="av">left</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c2);">Part 3 — Error Correction (20 pts)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:var(--c2);">1</div><div><div class="av">bought</div><div style="font-size:11px;color:var(--muted);">buyed → bought</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c2);">2</div><div><div class="av">made</div><div style="font-size:11px;color:var(--muted);">maked → made</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c2);">3</div><div><div class="av">left</div><div style="font-size:11px;color:var(--muted);">leaved → left</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c6);">Part 4 — Story (30 pts) · Teacher Review</div>
+    <div class="note"><span>✅</span><span>Award 3-4 pts per correct irregular verb from the all-20 list. Deduct if base or wrong form used. Maximum 30 pts.</span></div>
+  </div>
+</div>
+
+<!-- HW 5 -->
+<div class="hw-block" id="hw4">
+  <div class="hw-title" onclick="tog(4)"><span class="hw-num" style="background:linear-gradient(135deg,#0891b2,#2a9d8f);">HW 5</span><h2>Was / Were — Answers</h2><span class="chev" id="ch4">▼</span></div>
+  <div class="hw-body" id="b4">
+    <div class="part-hdr" style="background:linear-gradient(135deg,#0891b2,#2a9d8f);">Part 1 — Was or Were (30 pts · 5 pts each)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:#0891b2;">1</div><div><div class="av">was</div><div style="font-size:11px;color:var(--muted);">concert = singular</div></div></div>
+      <div class="ans"><div class="an" style="background:#0891b2;">2</div><div><div class="av">were</div><div style="font-size:11px;color:var(--muted);">we = plural</div></div></div>
+      <div class="ans"><div class="an" style="background:#0891b2;">3</div><div><div class="av">was</div><div style="font-size:11px;color:var(--muted);">she = singular</div></div></div>
+      <div class="ans"><div class="an" style="background:#0891b2;">4</div><div><div class="av">were</div><div style="font-size:11px;color:var(--muted);">seats = plural</div></div></div>
+      <div class="ans"><div class="an" style="background:#0891b2;">5</div><div><div class="av">was</div><div style="font-size:11px;color:var(--muted);">I = singular</div></div></div>
+      <div class="ans"><div class="an" style="background:#0891b2;">6</div><div><div class="av">were</div><div style="font-size:11px;color:var(--muted);">streets = plural</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c4);">Part 2 — Wasn't / Weren't (20 pts · 5 pts each)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:var(--c4);">1</div><div><div class="av">wasn't</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c4);">2</div><div><div class="av">weren't</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c4);">3</div><div><div class="av">wasn't</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c4);">4</div><div><div class="av">weren't</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c2);">Part 3 — Error Correction (20 pts)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:var(--c2);">1</div><div><div class="av">were</div><div style="font-size:11px;color:var(--muted);">They was → were</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c2);">2</div><div><div class="av">was</div><div style="font-size:11px;color:var(--muted);">weather were → was</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c2);">3</div><div><div class="av">was</div><div style="font-size:11px;color:var(--muted);">I were → was</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c1);">Part 4 — Writing (30 pts) · Teacher Review</div>
+    <div class="note"><span>✅</span><span>Check correct use of was (I/he/she/it) and were (you/we/they). Award 6 pts per sentence with correct was/were form.</span></div>
+  </div>
+</div>
+
+<!-- HW 6 -->
+<div class="hw-block" id="hw5">
+  <div class="hw-title" onclick="tog(5)"><span class="hw-num" style="background:linear-gradient(135deg,#e63946,#e85d4a);">HW 6</span><h2>Negative Past — Answers</h2><span class="chev" id="ch5">▼</span></div>
+  <div class="hw-body" id="b5">
+    <div class="part-hdr" style="background:linear-gradient(135deg,#e63946,#e85d4a);">Part 1 — didn't + base verb (30 pts · 6 pts each)</div>
+    <div class="note"><span>🔑</span><span>Key rule: <strong>didn't + BASE verb</strong> (NOT past form!). didn't went ✗ — didn't go ✓</span></div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:#e63946;">1</div><div><div class="av">didn't go</div></div></div>
+      <div class="ans"><div class="an" style="background:#e63946;">2</div><div><div class="av">didn't eat</div></div></div>
+      <div class="ans"><div class="an" style="background:#e63946;">3</div><div><div class="av">didn't enjoy</div></div></div>
+      <div class="ans"><div class="an" style="background:#e63946;">4</div><div><div class="av">didn't study</div></div></div>
+      <div class="ans"><div class="an" style="background:#e63946;">5</div><div><div class="av">didn't see</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c6);">Part 2 — Multiple Choice (20 pts · 5 pts each)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:var(--c6);">1</div><div><div class="av">didn't go</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c6);">2</div><div><div class="av">wasn't</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c6);">3</div><div><div class="av">didn't watch</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c6);">4</div><div><div class="av">weren't</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c2);">Part 3 — Error Correction (20 pts)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:var(--c2);">1</div><div><div class="av">didn't go</div><div style="font-size:11px;color:var(--muted);">didn't went → didn't go</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c2);">2</div><div><div class="av">didn't eat</div><div style="font-size:11px;color:var(--muted);">didn't ate → didn't eat</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c2);">3</div><div><div class="av">wasn't</div><div style="font-size:11px;color:var(--muted);">didn't be → wasn't</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c5);">Part 4 — Writing (30 pts) · Teacher Review</div>
+    <div class="note"><span>✅</span><span>Positive sentences: check past tense correct. Negative sentences: check didn't + BASE verb (not past), and wasn't/weren't for "be". Award 5 pts per correct sentence.</span></div>
+  </div>
+</div>
+
+<!-- HW 7 -->
+<div class="hw-block" id="hw6">
+  <div class="hw-title" onclick="tog(6)"><span class="hw-num" style="background:linear-gradient(135deg,#4a90d9,#7c5cbf);">HW 7</span><h2>Past Questions — Answers</h2><span class="chev" id="ch6">▼</span></div>
+  <div class="hw-body" id="b6">
+    <div class="part-hdr" style="background:linear-gradient(135deg,#4a90d9,#7c5cbf);">Part 1 — Did questions (30 pts · 7-8 pts each)</div>
+    <div class="note"><span>🔑</span><span>Key rule: <strong>Did + subject + BASE verb</strong>. Did she went? ✗ — Did she go? ✓</span></div>
+    <div style="margin-bottom:10px;">
+      <div class="ans" style="margin-bottom:5px;"><div class="an" style="background:#4a90d9;">1</div><div><div class="av">Did she go to the market on Saturday?</div></div></div>
+      <div class="ans" style="margin-bottom:5px;"><div class="an" style="background:#4a90d9;">2</div><div><div class="av">Did they buy tickets for the concert?</div></div></div>
+      <div class="ans" style="margin-bottom:5px;"><div class="an" style="background:#4a90d9;">3</div><div><div class="av">Did he make a pizza for the family?</div></div></div>
+      <div class="ans"><div class="an" style="background:#4a90d9;">4</div><div><div class="av">Did you see the match last night?</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c1);">Part 2 — Was/Were/WH questions (20 pts · 5 pts each)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:var(--c1);">1</div><div><div class="av">Was</div><div style="font-size:11px;color:var(--muted);">weather = singular</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c1);">2</div><div><div class="av">Were</div><div style="font-size:11px;color:var(--muted);">many people = plural</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c1);">3</div><div><div class="av">Where did</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c1);">4</div><div><div class="av">How was</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c2);">Part 3 — Multiple Choice (20 pts)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:var(--c2);">1</div><div><div class="av">Did she go?</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c2);">2</div><div><div class="av">Where did they go?</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c2);">3</div><div><div class="av">Was the film good?</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c6);">Part 4 — Interview Writing (30 pts) · Teacher Review</div>
+    <div class="note"><span>✅</span><span>Check: Did questions use base verb ✓ · Was/Were questions: correct singular/plural ✓ · WH-questions: WH + did/was + subject + base verb ✓. Award 3 pts per question, 3 pts per answer.</span></div>
+  </div>
+</div>
+
+<!-- HW 8 -->
+<div class="hw-block" id="hw7">
+  <div class="hw-title" onclick="tog(7)"><span class="hw-num" style="background:linear-gradient(135deg,#f59e0b,#10b981);">HW 8</span><h2>Storytelling + Full Review — Answers</h2><span class="chev" id="ch7">▼</span></div>
+  <div class="hw-body" id="b7">
+    <div class="part-hdr" style="background:linear-gradient(135deg,#f59e0b,#10b981);">Part 1 — Complete the story (30 pts)</div>
+    <div class="story-box">Last Saturday, Sara decided to visit a new café. <strong>First</strong>, she <strong>got</strong> the bus into town. <strong>Then</strong>, she <strong>found</strong> a table by the window. She <strong>ordered</strong> a coffee and a cake. <strong>However</strong>, the café <strong>didn't have</strong> the cake she wanted, so she <strong>tried</strong> a new one. It <strong>was</strong> delicious! <strong>Finally</strong>, she <strong>went</strong> home very happy.</div>
+    <div class="part-hdr" style="background:var(--c4);">Part 2 — Mixed Review (30 pts · 5 pts each)</div>
+    <div class="ans-grid">
+      <div class="ans"><div class="an" style="background:var(--c4);">1</div><div><div class="av">studied</div><div style="font-size:11px;color:var(--muted);">Rule 4: y→ied</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c4);">2</div><div><div class="av">weren't</div><div style="font-size:11px;color:var(--muted);">they = plural</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c4);">3</div><div><div class="av">didn't see</div><div style="font-size:11px;color:var(--muted);">didn't + base verb</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c4);">4</div><div><div class="av">Was the food</div><div style="font-size:11px;color:var(--muted);">Was = question opener</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c4);">5</div><div><div class="av">met</div><div style="font-size:11px;color:var(--muted);">meet → met</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c4);">6</div><div><div class="av">Where did</div><div style="font-size:11px;color:var(--muted);">WH + did</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:var(--c2);">Part 3 — Error Correction (20 pts)</div>
+    <div style="margin-bottom:10px;">
+      <div class="ans" style="margin-bottom:5px;"><div class="an" style="background:var(--c2);">1</div><div><div class="av">didn't go</div><div style="font-size:11px;color:var(--muted);">didn't went → didn't go (base verb after didn't)</div></div></div>
+      <div class="ans" style="margin-bottom:5px;"><div class="an" style="background:var(--c2);">2</div><div><div class="av">were</div><div style="font-size:11px;color:var(--muted);">students was → students were (plural)</div></div></div>
+      <div class="ans"><div class="an" style="background:var(--c2);">3</div><div><div class="av">Where did they go on holiday?</div><div style="font-size:11px;color:var(--muted);">Where they went → Where did they go? (WH + did + subject + base)</div></div></div>
+    </div>
+    <div class="part-hdr" style="background:linear-gradient(135deg,#6366f1,#f59e0b);">Part 4 — Final Story (20 pts) · Teacher Review</div>
+    <div class="note"><span>✅</span><span>Score up to 20 pts. Check: ✓ 4+ connectors used correctly (First/Then/After that/Finally/However) ✓ at least 4 correct irregular verbs ✓ at least 1 correct negative form ✓ at least 1 correct question ✓ story flows logically. Deduct 2 pts per missing requirement.</span></div>
+  </div>
+</div>
+
+</div>
+<script>
+function tog(i){const b=document.getElementById('b'+i);const c=document.getElementById('ch'+i);if(!b)return;b.classList.toggle('open');if(b.classList.contains('open')){b.style.maxHeight='5000px';b.style.padding='16px 18px 22px';if(c)c.style.transform='rotate(180deg)';}else{b.style.maxHeight='0';b.style.padding='0 18px';if(c)c.style.transform='';}}
+function openHw(i){const b=document.getElementById('b'+i);const c=document.getElementById('ch'+i);if(!b)return;b.classList.add('open');b.style.maxHeight='5000px';b.style.padding='16px 18px 22px';if(c)c.style.transform='rotate(180deg)';document.getElementById('hw'+i)?.scrollIntoView({behavior:'smooth',block:'start'});}
+</script>
+</body>
+</html>

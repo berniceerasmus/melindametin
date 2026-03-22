@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1 — Simple Past: Regular Verbs</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #fffbf0;
+  --coral: #e85d4a;
+  --coral-dim: rgba(232,93,74,0.10);
+  --teal: #2a9d8f;
+  --teal-dim: rgba(42,157,143,0.10);
+  --yellow: #f4a261;
+  --yellow-dim: rgba(244,162,97,0.12);
+  --blue: #4a90d9;
+  --blue-dim: rgba(74,144,217,0.10);
+  --green: #52b788;
+  --green-dim: rgba(82,183,136,0.12);
+  --red: #e63946;
+  --red-dim: rgba(230,57,70,0.10);
+  --purple: #7c5cbf;
+  --purple-dim: rgba(124,92,191,0.10);
+  --text: #2d3748;
+  --muted: #718096;
+  --border: #e8e0d0;
+  --surface: #ffffff;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.7;
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(232,93,74,0.05) 1px, transparent 1px),
+    radial-gradient(circle, rgba(42,157,143,0.04) 1px, transparent 1px);
+  background-size: 40px 40px, 60px 60px;
+  background-position: 0 0, 20px 20px;
+  pointer-events: none; z-index: 0;
+}
+
+/* LAYOUT */
+.page { max-width: 820px; margin: 0 auto; padding: 40px 20px 100px; position: relative; z-index: 1; }
+
+/* LESSON HEADER */
+.lesson-header {
+  background: linear-gradient(135deg, #e85d4a, #f4a261, #2a9d8f);
+  border-radius: 24px;
+  padding: 32px 36px 36px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.lesson-header::after {
+  content: '✏️';
+  position: absolute;
+  right: 24px; top: 16px;
+  font-size: 100px;
+  opacity: 0.08;
+  line-height: 1;
+}
+.lh-top { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
+.lesson-badge {
+  background: rgba(255,255,255,0.25);
+  border: 2px solid rgba(255,255,255,0.4);
+  border-radius: 50px;
+  padding: 4px 16px;
+  font-size: 11px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.time-badge {
+  background: rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50px;
+  padding: 4px 14px;
+  font-size: 11px;
+  font-weight: 800;
+  color: white;
+}
+.lesson-header h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(26px, 5vw, 44px);
+  color: white;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.lesson-header p {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.85);
+  font-weight: 700;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+.objectives {
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+.obj {
+  background: rgba(255,255,255,0.18);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 50px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 800;
+  color: white;
+}
+
+/* PROGRESS BAR */
+.progress-wrap {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 18px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.progress-label { font-size: 11px; font-weight: 900; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; }
+.progress-steps { display: flex; gap: 4px; flex: 1; }
+.ps {
+  flex: 1;
+  height: 8px;
+  border-radius: 8px;
+  background: var(--border);
+  transition: background 0.3s;
+}
+.ps.done { background: var(--coral); }
+.ps.active { background: var(--yellow); }
+.progress-pct { font-family: 'Fredoka One', cursive; font-size: 16px; color: var(--coral); min-width: 38px; text-align: right; }
+
+/* SECTION */
+.section {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 22px;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 22px;
+  border-bottom: 2px dashed var(--border);
+  cursor: pointer;
+  user-select: none;
+}
+.sec-icon {
+  width: 42px; height: 42px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.sec-meta { flex: 1; }
+.sec-meta h2 { font-family: 'Fredoka One', cursive; font-size: 17px; color: var(--text); margin-bottom: 1px; }
+.sec-meta p { font-size: 11px; font-weight: 700; color: var(--muted); }
+.sec-time {
+  font-size: 10px;
+  font-weight: 900;
+  padding: 3px 12px;
+  border-radius: 50px;
+  border: 2px solid;
+  white-space: nowrap;
+}
+.sec-chevron { color: var(--muted); font-size: 13px; transition: transform 0.25s; flex-shrink: 0; }
+.sec-body { padding: 0 22px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
+.sec-body.open { max-height: 3000px; padding: 20px 22px 24px; }
+
+/* TIP BOX */
+.tip {
+  border-radius: 13px;
+  padding: 11px 15px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.65;
+  margin-bottom: 14px;
+  display: flex;
+  gap: 10px;
+}
+.tip-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+/* GRAMMAR BOX */
+.gram {
+  border-radius: 16px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  border: 2px solid;
+}
+.gram h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.formula {
+  border-radius: 11px;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 2;
+}
+.f-highlight { color: var(--coral); font-size: 15px; }
+.f-ok { color: var(--green); }
+.f-err { color: var(--red); }
+.tr-note {
+  background: rgba(244,162,97,0.12);
+  border: 2px solid var(--yellow);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #92400e;
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+/* VOCAB TABLE */
+.vocab-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  margin-bottom: 14px;
+}
+.vocab-table thead tr { background: linear-gradient(90deg, var(--coral), var(--yellow)); }
+.vocab-table th { padding: 10px 13px; font-weight: 900; color: white; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+.vocab-table tbody tr:nth-child(even) { background: var(--coral-dim); }
+.vocab-table tbody tr:nth-child(odd) { background: white; }
+.vocab-table td { padding: 9px 13px; vertical-align: top; }
+.v-base { font-family: 'Fredoka One', cursive; font-size: 16px; color: var(--coral); }
+.v-past { font-family: 'Fredoka One', cursive; font-size: 16px; color: var(--teal); }
+.v-tr { font-size: 11.5px; font-weight: 800; color: var(--muted); }
+.v-ex { font-size: 12px; color: var(--muted); font-style: italic; }
+
+/* EXERCISE HEADER */
+.ex-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 2px dashed var(--border);
+}
+.ex-badge {
+  font-family: 'Fredoka One', cursive;
+  font-size: 12px;
+  padding: 4px 14px;
+  border-radius: 50px;
+  color: white;
+  white-space: nowrap;
+}
+.ex-header h3 { font-size: 14px; font-weight: 900; color: var(--text); flex: 1; }
+.ex-header .time-tag { font-size: 10px; font-weight: 900; color: var(--muted); white-space: nowrap; }
+
+/* INSTRUCTIONS */
+.instr {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 12px;
+  padding: 9px 13px;
+  background: var(--yellow-dim);
+  border-radius: 10px;
+  border-left: 4px solid var(--yellow);
+}
+
+/* MATCHING */
+.match-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.match-col { display: flex; flex-direction: column; gap: 6px; }
+.match-col-head { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 2px; }
+.match-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  background: var(--cream);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 800;
+}
+.match-num { font-size: 11px; font-weight: 900; color: var(--muted); min-width: 18px; }
+.match-word { flex: 1; }
+.match-input {
+  border: none;
+  border-bottom: 2.5px solid var(--border);
+  background: transparent;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+  outline: none;
+  min-width: 70px;
+  text-align: center;
+  padding: 2px 4px;
+  transition: border-color 0.2s;
+}
+.match-input:focus { border-bottom-color: var(--coral); }
+.match-input.ok { border-bottom-color: var(--green); color: var(--green); background: rgba(82,183,136,0.08); border-radius: 4px; }
+.match-input.no { border-bottom-color: var(--red); color: var(--red); background: var(--red-dim); border-radius: 4px; }
+
+/* FILL IN */
+.fi-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  background: var(--cream);
+  border: 2px solid var(--border);
+  border-radius: 13px;
+  padding: 11px 14px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+.fi-num {
+  background: var(--coral);
+  color: white;
+  border-radius: 50%;
+  width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 900;
+  flex-shrink: 0;
+}
+.fi-hint { font-size: 11px; color: var(--muted); font-style: italic; font-weight: 600; }
+.fi-input {
+  border: none;
+  border-bottom: 2.5px solid var(--border);
+  background: transparent;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+  outline: none;
+  min-width: 100px;
+  text-align: center;
+  padding: 2px 6px;
+  transition: border-color 0.2s;
+}
+.fi-input:focus { border-bottom-color: var(--coral); }
+.fi-input.ok { border-bottom-color: var(--green); color: var(--green); background: rgba(82,183,136,0.08); border-radius: 4px; }
+.fi-input.no { border-bottom-color: var(--red); color: var(--red); background: var(--red-dim); border-radius: 4px; }
+.chk {
+  background: var(--coral);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 3px 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.chk:hover { background: var(--teal); }
+
+/* MULTIPLE CHOICE */
+.mc-item {
+  background: var(--cream);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 9px;
+}
+.mc-q {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 9px;
+  line-height: 1.5;
+}
+.mc-opts { display: flex; gap: 6px; flex-wrap: wrap; }
+.mc-btn {
+  padding: 6px 18px;
+  border: 2.5px solid var(--border);
+  border-radius: 50px;
+  background: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.mc-btn:hover { border-color: var(--coral); color: var(--coral); }
+.mc-btn.selected { background: var(--coral); color: white; border-color: var(--coral); }
+.mc-btn.correct { background: var(--green); color: white; border-color: var(--green); }
+.mc-btn.wrong { background: var(--red); color: white; border-color: var(--red); }
+.mc-fb {
+  font-size: 12px; font-weight: 800;
+  margin-top: 8px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  display: none;
+}
+.mc-fb.show { display: block; }
+.mc-fb.ok { background: var(--green-dim); color: #1a4731; }
+.mc-fb.no { background: var(--red-dim); color: #7f1d1d; }
+
+/* ERROR CORRECTION */
+.ec-item {
+  background: var(--cream);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 13px 15px;
+  margin-bottom: 9px;
+}
+.ec-num { font-size: 10px; font-weight: 900; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px; }
+.ec-wrong {
+  background: var(--red-dim);
+  border: 2px solid rgba(230,57,70,0.25);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #7f1d1d;
+  margin-bottom: 9px;
+}
+.ec-wrong .err { text-decoration: line-through; opacity: 0.6; }
+.ec-label { font-size: 11px; font-weight: 800; color: var(--muted); margin-bottom: 5px; }
+.ec-input {
+  width: 100%;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 13px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text);
+  outline: none;
+  background: white;
+  transition: border-color 0.2s;
+}
+.ec-input:focus { border-color: var(--coral); }
+.ec-input.ok { border-color: var(--green); background: var(--green-dim); }
+.ec-input.no { border-color: var(--red); background: var(--red-dim); }
+
+/* WRITING */
+.writing-prompt {
+  background: var(--teal-dim);
+  border: 2px solid rgba(42,157,143,0.3);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 13px;
+}
+.writing-prompt h4 { font-size: 14px; font-weight: 900; color: var(--teal); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.writing-prompt p { font-size: 13px; font-weight: 700; color: var(--text); line-height: 1.65; margin-bottom: 8px; }
+.writing-prompt .starters span { display: block; font-size: 12.5px; color: var(--muted); margin-bottom: 3px; font-weight: 700; }
+.writing-lines { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
+.writing-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.wl-num {
+  width: 22px; height: 22px;
+  background: var(--teal);
+  color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 900;
+  flex-shrink: 0; margin-top: 2px;
+}
+.wl-input {
+  flex: 1;
+  border: none;
+  border-bottom: 2px solid var(--border);
+  background: transparent;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text);
+  outline: none;
+  padding: 2px 6px 4px;
+  transition: border-color 0.2s;
+}
+.wl-input:focus { border-bottom-color: var(--teal); }
+
+/* CHECK ALL BUTTON */
+.check-all {
+  width: 100%;
+  background: linear-gradient(135deg, var(--coral), var(--yellow));
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 13px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 17px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: opacity 0.2s, transform 0.15s;
+  box-shadow: 0 4px 18px rgba(232,93,74,0.25);
+}
+.check-all:hover { opacity: 0.92; transform: translateY(-1px); }
+
+/* SCORE CARD */
+.score-card {
+  background: linear-gradient(135deg, var(--teal), var(--blue));
+  border-radius: 18px;
+  padding: 22px 24px;
+  text-align: center;
+  display: none;
+  margin-top: 12px;
+}
+.score-card.show { display: block; }
+.score-num { font-family: 'Fredoka One', cursive; font-size: 60px; color: white; line-height: 1; }
+.score-num span { font-size: 20px; }
+.score-title { font-family: 'Fredoka One', cursive; font-size: 22px; color: white; margin: 6px 0 4px; }
+.score-body { font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 700; }
+
+/* FLIP CARDS */
+.flip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 7px; margin-bottom: 12px; }
+.flip-card {
+  background: var(--cream);
+  border: 2px solid var(--border);
+  border-radius: 13px;
+  padding: 11px 12px;
+  cursor: pointer;
+  transition: all 0.18s;
+  text-align: center;
+}
+.flip-card:hover { border-color: var(--coral); transform: scale(1.03); }
+.flip-card.flipped { background: var(--coral-dim); border-color: var(--coral); }
+.fc-front .fc-word { font-family: 'Fredoka One', cursive; font-size: 18px; color: var(--coral); }
+.fc-front .fc-hint { font-size: 10px; font-weight: 800; color: var(--muted); text-transform: uppercase; margin-top: 2px; }
+.fc-back { display: none; }
+.fc-back .fc-past { font-family: 'Fredoka One', cursive; font-size: 18px; color: var(--teal); }
+.fc-back .fc-tr { font-size: 11px; font-weight: 700; color: var(--muted); margin-top: 2px; }
+.flip-card.flipped .fc-front { display: none; }
+.flip-card.flipped .fc-back { display: block; }
+
+/* WARM UP */
+.warmup-q {
+  background: var(--cream);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 13px 16px;
+  margin-bottom: 9px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.wq-num {
+  background: var(--yellow);
+  color: white;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fredoka One', cursive;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.wq-body { flex: 1; }
+.wq-q { font-size: 13.5px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+.wq-input {
+  width: 100%;
+  border: 2px solid var(--border);
+  border-radius: 9px;
+  padding: 7px 12px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text);
+  background: white;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.wq-input:focus { border-color: var(--yellow); }
+
+/* SORT GAME */
+.sort-game { margin-bottom: 12px; }
+.sort-banks { display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+.sort-bank {
+  flex: 1;
+  min-width: 160px;
+  background: var(--cream);
+  border: 2px dashed var(--border);
+  border-radius: 14px;
+  padding: 12px;
+}
+.sort-bank-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 13px;
+  margin-bottom: 8px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 8px;
+  color: white;
+}
+.sort-drop {
+  min-height: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.sort-words { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 12px; }
+.sort-word {
+  background: white;
+  border: 2.5px solid var(--border);
+  border-radius: 50px;
+  padding: 5px 14px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+}
+.sort-word:hover { border-color: var(--coral); color: var(--coral); }
+.sort-word.placed { opacity: 0.4; pointer-events: none; }
+.sort-placed {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 50px;
+  padding: 4px 12px;
+  font-size: 12.5px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.sort-placed:hover { opacity: 0.6; }
+
+/* DIVIDER */
+.divider { height: 2px; background: linear-gradient(90deg, var(--coral), var(--yellow), var(--teal)); border-radius: 2px; margin: 12px 0; opacity: 0.2; }
+
+/* LESSON NAV */
+.lesson-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.nav-btn {
+  padding: 12px 28px;
+  border-radius: 50px;
+  border: 2.5px solid var(--border);
+  background: white;
+  font-family: 'Fredoka One', cursive;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.18s;
+  color: var(--muted);
+}
+.nav-btn.next { background: linear-gradient(135deg, var(--coral), var(--yellow)); color: white; border-color: transparent; box-shadow: 0 4px 18px rgba(232,93,74,0.3); }
+.nav-btn:hover { transform: translateY(-2px); }
+.nav-lesson-info { font-size: 12px; font-weight: 800; color: var(--muted); text-align: center; }
+
+@media(max-width:580px) {
+  .page { padding: 20px 12px 80px; }
+  .lesson-header { padding: 22px 18px 26px; }
+  .match-grid { grid-template-columns: 1fr; }
+  .sort-banks { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- LESSON HEADER -->
+<div class="lesson-header">
+  <div class="lh-top">
+    <span class="lesson-badge">📚 Phase 1 · Lesson 1 of 8</span>
+    <span class="time-badge">⏱ 45 minutes</span>
+  </div>
+  <h1>Simple Past Tense<br>Regular Verbs ✏️</h1>
+  <p>Learn how to talk about things that already happened — using the most common past tense rule in English!</p>
+  <div class="objectives">
+    <span class="obj">✅ Understand the -ed rule</span>
+    <span class="obj">✅ Learn 10 regular verbs</span>
+    <span class="obj">✅ Use Simple Past in sentences</span>
+    <span class="obj">✅ Correct common mistakes</span>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-wrap">
+  <span class="progress-label">Lesson Progress</span>
+  <div class="progress-steps" id="progressSteps">
+    <div class="ps active" title="Warm-up"></div>
+    <div class="ps" title="Grammar"></div>
+    <div class="ps" title="Vocabulary"></div>
+    <div class="ps" title="Exercise 1"></div>
+    <div class="ps" title="Exercise 2"></div>
+    <div class="ps" title="Exercise 3"></div>
+    <div class="ps" title="Exercise 4"></div>
+    <div class="ps" title="Writing"></div>
+  </div>
+  <span class="progress-pct" id="progressPct">0%</span>
+</div>
+
+<!-- =================== WARM-UP =================== -->
+<div class="section" id="sec0">
+  <div class="sec-head" onclick="toggle('sec0')">
+    <div class="sec-icon" style="background:#fff3e0;">⚡</div>
+    <div class="sec-meta">
+      <h2>Warm-Up — Think Back!</h2>
+      <p>Let's get started — answer these questions about your week</p>
+    </div>
+    <span class="sec-time" style="border-color:var(--yellow);color:#78350f;">5 min</span>
+    <span class="sec-chevron" id="ch-sec0">▼</span>
+  </div>
+  <div class="sec-body open" id="body-sec0">
+    <div class="tip" style="background:var(--yellow-dim);border:2px solid var(--yellow);">
+      <span class="tip-icon">💡</span>
+      <div><strong>Before you start:</strong> Don't worry about being correct! Just answer honestly. After this lesson, you'll know exactly how to say these things in the past tense. 😊<br><span style="font-size:11px;color:#92400e;">(Başlamadan önce: Doğru cevap vermek zorunda değilsin! Dersin sonunda bu cümleleri tam olarak nasıl kuracağını öğreneceksin.)</span></div>
+    </div>
+    <p style="font-size:13px;font-weight:800;color:var(--muted);margin-bottom:12px;">✏️ Answer these questions about last weekend. Write your answers in English — any way you can!</p>
+    <div class="warmup-q">
+      <div class="wq-num">1</div>
+      <div class="wq-body">
+        <div class="wq-q">What did you watch on TV or on your phone last week?</div>
+        <input class="wq-input" placeholder="I watch... / I watched... / Last week I...">
+      </div>
+    </div>
+    <div class="warmup-q">
+      <div class="wq-num">2</div>
+      <div class="wq-body">
+        <div class="wq-q">Did you play a game or a sport recently?</div>
+        <input class="wq-input" placeholder="I play... / I played... / Yes, I...">
+      </div>
+    </div>
+    <div class="warmup-q">
+      <div class="wq-num">3</div>
+      <div class="wq-body">
+        <div class="wq-q">Did you cook or help cook anything at home this week?</div>
+        <input class="wq-input" placeholder="I cook... / I cooked... / My mum cooked...">
+      </div>
+    </div>
+    <div class="warmup-q">
+      <div class="wq-num">4</div>
+      <div class="wq-body">
+        <div class="wq-q">Did you walk somewhere or visit a place recently?</div>
+        <input class="wq-input" placeholder="I walk... / I visited... / I go to...">
+      </div>
+    </div>
+    <div class="warmup-q">
+      <div class="wq-num">5</div>
+      <div class="wq-body">
+        <div class="wq-q">Did you listen to music or talk to a friend this week?</div>
+        <input class="wq-input" placeholder="I listen... / I talked with...">
+      </div>
+    </div>
+    <div class="tip" style="background:var(--green-dim);border:2px solid var(--green);margin-top:14px;">
+      <span class="tip-icon">🌟</span>
+      <div>Look at your answers! If you wrote verbs like <strong>watch, play, cook, walk, visit, listen</strong> — these are exactly the verbs we are studying today. By the end of this lesson, you'll use them perfectly in the past tense!</div>
+    </div>
+    <button class="check-all" style="background:linear-gradient(135deg,var(--yellow),var(--coral));" onclick="markDone(0)">✅ Warm-Up Done! Move to Grammar →</button>
+  </div>
+</div>
+
+<!-- =================== GRAMMAR =================== -->
+<div class="section" id="sec1">
+  <div class="sec-head" onclick="toggle('sec1')">
+    <div class="sec-icon" style="background:var(--coral-dim);">📖</div>
+    <div class="sec-meta">
+      <h2>Grammar — The Simple Past Rule</h2>
+      <p>Learn the most important rule for talking about the past</p>
+    </div>
+    <span class="sec-time" style="border-color:var(--coral);color:var(--coral);">8 min</span>
+    <span class="sec-chevron" id="ch-sec1">▼</span>
+  </div>
+  <div class="sec-body" id="body-sec1">
+
+    <div class="gram" style="border-color:var(--coral);background:var(--coral-dim);">
+      <h3 style="color:var(--coral);">🕐 What is the Simple Past?</h3>
+      <p style="font-size:13.5px;color:var(--muted);margin-bottom:10px;">We use the Simple Past to talk about things that <strong>already happened</strong> — yesterday, last week, last year, or any time in the past that is <strong>finished</strong>.</p>
+      <div class="tr-note">
+        <span>🇹🇷</span>
+        <span>Türkçe'deki <strong>"-dı/-di/-du/-dü"</strong> ekine karşılık gelir. Geçmişte olmuş ve bitmiş eylemler için kullanılır. Örn: "Dün izledim" → "I watched yesterday."</span>
+      </div>
+    </div>
+
+    <div class="gram" style="border-color:var(--teal);background:var(--teal-dim);">
+      <h3 style="color:var(--teal);">✅ The Golden Rule — Just Add -ed!</h3>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:10px;">For <strong>regular verbs</strong>, making the Simple Past is easy — you just add <strong>-ed</strong> to the end of the verb!</p>
+      <div class="formula" style="background:white;">
+        <div><span class="f-highlight">BASE VERB</span> &nbsp;+&nbsp; <span class="f-highlight" style="color:var(--teal);">-ed</span> &nbsp;=&nbsp; <span class="f-highlight" style="color:var(--green);">SIMPLE PAST</span></div>
+        <div class="f-ok">watch + ed = watched &nbsp;·&nbsp; play + ed = played &nbsp;·&nbsp; walk + ed = walked</div>
+        <div class="f-ok">cook + ed = cooked &nbsp;·&nbsp; clean + ed = cleaned &nbsp;·&nbsp; listen + ed = listened</div>
+      </div>
+      <div class="tr-note">
+        <span>🇹🇷</span>
+        <span>Bu kural <strong>düzenli fiiller</strong> (regular verbs) için geçerlidir. Sadece sonuna <strong>-ed</strong> ekle! Kolay, değil mi? 😊</span>
+      </div>
+    </div>
+
+    <div class="gram" style="border-color:var(--yellow);background:var(--yellow-dim);">
+      <h3 style="color:#92400e;">⚠️ One Special Rule for Lesson 1</h3>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:10px;">If the verb already ends in the letter <strong>-e</strong>, just add <strong>-d</strong> (not -ed — that would give you double -e!)</p>
+      <div class="formula" style="background:white;">
+        <div class="f-ok">live + d = lived &nbsp;·&nbsp; love + d = loved &nbsp;·&nbsp; arrive + d = arrived &nbsp;·&nbsp; use + d = used</div>
+        <div class="f-err" style="margin-top:4px;">✗ "liveed" · "loveed" — WRONG! Don't double the -e.</div>
+      </div>
+      <div class="tr-note">
+        <span>🇹🇷</span>
+        <span>Fiil zaten <strong>-e</strong> ile bitiyorsa sadece <strong>-d</strong> ekle. "live" → "lived" (lived değil liveed!)</span>
+      </div>
+    </div>
+
+    <div class="gram" style="border-color:var(--purple);background:var(--purple-dim);">
+      <h3 style="color:var(--purple);">📌 Important: Simple Past Does NOT Change!</h3>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:8px;">Unlike present tense (he <em>plays</em>, she <em>watches</em>), the Simple Past form is <strong>the same for every person</strong>. No -s at the end!</p>
+      <div class="formula" style="background:white;">
+        <div class="f-ok">I watched · You watched · He watched · She watched · We watched · They watched</div>
+        <div class="f-err" style="margin-top:4px;">✗ "She watcheds" · "He playeds" — WRONG! No -s in the past!</div>
+      </div>
+    </div>
+
+    <button class="check-all" style="background:linear-gradient(135deg,var(--coral),var(--teal));" onclick="markDone(1)">📚 Got the rules! Let's learn the vocabulary →</button>
+  </div>
+</div>
+
+<!-- =================== VOCABULARY =================== -->
+<div class="section" id="sec2">
+  <div class="sec-head" onclick="toggle('sec2')">
+    <div class="sec-icon" style="background:var(--teal-dim);">📚</div>
+    <div class="sec-meta">
+      <h2>Vocabulary — 10 Regular Verbs</h2>
+      <p>Learn these verbs, their past forms, and example sentences</p>
+    </div>
+    <span class="sec-time" style="border-color:var(--teal);color:var(--teal);">5 min</span>
+    <span class="sec-chevron" id="ch-sec2">▼</span>
+  </div>
+  <div class="sec-body" id="body-sec2">
+    <div class="tip" style="background:var(--teal-dim);border:2px solid rgba(42,157,143,0.3);">
+      <span class="tip-icon">🃏</span>
+      <div>Study the table below. Then tap the <strong>flip cards</strong> to test yourself! Cover the table and see if you can remember the past forms.</div>
+    </div>
+
+    <table class="vocab-table">
+      <thead>
+        <tr><th>#</th><th>Base Form</th><th>Simple Past</th><th>Meaning 🇹🇷</th><th>Example Sentence</th></tr>
+      </thead>
+      <tbody>
+        <tr><td style="font-weight:900;color:var(--muted);">1</td><td><span class="v-base">watch</span></td><td><span class="v-past">watched</span></td><td><span class="v-tr">izlemek</span></td><td><span class="v-ex">She <strong>watched</strong> a film last night.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted);">2</td><td><span class="v-base">play</span></td><td><span class="v-past">played</span></td><td><span class="v-tr">oynamak</span></td><td><span class="v-ex">They <strong>played</strong> football in the park.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted);">3</td><td><span class="v-base">walk</span></td><td><span class="v-past">walked</span></td><td><span class="v-tr">yürümek</span></td><td><span class="v-ex">We <strong>walked</strong> to school this morning.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted);">4</td><td><span class="v-base">visit</span></td><td><span class="v-past">visited</span></td><td><span class="v-tr">ziyaret etmek</span></td><td><span class="v-ex">My family <strong>visited</strong> my grandmother last Sunday.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted);">5</td><td><span class="v-base">cook</span></td><td><span class="v-past">cooked</span></td><td><span class="v-tr">pişirmek</span></td><td><span class="v-ex">My dad <strong>cooked</strong> pasta for dinner.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted);">6</td><td><span class="v-base">clean</span></td><td><span class="v-past">cleaned</span></td><td><span class="v-tr">temizlemek</span></td><td><span class="v-ex">I <strong>cleaned</strong> my room on Saturday.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted);">7</td><td><span class="v-base">listen</span></td><td><span class="v-past">listened</span></td><td><span class="v-tr">dinlemek</span></td><td><span class="v-ex">She <strong>listened</strong> to music on the bus.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted);">8</td><td><span class="v-base">talk</span></td><td><span class="v-past">talked</span></td><td><span class="v-tr">konuşmak</span></td><td><span class="v-ex">He <strong>talked</strong> to his friend for an hour.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted);">9</td><td><span class="v-base">enjoy</span></td><td><span class="v-past">enjoyed</span></td><td><span class="v-tr">keyfini çıkarmak</span></td><td><span class="v-ex">We <strong>enjoyed</strong> the party very much.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted);">10</td><td><span class="v-base">travel</span></td><td><span class="v-past">travelled</span></td><td><span class="v-tr">seyahat etmek</span></td><td><span class="v-ex">They <strong>travelled</strong> to London by train.</span></td></tr>
+      </tbody>
+    </table>
+
+    <div style="font-size:12px;font-weight:900;color:var(--muted);margin-bottom:8px;">👆 Now cover the table and test yourself! Tap a card to reveal the past form:</div>
+    <div class="flip-grid">
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="fc-front"><div class="fc-word">watch</div><div class="fc-hint">tap to flip</div></div><div class="fc-back"><div class="fc-past">watched</div><div class="fc-tr">izlemek</div></div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="fc-front"><div class="fc-word">play</div><div class="fc-hint">tap to flip</div></div><div class="fc-back"><div class="fc-past">played</div><div class="fc-tr">oynamak</div></div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="fc-front"><div class="fc-word">walk</div><div class="fc-hint">tap to flip</div></div><div class="fc-back"><div class="fc-past">walked</div><div class="fc-tr">yürümek</div></div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="fc-front"><div class="fc-word">visit</div><div class="fc-hint">tap to flip</div></div><div class="fc-back"><div class="fc-past">visited</div><div class="fc-tr">ziyaret etmek</div></div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="fc-front"><div class="fc-word">cook</div><div class="fc-hint">tap to flip</div></div><div class="fc-back"><div class="fc-past">cooked</div><div class="fc-tr">pişirmek</div></div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="fc-front"><div class="fc-word">clean</div><div class="fc-hint">tap to flip</div></div><div class="fc-back"><div class="fc-past">cleaned</div><div class="fc-tr">temizlemek</div></div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="fc-front"><div class="fc-word">listen</div><div class="fc-hint">tap to flip</div></div><div class="fc-back"><div class="fc-past">listened</div><div class="fc-tr">dinlemek</div></div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="fc-front"><div class="fc-word">talk</div><div class="fc-hint">tap to flip</div></div><div class="fc-back"><div class="fc-past">talked</div><div class="fc-tr">konuşmak</div></div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="fc-front"><div class="fc-word">enjoy</div><div class="fc-hint">tap to flip</div></div><div class="fc-back"><div class="fc-past">enjoyed</div><div class="fc-tr">keyfini çıkarmak</div></div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="fc-front"><div class="fc-word">travel</div><div class="fc-hint">tap to flip</div></div><div class="fc-back"><div class="fc-past">travelled</div><div class="fc-tr">seyahat etmek</div></div></div>
+    </div>
+    <button class="check-all" style="background:linear-gradient(135deg,var(--teal),var(--blue));" onclick="markDone(2)">✅ I know these verbs! Start Exercise 1 →</button>
+  </div>
+</div>
+
+<!-- =================== EXERCISE 1: MATCHING =================== -->
+<div class="section" id="sec3">
+  <div class="sec-head" onclick="toggle('sec3')">
+    <div class="sec-icon" style="background:var(--blue-dim);">🔗</div>
+    <div class="sec-meta">
+      <h2>Exercise 1 — Match the Verbs</h2>
+      <p>Connect each base verb to its Simple Past form</p>
+    </div>
+    <span class="sec-time" style="border-color:var(--blue);color:var(--blue);">5 min</span>
+    <span class="sec-chevron" id="ch-sec3">▼</span>
+  </div>
+  <div class="sec-body" id="body-sec3">
+    <div class="ex-header">
+      <span class="ex-badge" style="background:linear-gradient(135deg,var(--blue),var(--teal));">Exercise 1</span>
+      <h3>Matching — Base Form → Past Form</h3>
+      <span class="time-tag">⏱ 5 min</span>
+    </div>
+    <div class="instr">📋 <strong>Instructions:</strong> Type the Simple Past form next to each base verb. Use the vocabulary table above if you need help! <span style="color:#92400e;">(Her fiilin geçmiş zaman halini yaz. Yardıma ihtiyaç duyarsan yukarıdaki tabloya bakabilirsin!)</span></div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;" id="matchGrid">
+      <div class="match-item"><span class="match-num">1</span><span class="match-word" style="color:var(--coral);font-family:'Fredoka One',cursive;font-size:16px;">watch</span><span style="color:var(--muted);">→</span><input class="match-input" id="m1" placeholder="past form" autocomplete="off" autocorrect="off"><button class="chk" onclick="chkM('m1','watched')">✓</button></div>
+      <div class="match-item"><span class="match-num">2</span><span class="match-word" style="color:var(--coral);font-family:'Fredoka One',cursive;font-size:16px;">play</span><span style="color:var(--muted);">→</span><input class="match-input" id="m2" placeholder="past form" autocomplete="off" autocorrect="off"><button class="chk" onclick="chkM('m2','played')">✓</button></div>
+      <div class="match-item"><span class="match-num">3</span><span class="match-word" style="color:var(--coral);font-family:'Fredoka One',cursive;font-size:16px;">walk</span><span style="color:var(--muted);">→</span><input class="match-input" id="m3" placeholder="past form" autocomplete="off" autocorrect="off"><button class="chk" onclick="chkM('m3','walked')">✓</button></div>
+      <div class="match-item"><span class="match-num">4</span><span class="match-word" style="color:var(--coral);font-family:'Fredoka One',cursive;font-size:16px;">visit</span><span style="color:var(--muted);">→</span><input class="match-input" id="m4" placeholder="past form" autocomplete="off" autocorrect="off"><button class="chk" onclick="chkM('m4','visited')">✓</button></div>
+      <div class="match-item"><span class="match-num">5</span><span class="match-word" style="color:var(--coral);font-family:'Fredoka One',cursive;font-size:16px;">cook</span><span style="color:var(--muted);">→</span><input class="match-input" id="m5" placeholder="past form" autocomplete="off" autocorrect="off"><button class="chk" onclick="chkM('m5','cooked')">✓</button></div>
+      <div class="match-item"><span class="match-num">6</span><span class="match-word" style="color:var(--coral);font-family:'Fredoka One',cursive;font-size:16px;">clean</span><span style="color:var(--muted);">→</span><input class="match-input" id="m6" placeholder="past form" autocomplete="off" autocorrect="off"><button class="chk" onclick="chkM('m6','cleaned')">✓</button></div>
+      <div class="match-item"><span class="match-num">7</span><span class="match-word" style="color:var(--coral);font-family:'Fredoka One',cursive;font-size:16px;">listen</span><span style="color:var(--muted);">→</span><input class="match-input" id="m7" placeholder="past form" autocomplete="off" autocorrect="off"><button class="chk" onclick="chkM('m7','listened')">✓</button></div>
+      <div class="match-item"><span class="match-num">8</span><span class="match-word" style="color:var(--coral);font-family:'Fredoka One',cursive;font-size:16px;">enjoy</span><span style="color:var(--muted);">→</span><input class="match-input" id="m8" placeholder="past form" autocomplete="off" autocorrect="off"><button class="chk" onclick="chkM('m8','enjoyed')">✓</button></div>
+      <div class="match-item"><span class="match-num">9</span><span class="match-word" style="color:var(--coral);font-family:'Fredoka One',cursive;font-size:16px;">talk</span><span style="color:var(--muted);">→</span><input class="match-input" id="m9" placeholder="past form" autocomplete="off" autocorrect="off"><button class="chk" onclick="chkM('m9','talked')">✓</button></div>
+      <div class="match-item"><span class="match-num">10</span><span class="match-word" style="color:var(--coral);font-family:'Fredoka One',cursive;font-size:16px;">travel</span><span style="color:var(--muted);">→</span><input class="match-input" id="m10" placeholder="past form" autocomplete="off" autocorrect="off"><button class="chk" onclick="chkM('m10','travelled','traveled')">✓</button></div>
+    </div>
+    <button class="check-all" onclick="checkAllMatch()">⭐ Check All My Answers!</button>
+    <div class="score-card" id="matchScore"></div>
+  </div>
+</div>
+
+<!-- =================== EXERCISE 2: FILL IN THE BLANK =================== -->
+<div class="section" id="sec4">
+  <div class="sec-head" onclick="toggle('sec4')">
+    <div class="sec-icon" style="background:var(--green-dim);">✏️</div>
+    <div class="sec-meta">
+      <h2>Exercise 2 — Fill in the Blank</h2>
+      <p>Complete the sentences with the correct Simple Past form</p>
+    </div>
+    <span class="sec-time" style="border-color:var(--green);color:var(--green);">7 min</span>
+    <span class="sec-chevron" id="ch-sec4">▼</span>
+  </div>
+  <div class="sec-body" id="body-sec4">
+    <div class="ex-header">
+      <span class="ex-badge" style="background:linear-gradient(135deg,var(--green),var(--teal));">Exercise 2</span>
+      <h3>Fill in the Blank</h3>
+      <span class="time-tag">⏱ 7 min</span>
+    </div>
+    <div class="instr">📋 <strong>Instructions:</strong> The base verb is given in brackets. Write the correct Simple Past form in the blank. <span style="color:#92400e;">(Parantez içinde verilen fiilin Simple Past halini boşluğa yaz.)</span></div>
+
+    <div class="fi-item"><div class="fi-num">1</div><span>Last Saturday, Ana</span><input class="fi-input" id="f1" autocomplete="off" autocorrect="off" placeholder="[watch]"><span>a documentary about animals.</span><button class="chk" onclick="chkF('f1','watched')">✓</button></div>
+    <div class="fi-item"><div class="fi-num">2</div><span>The children</span><input class="fi-input" id="f2" autocomplete="off" autocorrect="off" placeholder="[play]"><span>in the garden for two hours.</span><button class="chk" onclick="chkF('f2','played')">✓</button></div>
+    <div class="fi-item"><div class="fi-num">3</div><span>My family</span><input class="fi-input" id="f3" autocomplete="off" autocorrect="off" placeholder="[travel]"><span>to a different city last summer.</span><button class="chk" onclick="chkF('f3','travelled','traveled')">✓</button></div>
+    <div class="fi-item"><div class="fi-num">4</div><span>She</span><input class="fi-input" id="f4" autocomplete="off" autocorrect="off" placeholder="[clean]"><span>her room before dinner.</span><button class="chk" onclick="chkF('f4','cleaned')">✓</button></div>
+    <div class="fi-item"><div class="fi-num">5</div><span>We</span><input class="fi-input" id="f5" autocomplete="off" autocorrect="off" placeholder="[walk]"><span>to the park and had a picnic.</span><button class="chk" onclick="chkF('f5','walked')">✓</button></div>
+    <div class="fi-item"><div class="fi-num">6</div><span>He</span><input class="fi-input" id="f6" autocomplete="off" autocorrect="off" placeholder="[listen]"><span>to music while he was on the bus.</span><button class="chk" onclick="chkF('f6','listened')">✓</button></div>
+    <div class="fi-item"><div class="fi-num">7</div><span>My mum</span><input class="fi-input" id="f7" autocomplete="off" autocorrect="off" placeholder="[cook]"><span>a delicious meal for the whole family.</span><button class="chk" onclick="chkF('f7','cooked')">✓</button></div>
+    <div class="fi-item"><div class="fi-num">8</div><span>We</span><input class="fi-input" id="f8" autocomplete="off" autocorrect="off" placeholder="[enjoy]"><span>the concert so much — it was amazing!</span><button class="chk" onclick="chkF('f8','enjoyed')">✓</button></div>
+    <div class="fi-item"><div class="fi-num">9</div><span>Tom</span><input class="fi-input" id="f9" autocomplete="off" autocorrect="off" placeholder="[talk]"><span>to his best friend on the phone.</span><button class="chk" onclick="chkF('f9','talked')">✓</button></div>
+    <div class="fi-item"><div class="fi-num">10</div><span>Her grandparents</span><input class="fi-input" id="f10" autocomplete="off" autocorrect="off" placeholder="[visit]"><span>them on Sunday afternoon.</span><button class="chk" onclick="chkF('f10','visited')">✓</button></div>
+
+    <button class="check-all" onclick="checkAllFill()">⭐ Check All My Answers!</button>
+    <div class="score-card" id="fillScore"></div>
+  </div>
+</div>
+
+<!-- =================== EXERCISE 3: MULTIPLE CHOICE =================== -->
+<div class="section" id="sec5">
+  <div class="sec-head" onclick="toggle('sec5')">
+    <div class="sec-icon" style="background:var(--purple-dim);">🎯</div>
+    <div class="sec-meta">
+      <h2>Exercise 3 — Multiple Choice</h2>
+      <p>Choose the correct answer for each question</p>
+    </div>
+    <span class="sec-time" style="border-color:var(--purple);color:var(--purple);">5 min</span>
+    <span class="sec-chevron" id="ch-sec5">▼</span>
+  </div>
+  <div class="sec-body" id="body-sec5">
+    <div class="ex-header">
+      <span class="ex-badge" style="background:linear-gradient(135deg,var(--purple),var(--blue));">Exercise 3</span>
+      <h3>Multiple Choice</h3>
+      <span class="time-tag">⏱ 5 min</span>
+    </div>
+    <div class="instr">📋 <strong>Instructions:</strong> Choose the correct Simple Past form. Think carefully — some options are the wrong tense, some have spelling mistakes! <span style="color:#92400e;">(Doğru Simple Past formunu seç. Dikkat et — bazı seçenekler yanlış zaman, bazıları yanlış yazım!)</span></div>
+
+    <div class="mc-item" id="mc1">
+      <div class="mc-q">1. "I ______ a great film last night." Which is correct?</div>
+      <div class="mc-opts">
+        <button class="mc-btn" onclick="selMC('mc1',this,'watched','watched')">watched</button>
+        <button class="mc-btn" onclick="selMC('mc1',this,'watch','watched')">watch</button>
+        <button class="mc-btn" onclick="selMC('mc1',this,'watchs','watched')">watchs</button>
+        <button class="mc-btn" onclick="selMC('mc1',this,'watcheds','watched')">watcheds</button>
+      </div>
+      <div class="mc-fb" id="fb-mc1"></div>
+    </div>
+
+    <div class="mc-item" id="mc2">
+      <div class="mc-q">2. "She ______ to her friend for a long time." Which is correct?</div>
+      <div class="mc-opts">
+        <button class="mc-btn" onclick="selMC('mc2',this,'talks','talked')">talks</button>
+        <button class="mc-btn" onclick="selMC('mc2',this,'talkd','talked')">talkd</button>
+        <button class="mc-btn" onclick="selMC('mc2',this,'talked','talked')">talked</button>
+        <button class="mc-btn" onclick="selMC('mc2',this,'talking','talked')">talking</button>
+      </div>
+      <div class="mc-fb" id="fb-mc2"></div>
+    </div>
+
+    <div class="mc-item" id="mc3">
+      <div class="mc-q">3. "The students ______ the school trip." Which is correct?</div>
+      <div class="mc-opts">
+        <button class="mc-btn" onclick="selMC('mc3',this,'enjoied','enjoyed')">enjoied</button>
+        <button class="mc-btn" onclick="selMC('mc3',this,'enjoyed','enjoyed')">enjoyed</button>
+        <button class="mc-btn" onclick="selMC('mc3',this,'enjoyeds','enjoyed')">enjoyeds</button>
+        <button class="mc-btn" onclick="selMC('mc3',this,'enjoyes','enjoyed')">enjoyes</button>
+      </div>
+      <div class="mc-fb" id="fb-mc3"></div>
+    </div>
+
+    <div class="mc-item" id="mc4">
+      <div class="mc-q">4. "My dad ______ dinner for the whole family." (cook) — Which is correct?</div>
+      <div class="mc-opts">
+        <button class="mc-btn" onclick="selMC('mc4',this,'cook','cooked')">cook</button>
+        <button class="mc-btn" onclick="selMC('mc4',this,'cooked','cooked')">cooked</button>
+        <button class="mc-btn" onclick="selMC('mc4',this,'cooks','cooked')">cooks</button>
+        <button class="mc-btn" onclick="selMC('mc4',this,'cookt','cooked')">cookt</button>
+      </div>
+      <div class="mc-fb" id="fb-mc4"></div>
+    </div>
+
+    <div class="mc-item" id="mc5">
+      <div class="mc-q">5. "They ______ to Spain by plane." (travel) — Which is correct?</div>
+      <div class="mc-opts">
+        <button class="mc-btn" onclick="selMC('mc5',this,'traveld','travelled')">traveld</button>
+        <button class="mc-btn" onclick="selMC('mc5',this,'traveled','travelled')">traveled ✓</button>
+        <button class="mc-btn" onclick="selMC('mc5',this,'travelled','travelled')">travelled ✓</button>
+        <button class="mc-btn" onclick="selMC('mc5',this,'traveles','travelled')">traveles</button>
+      </div>
+      <div class="mc-fb" id="fb-mc5"></div>
+    </div>
+
+    <div class="mc-item" id="mc6">
+      <div class="mc-q">6. Which sentence is WRONG?</div>
+      <div class="mc-opts">
+        <button class="mc-btn" onclick="selMC('mc6',this,'She walked to school.','He cleaneds his room.')">She walked to school.</button>
+        <button class="mc-btn" onclick="selMC('mc6',this,'He cleaneds his room.','He cleaneds his room.')">He cleaneds his room.</button>
+        <button class="mc-btn" onclick="selMC('mc6',this,'We listened to music.','He cleaneds his room.')">We listened to music.</button>
+        <button class="mc-btn" onclick="selMC('mc6',this,'They visited a museum.','He cleaneds his room.')">They visited a museum.</button>
+      </div>
+      <div class="mc-fb" id="fb-mc6"></div>
+    </div>
+
+    <button class="check-all" onclick="checkAllMC()">⭐ Check My Answers!</button>
+    <div class="score-card" id="mcScore"></div>
+  </div>
+</div>
+
+<!-- =================== EXERCISE 4: ERROR CORRECTION =================== -->
+<div class="section" id="sec6">
+  <div class="sec-head" onclick="toggle('sec6')">
+    <div class="sec-icon" style="background:var(--red-dim);">🔧</div>
+    <div class="sec-meta">
+      <h2>Exercise 4 — Error Correction</h2>
+      <p>Find the mistakes and write the correct sentence</p>
+    </div>
+    <span class="sec-time" style="border-color:var(--red);color:var(--red);">7 min</span>
+    <span class="sec-chevron" id="ch-sec6">▼</span>
+  </div>
+  <div class="sec-body" id="body-sec6">
+    <div class="ex-header">
+      <span class="ex-badge" style="background:linear-gradient(135deg,var(--red),var(--coral));">Exercise 4</span>
+      <h3>Error Correction — Fix the Mistakes!</h3>
+      <span class="time-tag">⏱ 7 min</span>
+    </div>
+    <div class="instr">📋 <strong>Instructions:</strong> Each sentence has <strong>one</strong> mistake with the verb. The wrong word is shown in <span style="color:var(--red);font-weight:900;">red with a strikethrough</span>. Write the correct sentence in the box below. <span style="color:#92400e;">(Her cümlede bir hata var. Yanlış kelime üstü çizili olarak gösterilmiş. Doğru cümleyi kutuya yaz.)</span></div>
+
+    <div class="ec-item">
+      <div class="ec-num">Sentence 1 — Find the verb error</div>
+      <div class="ec-wrong">Yesterday, I <span class="err">watch</span> a great documentary on TV.</div>
+      <div class="ec-label">✏️ Write the correct sentence:</div>
+      <input class="ec-input" id="ec1" placeholder="Yesterday, I ..." autocomplete="off">
+      <button class="chk" style="margin-top:8px;" onclick="chkEC('ec1','yesterday, i watched a great documentary on tv')">✓ Check</button>
+    </div>
+
+    <div class="ec-item">
+      <div class="ec-num">Sentence 2 — Find the verb error</div>
+      <div class="ec-wrong">She <span class="err">enjoied</span> the party very much last night.</div>
+      <div class="ec-label">✏️ Write the correct sentence:</div>
+      <input class="ec-input" id="ec2" placeholder="She ..." autocomplete="off">
+      <button class="chk" style="margin-top:8px;" onclick="chkEC('ec2','she enjoyed the party very much last night')">✓ Check</button>
+    </div>
+
+    <div class="ec-item">
+      <div class="ec-num">Sentence 3 — Find the verb error</div>
+      <div class="ec-wrong">My parents <span class="err">traveleds</span> to Italy for their holiday.</div>
+      <div class="ec-label">✏️ Write the correct sentence:</div>
+      <input class="ec-input" id="ec3" placeholder="My parents ..." autocomplete="off">
+      <button class="chk" style="margin-top:8px;" onclick="chkEC2('ec3',['my parents travelled','my parents traveled'])">✓ Check</button>
+    </div>
+
+    <div class="ec-item">
+      <div class="ec-num">Sentence 4 — Find the verb error</div>
+      <div class="ec-wrong">He <span class="err">walkd</span> to the supermarket because his car was broken.</div>
+      <div class="ec-label">✏️ Write the correct sentence:</div>
+      <input class="ec-input" id="ec4" placeholder="He ..." autocomplete="off">
+      <button class="chk" style="margin-top:8px;" onclick="chkEC('ec4','he walked to the supermarket because his car was broken')">✓ Check</button>
+    </div>
+
+    <div class="ec-item">
+      <div class="ec-num">Sentence 5 — Find the verb error</div>
+      <div class="ec-wrong">The children <span class="err">plays</span> in the garden all afternoon.</div>
+      <div class="ec-label">✏️ Write the correct sentence:</div>
+      <input class="ec-input" id="ec5" placeholder="The children ..." autocomplete="off">
+      <button class="chk" style="margin-top:8px;" onclick="chkEC('ec5','the children played in the garden all afternoon')">✓ Check</button>
+    </div>
+
+    <div class="tip" style="background:var(--yellow-dim);border:2px solid var(--yellow);margin-top:14px;">
+      <span class="tip-icon">💡</span>
+      <div><strong>Common mistakes to remember:</strong><br>
+        • <strong style="color:var(--red);">watch</strong> ✗ → <strong style="color:var(--green);">watched</strong> ✓ (always add -ed for past!)<br>
+        • <strong style="color:var(--red);">enjoied</strong> ✗ → <strong style="color:var(--green);">enjoyed</strong> ✓ (enjoy ends in -y — just add -ed!)<br>
+        • <strong style="color:var(--red);">traveleds</strong> ✗ → <strong style="color:var(--green);">travelled</strong> ✓ (never add -s to past tense!)<br>
+        • <strong style="color:var(--red);">walkd</strong> ✗ → <strong style="color:var(--green);">walked</strong> ✓ (walk doesn't end in -e, so it's -ed not -d)<br>
+        • <strong style="color:var(--red);">plays</strong> ✗ → <strong style="color:var(--green);">played</strong> ✓ (past tense, not present!)
+      </div>
+    </div>
+    <button class="check-all" style="background:linear-gradient(135deg,var(--red),var(--coral));" onclick="markDone(6)">✅ Done! Move to Writing Activity →</button>
+  </div>
+</div>
+
+<!-- =================== EXERCISE 5: FREE WRITING =================== -->
+<div class="section" id="sec7">
+  <div class="sec-head" onclick="toggle('sec7')">
+    <div class="sec-icon" style="background:var(--teal-dim);">✍️</div>
+    <div class="sec-meta">
+      <h2>Exercise 5 — Free Writing</h2>
+      <p>Write about YOUR last weekend using Simple Past</p>
+    </div>
+    <span class="sec-time" style="border-color:var(--teal);color:var(--teal);">8 min</span>
+    <span class="sec-chevron" id="ch-sec7">▼</span>
+  </div>
+  <div class="sec-body" id="body-sec7">
+    <div class="ex-header">
+      <span class="ex-badge" style="background:linear-gradient(135deg,var(--teal),var(--green));">Exercise 5</span>
+      <h3>Free Writing — My Last Weekend</h3>
+      <span class="time-tag">⏱ 8 min</span>
+    </div>
+    <div class="instr">📋 <strong>Instructions:</strong> Write 6 sentences about your last weekend. Use <strong>Simple Past</strong> and try to use at least 5 of today's vocabulary verbs! <span style="color:#92400e;">(Geçen hafta sonu hakkında 6 cümle yaz. Simple Past kullan ve bugünkü kelimelerden en az 5 tanesini kullanmaya çalış!)</span></div>
+
+    <div class="writing-prompt">
+      <h4>✍️ My Last Weekend</h4>
+      <p>Write 6 sentences. Tell me what you did — where you went, what you watched, what you ate, who you talked to. Use these verbs if you can:</p>
+      <div class="starters">
+        <span>watched · played · walked · visited · cooked · cleaned · listened · talked · enjoyed · travelled</span>
+      </div>
+    </div>
+
+    <div class="tip" style="background:var(--blue-dim);border:2px solid rgba(74,144,217,0.3);">
+      <span class="tip-icon">🚀</span>
+      <div><strong>Sentence starter ideas:</strong><br>
+        • "On Saturday morning, I ..."<br>
+        • "In the afternoon, I ..."<br>
+        • "My family ..."<br>
+        • "In the evening, I ..."<br>
+        • "On Sunday, I ..."<br>
+        • "I really enjoyed ... because ..."
+      </div>
+    </div>
+
+    <div class="writing-lines">
+      <div class="writing-line"><div class="wl-num">1</div><input class="wl-input" placeholder="On Saturday, I ..."></div>
+      <div class="writing-line"><div class="wl-num">2</div><input class="wl-input" placeholder="In the afternoon, I ..."></div>
+      <div class="writing-line"><div class="wl-num">3</div><input class="wl-input" placeholder="My family ..."></div>
+      <div class="writing-line"><div class="wl-num">4</div><input class="wl-input" placeholder="In the evening, I ..."></div>
+      <div class="writing-line"><div class="wl-num">5</div><input class="wl-input" placeholder="On Sunday, I ..."></div>
+      <div class="writing-line"><div class="wl-num">6</div><input class="wl-input" placeholder="I really enjoyed ... because ..."></div>
+    </div>
+
+    <div class="tip" style="background:var(--green-dim);border:2px solid var(--green);margin-top:16px;">
+      <span class="tip-icon">✅</span>
+      <div><strong>Self-check — before you finish, ask yourself:</strong><br>
+        ✦ Did I add <strong>-ed</strong> to all my regular verbs? (watched, played, walked...)<br>
+        ✦ Did I add <strong>-s</strong> to any past tense verbs? (No! "She played" ✓ — "She playeds" ✗)<br>
+        ✦ Did I use at least 5 verbs from today's vocabulary list?
+      </div>
+    </div>
+
+    <button class="check-all" style="background:linear-gradient(135deg,var(--green),var(--teal));" onclick="finishLesson()">🏆 Lesson Complete! Great Work!</button>
+    <div class="score-card" id="finalScore"></div>
+  </div>
+</div>
+
+<!-- LESSON NAV -->
+<div class="lesson-nav">
+  <div></div>
+  <div class="nav-lesson-info">
+    📚 Phase 1 · Lesson 1 of 8<br>
+    <span style="color:var(--teal);">Lesson 2 → Regular Verbs: Spelling Rules Deep Dive</span>
+  </div>
+  <button class="nav-btn next" onclick="alert('Open Lesson 2 to continue! 🌟')">Lesson 2 →</button>
+</div>
+
+</div><!-- page -->
+
+<script>
+// ===== PROGRESS =====
+const sectionCount = 8;
+let completed = new Array(sectionCount).fill(false);
+
+function updateProgress() {
+  const done = completed.filter(Boolean).length;
+  const steps = document.getElementById('progressSteps').children;
+  for(let i = 0; i < steps.length; i++) {
+    steps[i].classList.remove('done','active');
+    if(i < done) steps[i].classList.add('done');
+    else if(i === done) steps[i].classList.add('active');
+  }
+  document.getElementById('progressPct').textContent = Math.round(done/sectionCount*100) + '%';
+}
+
+function markDone(i) {
+  completed[i] = true;
+  updateProgress();
+  // Auto-open next section
+  const nextId = 'sec' + (i+1);
+  const nextSec = document.getElementById(nextId);
+  if(nextSec) {
+    const body = nextSec.querySelector('.sec-body');
+    if(body && !body.classList.contains('open')) {
+      body.classList.add('open');
+      body.style.maxHeight = '3000px';
+      body.style.padding = '20px 22px 24px';
+      nextSec.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  }
+}
+
+// ===== TOGGLE =====
+function toggle(id) {
+  const body = document.getElementById('body-'+id);
+  const ch = document.getElementById('ch-'+id);
+  if(!body) return;
+  body.classList.toggle('open');
+  if(body.classList.contains('open')) {
+    body.style.maxHeight = '3000px';
+    body.style.padding = '20px 22px 24px';
+    if(ch) ch.style.transform = 'rotate(180deg)';
+  } else {
+    body.style.maxHeight = '0';
+    body.style.padding = '0 22px';
+    if(ch) ch.style.transform = '';
+  }
+}
+
+// Open first section by default
+document.addEventListener('DOMContentLoaded', () => {
+  const b = document.getElementById('body-sec0');
+  if(b) { b.style.maxHeight='3000px'; b.style.padding='20px 22px 24px'; }
+  const ch = document.getElementById('ch-sec0');
+  if(ch) ch.style.transform='rotate(180deg)';
+});
+
+// ===== CHECK FUNCTIONS =====
+function chkM(id, correct, alt) {
+  const el = document.getElementById(id);
+  if(!el) return;
+  const v = el.value.trim().toLowerCase();
+  const ok = v === correct || (alt && v === alt);
+  el.classList.toggle('ok', ok);
+  el.classList.toggle('no', !ok);
+}
+
+function chkF(id, correct, alt) {
+  const el = document.getElementById(id);
+  if(!el) return;
+  const v = el.value.trim().toLowerCase();
+  const ok = v === correct || (alt && v === alt);
+  el.classList.toggle('ok', ok);
+  el.classList.toggle('no', !ok);
+}
+
+function selMC(parentId, btn, val, correct) {
+  const par = document.getElementById(parentId);
+  par.querySelectorAll('.mc-btn').forEach(b => b.classList.remove('selected','correct','wrong'));
+  btn.classList.add('selected');
+  const fb = document.getElementById('fb-' + parentId);
+  // For Q5, both "traveled" and "travelled" are correct
+  const isCorrect = (parentId === 'mc5') ? (val === 'traveled' || val === 'travelled') : val === correct;
+  if(isCorrect) {
+    btn.classList.remove('selected'); btn.classList.add('correct');
+    fb.textContent = '✅ Correct! Well done!';
+    fb.className = 'mc-fb show ok';
+  } else {
+    btn.classList.remove('selected'); btn.classList.add('wrong');
+    // Show correct answer
+    par.querySelectorAll('.mc-btn').forEach(b => { if(b.textContent.includes(correct) || (parentId==='mc5' && (b.textContent.includes('traveled') || b.textContent.includes('travelled')))) b.classList.add('correct'); });
+    fb.textContent = '❌ Not quite! The correct answer is highlighted in green.';
+    fb.className = 'mc-fb show no';
+  }
+}
+
+function chkEC(id, correct) {
+  const el = document.getElementById(id);
+  if(!el) return;
+  const v = el.value.trim().toLowerCase().replace(/\s+/g,' ');
+  const ok = v === correct || v.includes(correct.split(' ').find(w => ['watched','enjoyed','travelled','traveled','walked','played'].includes(w)) || '');
+  el.classList.toggle('ok', ok);
+  el.classList.toggle('no', !ok);
+}
+
+function chkEC2(id, correctArr) {
+  const el = document.getElementById(id);
+  if(!el) return;
+  const v = el.value.trim().toLowerCase();
+  const ok = correctArr.some(c => v.includes(c));
+  el.classList.toggle('ok', ok);
+  el.classList.toggle('no', !ok);
+}
+
+// ===== CHECK ALL =====
+const matchAnswers = {m1:'watched',m2:'played',m3:'walked',m4:'visited',m5:'cooked',m6:'cleaned',m7:'listened',m8:'enjoyed',m9:'talked',m10:'travelled'};
+const fillAnswers  = {f1:'watched',f2:'played',f3:'travelled',f4:'cleaned',f5:'walked',f6:'listened',f7:'cooked',f8:'enjoyed',f9:'talked',f10:'visited'};
+
+function checkAllMatch() {
+  let ok = 0;
+  Object.entries(matchAnswers).forEach(([id, ans]) => { chkM(id, ans, id==='m10'?'traveled':null); if(document.getElementById(id)?.classList.contains('ok')) ok++; });
+  completed[3] = ok >= 7;
+  updateProgress();
+  showScore('matchScore', ok, 10, 'Exercise 1');
+  markDone(3);
+}
+
+function checkAllFill() {
+  let ok = 0;
+  Object.entries(fillAnswers).forEach(([id, ans]) => { chkF(id, ans, id==='f3'?'traveled':null); if(document.getElementById(id)?.classList.contains('ok')) ok++; });
+  completed[4] = ok >= 7;
+  updateProgress();
+  showScore('fillScore', ok, 10, 'Exercise 2');
+  markDone(4);
+}
+
+function checkAllMC() {
+  let ok = 0;
+  ['mc1','mc2','mc3','mc4','mc5','mc6'].forEach(id => {
+    if(document.getElementById(id)?.querySelector('.correct')) ok++;
+  });
+  completed[5] = ok >= 4;
+  updateProgress();
+  showScore('mcScore', ok, 6, 'Exercise 3');
+  markDone(5);
+}
+
+function showScore(containerId, got, total, label) {
+  const el = document.getElementById(containerId);
+  if(!el) return;
+  const pct = Math.round(got/total*100);
+  let emoji = pct >= 80 ? '🌟' : pct >= 60 ? '👍' : '💪';
+  let msg = pct >= 80 ? 'Excellent work!' : pct >= 60 ? 'Good job! Review the red answers.' : 'Keep practising! Check the red answers and try again.';
+  el.innerHTML = `<div class="score-num">${got}<span>/${total}</span></div><div class="score-title">${emoji} ${label} Score</div><p class="score-body">${pct}% — ${msg}</p>`;
+  el.classList.add('show');
+  el.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function finishLesson() {
+  completed[7] = true;
+  updateProgress();
+  const el = document.getElementById('finalScore');
+  el.innerHTML = `<div class="score-num">🎉</div><div class="score-title">Lesson 1 Complete!</div><p class="score-body">Amazing work finishing your first lesson! You've learned how to use Simple Past with regular verbs. Remember: just add <strong>-ed</strong>! See you in Lesson 2. 💜</p>`;
+  el.style.background = 'linear-gradient(135deg, var(--coral), var(--yellow), var(--teal))';
+  el.classList.add('show');
+  el.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>

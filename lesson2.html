@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2 — Spelling Rules Deep Dive</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f0faf8;--teal:#2a9d8f;--td:rgba(42,157,143,0.1);--coral:#e85d4a;--cd:rgba(232,93,74,0.1);--yellow:#f4a261;--yd:rgba(244,162,97,0.12);--blue:#4a90d9;--bd:rgba(74,144,217,0.1);--green:#52b788;--gd:rgba(82,183,136,0.12);--red:#e63946;--rd:rgba(230,57,70,0.1);--purple:#7c5cbf;--pd:rgba(124,92,191,0.1);--text:#2d3748;--muted:#718096;--border:#c8e6e2;--surf:#fff;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);line-height:1.7;}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,rgba(42,157,143,0.06) 1px,transparent 1px);background-size:44px 44px;pointer-events:none;z-index:0;}
+.page{max-width:820px;margin:0 auto;padding:36px 18px 90px;position:relative;z-index:1;}
+/* HEADER */
+.lh{background:linear-gradient(135deg,#2a9d8f,#52b788,#4a90d9);border-radius:22px;padding:28px 32px 32px;margin-bottom:22px;position:relative;overflow:hidden;}
+.lh::after{content:'🔤';position:absolute;right:20px;top:8px;font-size:100px;opacity:0.08;line-height:1;}
+.tag{display:inline-block;background:rgba(255,255,255,0.25);border:2px solid rgba(255,255,255,0.35);border-radius:50px;padding:3px 14px;font-size:11px;font-weight:900;color:#fff;letter-spacing:.1em;text-transform:uppercase;margin-bottom:11px;}
+.lh h1{font-family:'Fredoka One',cursive;font-size:clamp(22px,5vw,42px);color:#fff;line-height:1.1;margin-bottom:7px;}
+.lh p{font-size:13px;color:rgba(255,255,255,.85);font-weight:700;margin-bottom:15px;}
+.meta{display:flex;gap:7px;flex-wrap:wrap;}
+.meta span{background:rgba(255,255,255,.2);border:1.5px solid rgba(255,255,255,.3);border-radius:50px;padding:3px 11px;font-size:11px;font-weight:800;color:#fff;}
+/* PROGRESS */
+.prog{background:#fff;border:2px solid var(--border);border-radius:13px;padding:11px 16px;display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+.prog-lbl{font-size:10px;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap;}
+.steps{display:flex;gap:4px;flex:1;}
+.step{flex:1;height:8px;border-radius:8px;background:var(--border);transition:background .3s;}
+.step.done{background:var(--teal);}
+.step.active{background:var(--yellow);}
+.pct{font-family:'Fredoka One',cursive;font-size:15px;color:var(--teal);}
+/* SECTION */
+.sec{background:var(--surf);border:2px solid var(--border);border-radius:20px;margin-bottom:14px;overflow:hidden;}
+.sh{display:flex;align-items:center;gap:11px;padding:14px 20px;border-bottom:2px dashed var(--border);cursor:pointer;user-select:none;}
+.si{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;}
+.sm{flex:1;}
+.sm h2{font-family:'Fredoka One',cursive;font-size:15px;color:var(--text);margin-bottom:1px;}
+.sm p{font-size:11px;font-weight:700;color:var(--muted);}
+.stag{font-size:10px;font-weight:900;padding:3px 11px;border-radius:50px;border:2px solid;white-space:nowrap;}
+.chev{color:var(--muted);font-size:12px;transition:transform .25s;flex-shrink:0;}
+.body{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;}
+.body.open{max-height:3000px;padding:18px 20px 22px;}
+/* ELEMENTS */
+.tip{border-radius:12px;padding:10px 14px;font-size:13px;font-weight:700;line-height:1.65;margin-bottom:12px;display:flex;gap:9px;}
+.ti{font-size:17px;flex-shrink:0;margin-top:1px;}
+.gram{border-radius:14px;padding:14px 16px;margin-bottom:12px;border:2px solid;}
+.gram h3{font-family:'Fredoka One',cursive;font-size:15px;margin-bottom:8px;}
+.gram p{font-size:13px;color:var(--muted);margin-bottom:8px;line-height:1.6;}
+.formula{border-radius:10px;padding:10px 13px;margin-bottom:8px;font-size:13px;font-weight:700;line-height:2;background:#fff;}
+.fok{color:var(--green);}
+.ferr{color:var(--red);}
+.trn{background:var(--yd);border:2px solid var(--yellow);border-radius:9px;padding:7px 11px;font-size:12px;font-weight:700;color:#92400e;margin-top:7px;display:flex;gap:7px;}
+/* VOCAB TABLE */
+.vt{width:100%;border-collapse:collapse;font-size:13px;border-radius:13px;overflow:hidden;border:2px solid var(--border);margin-bottom:12px;}
+.vt thead tr{background:linear-gradient(90deg,var(--teal),var(--blue));}
+.vt th{padding:9px 12px;font-weight:900;color:#fff;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.08em;}
+.vt tbody tr:nth-child(even){background:var(--td);}
+.vt tbody tr:nth-child(odd){background:#fff;}
+.vt td{padding:8px 12px;vertical-align:top;}
+.vb{font-family:'Fredoka One',cursive;font-size:15px;color:var(--teal);}
+.vp{font-family:'Fredoka One',cursive;font-size:15px;color:var(--coral);}
+.rule-tag{font-size:10px;font-weight:900;padding:2px 8px;border-radius:50px;color:#fff;}
+.vex{font-size:12px;color:var(--muted);font-style:italic;}
+/* FLIP CARDS */
+.fcg{display:grid;grid-template-columns:repeat(auto-fill,minmax(115px,1fr));gap:6px;margin-bottom:12px;}
+.fc{background:var(--cream);border:2px solid var(--border);border-radius:12px;padding:10px 11px;cursor:pointer;transition:all .18s;text-align:center;}
+.fc:hover{border-color:var(--teal);transform:scale(1.03);}
+.fc.flip{background:var(--td);border-color:var(--teal);}
+.fca .fw{font-family:'Fredoka One',cursive;font-size:16px;color:var(--teal);}
+.fca .fh{font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;margin-top:2px;}
+.fcb{display:none;}
+.fcb .fp{font-family:'Fredoka One',cursive;font-size:16px;color:var(--coral);}
+.fcb .ft{font-size:10px;font-weight:700;color:var(--muted);margin-top:2px;}
+.fc.flip .fca{display:none;}
+.fc.flip .fcb{display:block;}
+/* SORT GAME */
+.sort-bank{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:13px;}
+.sw{background:#fff;border:2.5px solid var(--border);border-radius:50px;padding:5px 13px;font-size:13px;font-weight:800;color:var(--text);cursor:pointer;transition:all .15s;user-select:none;}
+.sw:hover{border-color:var(--teal);color:var(--teal);}
+.sw.placed{opacity:.35;pointer-events:none;}
+.sort-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px;}
+.sort-col{background:var(--cream);border:2px dashed var(--border);border-radius:13px;padding:10px;}
+.sc-title{font-family:'Fredoka One',cursive;font-size:11px;text-align:center;padding:4px 7px;border-radius:7px;color:#fff;margin-bottom:7px;}
+.sd{min-height:45px;display:flex;flex-wrap:wrap;gap:4px;align-items:flex-start;align-content:flex-start;}
+.sp{background:#fff;border:2px solid var(--border);border-radius:50px;padding:3px 10px;font-size:12px;font-weight:800;cursor:pointer;}
+.sp:hover{opacity:.6;}
+/* EXERCISES */
+.exh{display:flex;align-items:center;gap:9px;margin-bottom:12px;padding-bottom:10px;border-bottom:2px dashed var(--border);}
+.exb{font-family:'Fredoka One',cursive;font-size:11px;padding:4px 12px;border-radius:50px;color:#fff;white-space:nowrap;}
+.exh h3{font-size:14px;font-weight:900;color:var(--text);flex:1;}
+.instr{background:var(--yd);border:2px solid var(--yellow);border-radius:10px;padding:8px 12px;font-size:12.5px;font-weight:700;color:#78350f;margin-bottom:11px;line-height:1.6;}
+.fi{display:flex;flex-wrap:wrap;align-items:center;gap:5px;background:var(--cream);border:2px solid var(--border);border-radius:12px;padding:10px 12px;margin-bottom:7px;font-size:13.5px;font-weight:700;line-height:1.8;}
+.fn{background:var(--teal);color:#fff;border-radius:50%;width:23px;height:23px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;flex-shrink:0;}
+.fi-i{border:none;border-bottom:2.5px solid var(--border);background:transparent;font-family:'Nunito',sans-serif;font-size:13.5px;font-weight:800;color:var(--text);outline:none;min-width:95px;text-align:center;padding:2px 5px;transition:border-color .2s;}
+.fi-i:focus{border-bottom-color:var(--teal);}
+.fi-i.ok{border-bottom-color:var(--green);color:var(--green);background:rgba(82,183,136,.08);border-radius:4px;}
+.fi-i.no{border-bottom-color:var(--red);color:var(--red);background:var(--rd);border-radius:4px;}
+.chk{background:var(--teal);color:#fff;border:none;border-radius:50px;padding:3px 11px;font-family:'Nunito',sans-serif;font-size:11px;font-weight:900;cursor:pointer;}
+.chk:hover{background:var(--coral);}
+.mc{background:var(--cream);border:2px solid var(--border);border-radius:12px;padding:11px 13px;margin-bottom:8px;}
+.mcq{font-size:13.5px;font-weight:800;margin-bottom:8px;line-height:1.5;}
+.mco{display:flex;gap:6px;flex-wrap:wrap;}
+.mcb{padding:5px 14px;border:2.5px solid var(--border);border-radius:50px;background:#fff;font-family:'Nunito',sans-serif;font-size:12.5px;font-weight:800;color:var(--muted);cursor:pointer;transition:all .15s;}
+.mcb:hover{border-color:var(--teal);color:var(--teal);}
+.mcb.sel{background:var(--teal);color:#fff;border-color:var(--teal);}
+.mcb.cor{background:var(--green);color:#fff;border-color:var(--green);}
+.mcb.wrng{background:var(--red);color:#fff;border-color:var(--red);}
+.mcf{font-size:11.5px;font-weight:800;margin-top:6px;padding:4px 9px;border-radius:8px;display:none;}
+.mcf.show{display:block;}
+.mcf.ok{background:var(--gd);color:#1a4731;}
+.mcf.no{background:var(--rd);color:#7f1d1d;}
+.ec{background:var(--cream);border:2px solid var(--border);border-radius:12px;padding:11px 13px;margin-bottom:8px;}
+.ecn{font-size:10px;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;}
+.ecw{background:var(--rd);border:2px solid rgba(230,57,70,.2);border-radius:9px;padding:7px 11px;font-size:13px;font-weight:800;color:#7f1d1d;margin-bottom:7px;}
+.ecw .err{text-decoration:line-through;opacity:.6;}
+.eci{width:100%;border:2px solid var(--border);border-radius:9px;padding:7px 11px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--text);outline:none;background:#fff;}
+.eci:focus{border-color:var(--teal);}
+.eci.ok{border-color:var(--green);background:var(--gd);}
+.eci.no{border-color:var(--red);background:var(--rd);}
+.wl{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;}
+.wln{width:22px;height:22px;background:var(--teal);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;flex-shrink:0;margin-top:3px;}
+.wli{flex:1;border:none;border-bottom:2px solid var(--border);background:transparent;font-family:'Nunito',sans-serif;font-size:13.5px;font-weight:700;color:var(--text);outline:none;padding:2px 5px 4px;}
+.wli:focus{border-bottom-color:var(--teal);}
+.btn-main{width:100%;background:linear-gradient(135deg,var(--teal),var(--blue));color:#fff;border:none;border-radius:13px;padding:13px;font-family:'Fredoka One',cursive;font-size:17px;cursor:pointer;margin-top:11px;box-shadow:0 4px 16px rgba(42,157,143,.25);transition:transform .15s;}
+.btn-main:hover{transform:translateY(-1px);}
+.score-card{border-radius:16px;padding:20px 22px;text-align:center;display:none;margin-top:11px;}
+.score-card.show{display:block;}
+.sc-n{font-family:'Fredoka One',cursive;font-size:54px;color:#fff;line-height:1;}
+.sc-n span{font-size:18px;}
+.sc-t{font-family:'Fredoka One',cursive;font-size:20px;color:#fff;margin:5px 0 3px;}
+.sc-b{font-size:13px;color:rgba(255,255,255,.88);font-weight:700;}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;gap:12px;flex-wrap:wrap;}
+.nav-btn{padding:11px 24px;border-radius:50px;border:2.5px solid var(--border);background:#fff;font-family:'Fredoka One',cursive;font-size:14px;cursor:pointer;transition:all .18s;color:var(--muted);}
+.nav-btn.next{background:linear-gradient(135deg,var(--teal),var(--blue));color:#fff;border-color:transparent;box-shadow:0 4px 14px rgba(42,157,143,.3);}
+.nav-btn:hover{transform:translateY(-2px);}
+@media(max-width:560px){.sort-cols{grid-template-columns:repeat(2,1fr);}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="lh">
+  <div class="tag">📚 Phase 1 · Lesson 2 of 8</div>
+  <h1>Spelling Rules<br>Deep Dive 🔤</h1>
+  <p>Master all 4 spelling rules — no more -ed mistakes ever again!</p>
+  <div class="meta"><span>⏱ 45 minutes</span><span>✅ 4 spelling rules</span><span>✅ 12 verbs</span><span>✅ Sorting game</span></div>
+</div>
+
+<div class="prog">
+  <span class="prog-lbl">Progress</span>
+  <div class="steps" id="steps">
+    <div class="step active"></div><div class="step"></div><div class="step"></div>
+    <div class="step"></div><div class="step"></div><div class="step"></div>
+    <div class="step"></div><div class="step"></div>
+  </div>
+  <span class="pct" id="pct">0%</span>
+</div>
+
+<!-- WARM-UP -->
+<div class="sec" id="s0">
+  <div class="sh" onclick="tog(0)"><div class="si" style="background:var(--yd);">⚡</div><div class="sm"><h2>Warm-Up — Lesson 1 Speed Check!</h2><p>Write 6 past forms from last lesson — no notes!</p></div><span class="stag" style="border-color:var(--yellow);color:#78350f;">5 min</span><span class="chev" id="ch0" style="transform:rotate(180deg);">▼</span></div>
+  <div class="body open" id="b0">
+    <div class="tip" style="background:var(--yd);border:2px solid var(--yellow);"><span class="ti">⚡</span><div><strong>Quick Review!</strong> Write the Simple Past form. No looking at notes! <span style="font-size:11px;color:#92400e;">(Notlara bakmadan yaz!)</span></div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px;">
+      <div class="fi"><div class="fn">1</div><span style="color:var(--teal);font-family:'Fredoka One',cursive;">watch</span><span>→</span><input class="fi-i" id="w1" autocomplete="off" autocorrect="off"><button class="chk" onclick="cf('w1','watched')">✓</button></div>
+      <div class="fi"><div class="fn">2</div><span style="color:var(--teal);font-family:'Fredoka One',cursive;">play</span><span>→</span><input class="fi-i" id="w2" autocomplete="off" autocorrect="off"><button class="chk" onclick="cf('w2','played')">✓</button></div>
+      <div class="fi"><div class="fn">3</div><span style="color:var(--teal);font-family:'Fredoka One',cursive;">cook</span><span>→</span><input class="fi-i" id="w3" autocomplete="off" autocorrect="off"><button class="chk" onclick="cf('w3','cooked')">✓</button></div>
+      <div class="fi"><div class="fn">4</div><span style="color:var(--teal);font-family:'Fredoka One',cursive;">listen</span><span>→</span><input class="fi-i" id="w4" autocomplete="off" autocorrect="off"><button class="chk" onclick="cf('w4','listened')">✓</button></div>
+      <div class="fi"><div class="fn">5</div><span style="color:var(--teal);font-family:'Fredoka One',cursive;">enjoy</span><span>→</span><input class="fi-i" id="w5" autocomplete="off" autocorrect="off"><button class="chk" onclick="cf('w5','enjoyed')">✓</button></div>
+      <div class="fi"><div class="fn">6</div><span style="color:var(--teal);font-family:'Fredoka One',cursive;">travel</span><span>→</span><input class="fi-i" id="w6" autocomplete="off" autocorrect="off"><button class="chk" onclick="cf('w6','travelled','traveled')">✓</button></div>
+    </div>
+    <button class="btn-main" style="background:linear-gradient(135deg,var(--yellow),var(--teal));" onclick="done(0)">✅ Done! Start grammar →</button>
+  </div>
+</div>
+
+<!-- GRAMMAR -->
+<div class="sec" id="s1">
+  <div class="sh" onclick="tog(1)"><div class="si" style="background:var(--td);">📖</div><div class="sm"><h2>Grammar — The 4 Spelling Rules</h2><p>When to use -ed, -d, double letter, or -ied</p></div><span class="stag" style="border-color:var(--teal);color:var(--teal);">8 min</span><span class="chev" id="ch1">▼</span></div>
+  <div class="body" id="b1">
+    <div class="gram" style="border-color:var(--teal);background:var(--td);">
+      <h3 style="color:var(--teal);">✅ Rule 1 — Most verbs: just add -ed</h3>
+      <div class="formula"><div class="fok">watch→watched · play→played · walk→walked · clean→cleaned</div></div>
+      <div class="trn"><span>🇹🇷</span><span>Çoğu fiil için: sona <strong>-ed</strong> ekle. En temel kural!</span></div>
+    </div>
+    <div class="gram" style="border-color:var(--blue);background:var(--bd);">
+      <h3 style="color:var(--blue);">✅ Rule 2 — Ends in -e: just add -d</h3>
+      <p>If the verb already ends in <strong>-e</strong>, add only <strong>-d</strong>. Don't double the -e!</p>
+      <div class="formula"><div class="fok">live→lived · love→loved · arrive→arrived · dance→danced · decide→decided</div><div class="ferr">✗ liveed · loveed — WRONG!</div></div>
+      <div class="trn"><span>🇹🇷</span><span>Fiil <strong>-e</strong> ile bitiyorsa sadece <strong>-d</strong> ekle. "live"→"lived" (liveed değil!)</span></div>
+    </div>
+    <div class="gram" style="border-color:var(--purple);background:var(--pd);">
+      <h3 style="color:var(--purple);">✅ Rule 3 — Short CVC verb: double last letter + -ed</h3>
+      <p><strong>CVC = Consonant + Vowel + Consonant</strong> (1 syllable). Double the final consonant!</p>
+      <div class="formula"><div class="fok">stop→stopped · plan→planned · drop→dropped · chat→chatted</div><div class="ferr">✗ stoped · planed — WRONG! Must double!</div></div>
+      <div class="trn"><span>🇹🇷</span><span>Kısa fiiller (1 hece, ünsüz-sesli-ünsüz): son harfi <strong>çift yaz</strong> + -ed. "stop"→"st<strong>opp</strong>ed"</span></div>
+    </div>
+    <div class="gram" style="border-color:var(--coral);background:var(--cd);">
+      <h3 style="color:var(--coral);">✅ Rule 4 — Consonant + y: change y → ied</h3>
+      <p>If a verb ends in <strong>consonant + y</strong>, change <strong>y → i</strong> then add <strong>-ed</strong>. But vowel+y → just add -ed!</p>
+      <div class="formula"><div class="fok">try→tried · study→studied · carry→carried · worry→worried</div><div class="fok">play→played · stay→stayed (vowel before y — just add -ed!)</div><div class="ferr">✗ tryed · studyed — WRONG!</div></div>
+      <div class="trn"><span>🇹🇷</span><span>Ünsüz + <strong>y</strong> ile biten fiiller: <strong>y→ied</strong>. "try"→"tried". Ama sesli+y ise sadece -ed: "play"→"played"</span></div>
+    </div>
+    <div class="tip" style="background:var(--gd);border:2px solid var(--green);"><span class="ti">🧠</span><div><strong>Quick Summary:</strong> Rule 1: +ed · Rule 2: ends -e → +d · Rule 3: CVC (1 syllable) → double+ed · Rule 4: consonant+y → ied</div></div>
+    <button class="btn-main" onclick="done(1)">📚 Got it! Learn vocabulary →</button>
+  </div>
+</div>
+
+<!-- VOCABULARY -->
+<div class="sec" id="s2">
+  <div class="sh" onclick="tog(2)"><div class="si" style="background:var(--bd);">📚</div><div class="sm"><h2>Vocabulary — 12 Verbs, 4 Rules</h2><p>3 examples for each spelling rule</p></div><span class="stag" style="border-color:var(--blue);color:var(--blue);">5 min</span><span class="chev" id="ch2">▼</span></div>
+  <div class="body" id="b2">
+    <table class="vt">
+      <thead><tr><th>#</th><th>Base</th><th>Past</th><th>Rule</th><th>🇹🇷 Meaning</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td style="font-weight:900;color:var(--muted)">1</td><td><span class="vb">arrive</span></td><td><span class="vp">arrived</span></td><td><span class="rule-tag" style="background:var(--blue);">Rule 2</span></td><td style="font-size:11px;font-weight:800;color:var(--muted)">varmak</td><td><span class="vex">They <strong>arrived</strong> at 6pm.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted)">2</td><td><span class="vb">dance</span></td><td><span class="vp">danced</span></td><td><span class="rule-tag" style="background:var(--blue);">Rule 2</span></td><td style="font-size:11px;font-weight:800;color:var(--muted)">dans etmek</td><td><span class="vex">We <strong>danced</strong> all night.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted)">3</td><td><span class="vb">decide</span></td><td><span class="vp">decided</span></td><td><span class="rule-tag" style="background:var(--blue);">Rule 2</span></td><td style="font-size:11px;font-weight:800;color:var(--muted)">karar vermek</td><td><span class="vex">She <strong>decided</strong> to go home early.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted)">4</td><td><span class="vb">stop</span></td><td><span class="vp">stopped</span></td><td><span class="rule-tag" style="background:var(--purple);">Rule 3</span></td><td style="font-size:11px;font-weight:800;color:var(--muted)">durmak</td><td><span class="vex">The rain <strong>stopped</strong> suddenly.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted)">5</td><td><span class="vb">plan</span></td><td><span class="vp">planned</span></td><td><span class="rule-tag" style="background:var(--purple);">Rule 3</span></td><td style="font-size:11px;font-weight:800;color:var(--muted)">planlamak</td><td><span class="vex">We <strong>planned</strong> the trip carefully.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted)">6</td><td><span class="vb">chat</span></td><td><span class="vp">chatted</span></td><td><span class="rule-tag" style="background:var(--purple);">Rule 3</span></td><td style="font-size:11px;font-weight:800;color:var(--muted)">sohbet etmek</td><td><span class="vex">They <strong>chatted</strong> for hours online.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted)">7</td><td><span class="vb">drop</span></td><td><span class="vp">dropped</span></td><td><span class="rule-tag" style="background:var(--purple);">Rule 3</span></td><td style="font-size:11px;font-weight:800;color:var(--muted)">düşürmek</td><td><span class="vex">He <strong>dropped</strong> his phone.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted)">8</td><td><span class="vb">try</span></td><td><span class="vp">tried</span></td><td><span class="rule-tag" style="background:var(--coral);">Rule 4</span></td><td style="font-size:11px;font-weight:800;color:var(--muted)">denemek</td><td><span class="vex">I <strong>tried</strong> a new recipe last night.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted)">9</td><td><span class="vb">study</span></td><td><span class="vp">studied</span></td><td><span class="rule-tag" style="background:var(--coral);">Rule 4</span></td><td style="font-size:11px;font-weight:800;color:var(--muted)">ders çalışmak</td><td><span class="vex">She <strong>studied</strong> all evening.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted)">10</td><td><span class="vb">carry</span></td><td><span class="vp">carried</span></td><td><span class="rule-tag" style="background:var(--coral);">Rule 4</span></td><td style="font-size:11px;font-weight:800;color:var(--muted)">taşımak</td><td><span class="vex">He <strong>carried</strong> the heavy bag upstairs.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted)">11</td><td><span class="vb">hurry</span></td><td><span class="vp">hurried</span></td><td><span class="rule-tag" style="background:var(--coral);">Rule 4</span></td><td style="font-size:11px;font-weight:800;color:var(--muted)">acele etmek</td><td><span class="vex">She <strong>hurried</strong> to catch the bus.</span></td></tr>
+        <tr><td style="font-weight:900;color:var(--muted)">12</td><td><span class="vb">live</span></td><td><span class="vp">lived</span></td><td><span class="rule-tag" style="background:var(--blue);">Rule 2</span></td><td style="font-size:11px;font-weight:800;color:var(--muted)">yaşamak</td><td><span class="vex">They <strong>lived</strong> in Paris for 3 years.</span></td></tr>
+      </tbody>
+    </table>
+    <div style="font-size:12px;font-weight:900;color:var(--muted);margin-bottom:7px;">👆 Tap to flip — test yourself!</div>
+    <div class="fcg">
+      <div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">arrive</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">arrived</div><div class="ft">Rule 2: +d</div></div></div>
+      <div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">stop</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">stopped</div><div class="ft">Rule 3: double</div></div></div>
+      <div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">try</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">tried</div><div class="ft">Rule 4: y→ied</div></div></div>
+      <div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">dance</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">danced</div><div class="ft">Rule 2: +d</div></div></div>
+      <div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">plan</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">planned</div><div class="ft">Rule 3: double</div></div></div>
+      <div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">study</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">studied</div><div class="ft">Rule 4: y→ied</div></div></div>
+      <div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">decide</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">decided</div><div class="ft">Rule 2: +d</div></div></div>
+      <div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">drop</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">dropped</div><div class="ft">Rule 3: double</div></div></div>
+      <div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">carry</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">carried</div><div class="ft">Rule 4: y→ied</div></div></div>
+      <div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">chat</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">chatted</div><div class="ft">Rule 3: double</div></div></div>
+      <div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">hurry</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">hurried</div><div class="ft">Rule 4: y→ied</div></div></div>
+      <div class="fc" onclick="this.classList.toggle('flip')"><div class="fca"><div class="fw">live</div><div class="fh">flip!</div></div><div class="fcb"><div class="fp">lived</div><div class="ft">Rule 2: +d</div></div></div>
+    </div>
+    <button class="btn-main" onclick="done(2)">✅ I know these! Sorting game →</button>
+  </div>
+</div>
+
+<!-- EX 1: SORTING GAME -->
+<div class="sec" id="s3">
+  <div class="sh" onclick="tog(3)"><div class="si" style="background:var(--pd);">🃏</div><div class="sm"><h2>Exercise 1 — Sorting Game!</h2><p>Drop each verb into the correct rule box</p></div><span class="stag" style="border-color:var(--purple);color:var(--purple);">6 min</span><span class="chev" id="ch3">▼</span></div>
+  <div class="body" id="b3">
+    <div class="exh"><span class="exb" style="background:linear-gradient(135deg,var(--purple),var(--blue));">Exercise 1</span><h3>Sort Each Verb by Spelling Rule</h3></div>
+    <div class="instr">📋 Click a verb, then click the rule box to place it. <span style="color:#92400e;">(Kelimeye tıkla, sonra doğru kural kutusuna tıkla.)</span></div>
+    <div class="sort-bank" id="bank">
+      <span class="sw" data-v="love" onclick="pick(this)">love</span>
+      <span class="sw" data-v="stop" onclick="pick(this)">stop</span>
+      <span class="sw" data-v="try" onclick="pick(this)">try</span>
+      <span class="sw" data-v="clean" onclick="pick(this)">clean</span>
+      <span class="sw" data-v="dance" onclick="pick(this)">dance</span>
+      <span class="sw" data-v="plan" onclick="pick(this)">plan</span>
+      <span class="sw" data-v="study" onclick="pick(this)">study</span>
+      <span class="sw" data-v="walk" onclick="pick(this)">walk</span>
+      <span class="sw" data-v="drop" onclick="pick(this)">drop</span>
+      <span class="sw" data-v="carry" onclick="pick(this)">carry</span>
+      <span class="sw" data-v="arrive" onclick="pick(this)">arrive</span>
+      <span class="sw" data-v="chat" onclick="pick(this)">chat</span>
+    </div>
+    <div class="sort-cols">
+      <div class="sort-col" data-rule="1" onclick="drop(this)"><div class="sc-title" style="background:var(--teal);">Rule 1: +ed</div><div class="sd" id="d1"></div></div>
+      <div class="sort-col" data-rule="2" onclick="drop(this)"><div class="sc-title" style="background:var(--blue);">Rule 2: +d</div><div class="sd" id="d2"></div></div>
+      <div class="sort-col" data-rule="3" onclick="drop(this)"><div class="sc-title" style="background:var(--purple);">Rule 3: double</div><div class="sd" id="d3"></div></div>
+      <div class="sort-col" data-rule="4" onclick="drop(this)"><div class="sc-title" style="background:var(--coral);">Rule 4: y→ied</div><div class="sd" id="d4"></div></div>
+    </div>
+    <button class="btn-main" style="background:linear-gradient(135deg,var(--purple),var(--blue));" onclick="checkSort()">⭐ Check Sorting!</button>
+    <div class="score-card" id="sortSc" style="background:linear-gradient(135deg,var(--purple),var(--blue));"></div>
+  </div>
+</div>
+
+<!-- EX 2: FILL IN -->
+<div class="sec" id="s4">
+  <div class="sh" onclick="tog(4)"><div class="si" style="background:var(--gd);">✏️</div><div class="sm"><h2>Exercise 2 — Fill in the Blank</h2><p>Write the correct past form — think about the rule!</p></div><span class="stag" style="border-color:var(--green);color:var(--green);">7 min</span><span class="chev" id="ch4">▼</span></div>
+  <div class="body" id="b4">
+    <div class="exh"><span class="exb" style="background:linear-gradient(135deg,var(--green),var(--teal));">Exercise 2</span><h3>Fill in the Blank — Watch the Spelling!</h3></div>
+    <div class="instr">📋 Write the Simple Past. Think: which rule applies? <span style="color:#92400e;">(Hangi kural? Dikkatli yaz!)</span></div>
+    <div class="fi"><div class="fn">1</div><span>They</span><input class="fi-i" id="f1" placeholder="[stop]" autocomplete="off" autocorrect="off"><span>the car at the red light.</span><button class="chk" onclick="cf('f1','stopped')">✓</button></div>
+    <div class="fi"><div class="fn">2</div><span>She</span><input class="fi-i" id="f2" placeholder="[study]" autocomplete="off" autocorrect="off"><span>for her maths test every evening.</span><button class="chk" onclick="cf('f2','studied')">✓</button></div>
+    <div class="fi"><div class="fn">3</div><span>He</span><input class="fi-i" id="f3" placeholder="[arrive]" autocomplete="off" autocorrect="off"><span>at the station ten minutes early.</span><button class="chk" onclick="cf('f3','arrived')">✓</button></div>
+    <div class="fi"><div class="fn">4</div><span>The children</span><input class="fi-i" id="f4" placeholder="[carry]" autocomplete="off" autocorrect="off"><span>their heavy bags to the classroom.</span><button class="chk" onclick="cf('f4','carried')">✓</button></div>
+    <div class="fi"><div class="fn">5</div><span>We</span><input class="fi-i" id="f5" placeholder="[plan]" autocomplete="off" autocorrect="off"><span>a surprise birthday party for our friend.</span><button class="chk" onclick="cf('f5','planned')">✓</button></div>
+    <div class="fi"><div class="fn">6</div><span>I</span><input class="fi-i" id="f6" placeholder="[try]" autocomplete="off" autocorrect="off"><span>sushi for the first time — it was delicious!</span><button class="chk" onclick="cf('f6','tried')">✓</button></div>
+    <div class="fi"><div class="fn">7</div><span>My friends</span><input class="fi-i" id="f7" placeholder="[chat]" autocomplete="off" autocorrect="off"><span>online all evening after school.</span><button class="chk" onclick="cf('f7','chatted')">✓</button></div>
+    <div class="fi"><div class="fn">8</div><span>She</span><input class="fi-i" id="f8" placeholder="[dance]" autocomplete="off" autocorrect="off"><span>beautifully at the school show.</span><button class="chk" onclick="cf('f8','danced')">✓</button></div>
+    <div class="fi"><div class="fn">9</div><span>He</span><input class="fi-i" id="f9" placeholder="[drop]" autocomplete="off" autocorrect="off"><span>his coffee cup and it broke on the floor.</span><button class="chk" onclick="cf('f9','dropped')">✓</button></div>
+    <div class="fi"><div class="fn">10</div><span>They</span><input class="fi-i" id="f10" placeholder="[decide]" autocomplete="off" autocorrect="off"><span>to take the train instead of driving.</span><button class="chk" onclick="cf('f10','decided')">✓</button></div>
+    <button class="btn-main" onclick="chkFill()">⭐ Check All!</button>
+    <div class="score-card" id="fillSc" style="background:linear-gradient(135deg,var(--green),var(--teal));"></div>
+  </div>
+</div>
+
+<!-- EX 3: MC -->
+<div class="sec" id="s5">
+  <div class="sh" onclick="tog(5)"><div class="si" style="background:var(--cd);">🎯</div><div class="sm"><h2>Exercise 3 — Multiple Choice</h2><p>Spot the correct spelling — tricky options included!</p></div><span class="stag" style="border-color:var(--coral);color:var(--coral);">5 min</span><span class="chev" id="ch5">▼</span></div>
+  <div class="body" id="b5">
+    <div class="exh"><span class="exb" style="background:linear-gradient(135deg,var(--coral),var(--yellow));">Exercise 3</span><h3>Multiple Choice — Which Spelling is Correct?</h3></div>
+    <div class="instr">📋 Choose the correctly spelled Simple Past form. <span style="color:#92400e;">(Doğru yazımı seç.)</span></div>
+    <div class="mc" id="mc1"><div class="mcq">1. "The bus ______ in the middle of the road." (stop)</div><div class="mco"><button class="mcb" onclick="smc('mc1',this,'stoped','stopped')">stoped</button><button class="mcb" onclick="smc('mc1',this,'stopped','stopped')">stopped</button><button class="mcb" onclick="smc('mc1',this,'stopted','stopped')">stopted</button></div><div class="mcf" id="f-mc1"></div></div>
+    <div class="mc" id="mc2"><div class="mcq">2. "She ______ very hard for the biology exam." (study)</div><div class="mco"><button class="mcb" onclick="smc('mc2',this,'studyed','studied')">studyed</button><button class="mcb" onclick="smc('mc2',this,'studied','studied')">studied</button><button class="mcb" onclick="smc('mc2',this,'studiied','studied')">studiied</button></div><div class="mcf" id="f-mc2"></div></div>
+    <div class="mc" id="mc3"><div class="mcq">3. "They ______ the holiday months in advance." (plan)</div><div class="mco"><button class="mcb" onclick="smc('mc3',this,'planed','planned')">planed</button><button class="mcb" onclick="smc('mc3',this,'plannd','planned')">plannd</button><button class="mcb" onclick="smc('mc3',this,'planned','planned')">planned</button></div><div class="mcf" id="f-mc3"></div></div>
+    <div class="mc" id="mc4"><div class="mcq">4. "She ______ to catch the early bus." (hurry)</div><div class="mco"><button class="mcb" onclick="smc('mc4',this,'hurryed','hurried')">hurryed</button><button class="mcb" onclick="smc('mc4',this,'hurried','hurried')">hurried</button><button class="mcb" onclick="smc('mc4',this,'hurryied','hurried')">hurryied</button></div><div class="mcf" id="f-mc4"></div></div>
+    <div class="mc" id="mc5"><div class="mcq">5. "The train ______ at platform 3." (arrive)</div><div class="mco"><button class="mcb" onclick="smc('mc5',this,'arriveed','arrived')">arriveed</button><button class="mcb" onclick="smc('mc5',this,'arrived','arrived')">arrived</button><button class="mcb" onclick="smc('mc5',this,'arrivd','arrived')">arrivd</button></div><div class="mcf" id="f-mc5"></div></div>
+    <button class="btn-main" style="background:linear-gradient(135deg,var(--coral),var(--yellow));" onclick="done(5)">✅ Done! Error correction →</button>
+  </div>
+</div>
+
+<!-- EX 4: ERROR CORRECTION -->
+<div class="sec" id="s6">
+  <div class="sh" onclick="tog(6)"><div class="si" style="background:var(--rd);">🔧</div><div class="sm"><h2>Exercise 4 — Error Correction</h2><p>Each sentence has one spelling mistake — fix it!</p></div><span class="stag" style="border-color:var(--red);color:var(--red);">7 min</span><span class="chev" id="ch6">▼</span></div>
+  <div class="body" id="b6">
+    <div class="exh"><span class="exb" style="background:linear-gradient(135deg,var(--red),var(--coral));">Exercise 4</span><h3>Error Correction — Fix the Spelling!</h3></div>
+    <div class="instr">📋 The verb is spelled WRONG. Write the correct sentence. <span style="color:#92400e;">(Fiil yanlış yazılmış. Doğru cümleyi yaz.)</span></div>
+    <div class="ec"><div class="ecn">Sentence 1</div><div class="ecw">She <span class="err">tryed</span> a new sport and loved it immediately.</div><input class="eci" id="ec1" placeholder="She ..." autocomplete="off"><button class="chk" style="margin-top:7px;" onclick="cec('ec1','tried')">✓</button></div>
+    <div class="ec"><div class="ecn">Sentence 2</div><div class="ecw">He <span class="err">stoped</span> playing and went home for dinner.</div><input class="eci" id="ec2" placeholder="He ..." autocomplete="off"><button class="chk" style="margin-top:7px;" onclick="cec('ec2','stopped')">✓</button></div>
+    <div class="ec"><div class="ecn">Sentence 3</div><div class="ecw">They <span class="err">liveed</span> in that house for many years before moving.</div><input class="eci" id="ec3" placeholder="They ..." autocomplete="off"><button class="chk" style="margin-top:7px;" onclick="cec('ec3','lived')">✓</button></div>
+    <div class="ec"><div class="ecn">Sentence 4</div><div class="ecw">We <span class="err">studyed</span> together at the library until it closed.</div><input class="eci" id="ec4" placeholder="We ..." autocomplete="off"><button class="chk" style="margin-top:7px;" onclick="cec('ec4','studied')">✓</button></div>
+    <div class="ec"><div class="ecn">Sentence 5</div><div class="ecw">She <span class="err">droped</span> her bag and everything fell out on the street.</div><input class="eci" id="ec5" placeholder="She ..." autocomplete="off"><button class="chk" style="margin-top:7px;" onclick="cec('ec5','dropped')">✓</button></div>
+    <button class="btn-main" style="background:linear-gradient(135deg,var(--red),var(--coral));" onclick="done(6)">✅ Done! Writing time →</button>
+  </div>
+</div>
+
+<!-- EX 5: WRITING -->
+<div class="sec" id="s7">
+  <div class="sh" onclick="tog(7)"><div class="si" style="background:var(--td);">✍️</div><div class="sm"><h2>Exercise 5 — Free Writing</h2><p>Use today's verbs in sentences about YOUR life</p></div><span class="stag" style="border-color:var(--teal);color:var(--teal);">7 min</span><span class="chev" id="ch7">▼</span></div>
+  <div class="body" id="b7">
+    <div class="exh"><span class="exb" style="background:linear-gradient(135deg,var(--teal),var(--green));">Exercise 5</span><h3>Free Writing — One Verb from Each Rule!</h3></div>
+    <div class="instr">📋 Write 6 sentences. Try to use at least one verb from each spelling rule (2, 3, 4)! <span style="color:#92400e;">(6 cümle yaz — her kuraldan en az bir fiil kullan!)</span></div>
+    <div style="background:var(--td);border:2px solid rgba(42,157,143,.3);border-radius:12px;padding:12px 14px;margin-bottom:12px;font-size:13px;font-weight:700;color:var(--text);">
+      <strong>Use these verbs (past form!):</strong><br>
+      <span style="color:var(--blue);">Rule 2:</span> arrived · danced · decided · lived<br>
+      <span style="color:var(--purple);">Rule 3:</span> stopped · planned · chatted · dropped<br>
+      <span style="color:var(--coral);">Rule 4:</span> tried · studied · carried · hurried
+    </div>
+    <div class="tip" style="background:var(--bd);border:2px solid rgba(74,144,217,.3);"><span class="ti">🚀</span><div><strong>Starters:</strong> Last weekend, I ... · At school, I ... · My friend ... · Yesterday, we ...</div></div>
+    <div class="wl"><div class="wln">1</div><input class="wli" placeholder="Last weekend, I ..."></div>
+    <div class="wl"><div class="wln">2</div><input class="wli" placeholder="At school, I ..."></div>
+    <div class="wl"><div class="wln">3</div><input class="wli" placeholder="My friend ..."></div>
+    <div class="wl"><div class="wln">4</div><input class="wli" placeholder="Yesterday, we ..."></div>
+    <div class="wl"><div class="wln">5</div><input class="wli" placeholder="I decided to ..."></div>
+    <div class="wl"><div class="wln">6</div><input class="wli" placeholder="I hurried because ..."></div>
+    <div class="tip" style="background:var(--gd);border:2px solid var(--green);margin-top:13px;"><span class="ti">✅</span><div><strong>Self-check:</strong> Ends in -e? → only -d (arrived ✓, arriveed ✗) · CVC? → double (stopped ✓, stoped ✗) · Consonant+y? → ied (tried ✓, tryed ✗)</div></div>
+    <button class="btn-main" onclick="finish()">🏆 Lesson 2 Complete!</button>
+    <div class="score-card" id="finalSc" style="background:linear-gradient(135deg,var(--teal),var(--blue));"></div>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="nav-btn" onclick="alert('Go to Lesson 1!')">← Lesson 1</button>
+  <div style="font-size:12px;font-weight:800;color:var(--muted);text-align:center;">Phase 1 · Lesson 2 of 8<br><span style="color:var(--teal);">Lesson 3 → Irregular Verbs Part 1</span></div>
+  <button class="nav-btn next" onclick="alert('Open Lesson 3!')">Lesson 3 →</button>
+</div>
+</div>
+
+<script>
+const comp=new Array(8).fill(false);
+function upd(){const d=comp.filter(Boolean).length;const s=document.getElementById('steps').children;for(let i=0;i<s.length;i++){s[i].classList.remove('done','active');if(i<d)s[i].classList.add('done');else if(i===d)s[i].classList.add('active');}document.getElementById('pct').textContent=Math.round(d/8*100)+'%';}
+function tog(i){const b=document.getElementById('b'+i);const c=document.getElementById('ch'+i);if(!b)return;b.classList.toggle('open');if(b.classList.contains('open')){b.style.maxHeight='3000px';b.style.padding='18px 20px 22px';if(c)c.style.transform='rotate(180deg)';}else{b.style.maxHeight='0';b.style.padding='0 20px';if(c)c.style.transform='';}}
+function done(i){comp[i]=true;upd();const ni='b'+(i+1);const nb=document.getElementById(ni);if(nb&&!nb.classList.contains('open')){nb.classList.add('open');nb.style.maxHeight='3000px';nb.style.padding='18px 20px 22px';const nc=document.getElementById('ch'+(i+1));if(nc)nc.style.transform='rotate(180deg)';document.getElementById('s'+(i+1))?.scrollIntoView({behavior:'smooth',block:'start'});}}
+function cf(id,a,b){const el=document.getElementById(id);if(!el)return;const v=el.value.trim().toLowerCase();const ok=v===a||(b&&v===b);el.classList.toggle('ok',ok);el.classList.toggle('no',!ok);}
+function smc(pid,btn,val,correct){const par=document.getElementById(pid);par.querySelectorAll('.mcb').forEach(b=>b.classList.remove('sel','cor','wrng'));btn.classList.add('sel');const fb=document.getElementById('f-'+pid);const ok=val===correct;if(ok){btn.classList.remove('sel');btn.classList.add('cor');fb.textContent='✅ Correct!';fb.className='mcf show ok';}else{btn.classList.remove('sel');btn.classList.add('wrng');par.querySelectorAll('.mcb').forEach(b=>{if(b.textContent===correct)b.classList.add('cor');});fb.textContent='❌ Correct answer highlighted in green.';fb.className='mcf show no';}}
+function cec(id,verb){const el=document.getElementById(id);if(!el)return;const v=el.value.trim().toLowerCase();const ok=v.includes(verb);el.classList.toggle('ok',ok);el.classList.toggle('no',!ok);}
+let picked=null;
+function pick(el){if(picked)picked.style.outline='';picked=el;el.style.outline='3px solid var(--teal)';}
+function drop(col){if(!picked)return;const v=picked.dataset.v;const drop=col.querySelector('.sd');const sp=document.createElement('span');sp.className='sp';sp.textContent=v;sp.onclick=()=>{const o=document.querySelector('[data-v="'+v+'"]');if(o)o.classList.remove('placed');sp.remove();};drop.appendChild(sp);picked.classList.add('placed');picked.style.outline='';picked=null;}
+const sortCorrect={1:['clean','walk'],2:['love','dance','arrive','decide','live'],3:['stop','plan','chat','drop'],4:['try','study','carry']};
+function checkSort(){let ok=0,total=0;[1,2,3,4].forEach(r=>{const d=document.getElementById('d'+r);const placed=[...d.querySelectorAll('.sp')].map(s=>s.textContent);placed.forEach(w=>{total++;if(sortCorrect[r].includes(w))ok++;});});comp[3]=ok>=8;upd();const sc=document.getElementById('sortSc');sc.innerHTML=`<div class="sc-n">${ok}<span>/${total}</span></div><div class="sc-t">${ok>=9?'🌟 Excellent!':'👍 Good try!'}</div><p class="sc-b">${ok>=9?'You understand all 4 rules!':'Review the rules and try again.'}</p>`;sc.classList.add('show');done(3);}
+function chkFill(){const ans={f1:'stopped',f2:'studied',f3:'arrived',f4:'carried',f5:'planned',f6:'tried',f7:'chatted',f8:'danced',f9:'dropped',f10:'decided'};let ok=0;Object.entries(ans).forEach(([id,a])=>{cf(id,a);if(document.getElementById(id)?.classList.contains('ok'))ok++;});comp[4]=ok>=7;upd();const sc=document.getElementById('fillSc');sc.innerHTML=`<div class="sc-n">${ok}<span>/10</span></div><div class="sc-t">${ok>=8?'🌟 Excellent!':ok>=6?'👍 Good!':'💪 Keep trying!'}</div><p class="sc-b">${ok>=8?'Perfect spelling!':'Check the spelling rules for red answers.'}</p>`;sc.classList.add('show');done(4);}
+function finish(){comp[7]=true;upd();const sc=document.getElementById('finalSc');sc.innerHTML=`<div class="sc-n">🎉</div><div class="sc-t">Lesson 2 Complete!</div><p class="sc-b">You've mastered all 4 spelling rules! Rule 2: +d · Rule 3: double · Rule 4: y→ied. See you in Lesson 3! 🌟</p>`;sc.classList.add('show');sc.scrollIntoView({behavior:'smooth'});}
+document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('b0');if(b){b.style.maxHeight='3000px';b.style.padding='18px 20px 22px';}});
+</script>
+</body>
+</html>

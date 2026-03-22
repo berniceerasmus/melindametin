@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homework 8 — Storytelling + Full Review</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fffbf0;--c1:#e85d4a;--c1d:rgba(232,93,74,.1);--c2:#2a9d8f;--c2d:rgba(42,157,143,.1);--c3:#f4a261;--c3d:rgba(244,162,97,.12);--c4:#4a90d9;--c4d:rgba(74,144,217,.1);--c5:#52b788;--c5d:rgba(82,183,136,.12);--c6:#e63946;--c6d:rgba(230,57,70,.1);--c7:#7c5cbf;--c7d:rgba(124,92,191,.1);--text:#2d3748;--muted:#718096;--border:#ede0d0;--surf:#fff;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);line-height:1.7;}
+.page{max-width:780px;margin:0 auto;padding:30px 16px 80px;}
+.hw-hdr{border-radius:20px;padding:22px 26px 26px;margin-bottom:18px;}
+.hw-hdr h1{font-family:'Fredoka One',cursive;font-size:clamp(18px,4.5vw,32px);color:#fff;margin-bottom:5px;}
+.hw-hdr p{font-size:13px;color:rgba(255,255,255,.85);font-weight:700;margin-bottom:12px;}
+.hw-tag{display:inline-block;background:rgba(255,255,255,.22);border:2px solid rgba(255,255,255,.35);border-radius:50px;padding:3px 12px;font-size:10px;font-weight:900;color:#fff;letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px;}
+.meta{display:flex;gap:6px;flex-wrap:wrap;}
+.meta span{background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.3);border-radius:50px;padding:2px 10px;font-size:11px;font-weight:800;color:#fff;}
+.part{background:var(--surf);border:2px solid var(--border);border-radius:16px;margin-bottom:12px;overflow:hidden;}
+.ph{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:2px dashed var(--border);}
+.pb-num{font-family:'Fredoka One',cursive;font-size:12px;padding:3px 11px;border-radius:50px;color:#fff;}
+.ph h2{font-family:'Fredoka One',cursive;font-size:14px;color:var(--text);flex:1;}
+.ph .pts{font-size:11px;font-weight:900;color:var(--muted);}
+.pb{padding:14px 16px 18px;}
+.instr{background:var(--c3d);border:2px solid var(--c3);border-radius:9px;padding:7px 11px;font-size:12px;font-weight:700;color:#78350f;margin-bottom:10px;line-height:1.6;}
+.fi{display:flex;flex-wrap:wrap;align-items:center;gap:5px;background:var(--cream);border:2px solid var(--border);border-radius:10px;padding:8px 10px;margin-bottom:5px;font-size:13px;font-weight:700;line-height:1.8;}
+.fn{background:var(--c1);color:#fff;border-radius:50%;width:21px;height:21px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;flex-shrink:0;}
+.fii{border:none;border-bottom:2.5px solid var(--border);background:transparent;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;color:var(--text);outline:none;min-width:85px;text-align:center;padding:2px 4px;}
+.fii:focus{border-bottom-color:var(--c1);}
+.fii.ok{border-bottom-color:var(--c5);color:var(--c5);background:rgba(82,183,136,.08);border-radius:4px;}
+.fii.no{border-bottom-color:var(--c6);color:var(--c6);background:var(--c6d);border-radius:4px;}
+.chk{background:var(--c1);color:#fff;border:none;border-radius:50px;padding:3px 9px;font-family:'Nunito',sans-serif;font-size:10px;font-weight:900;cursor:pointer;}
+.chk:hover{background:var(--c2);}
+.mc{background:var(--cream);border:2px solid var(--border);border-radius:10px;padding:9px 11px;margin-bottom:6px;}
+.mcq{font-size:13px;font-weight:800;margin-bottom:6px;line-height:1.5;}
+.mco{display:flex;gap:5px;flex-wrap:wrap;}
+.mcb{padding:4px 12px;border:2.5px solid var(--border);border-radius:50px;background:#fff;font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;color:var(--muted);cursor:pointer;transition:all .15s;}
+.mcb:hover{border-color:var(--c1);color:var(--c1);}
+.mcb.cor{background:var(--c5);color:#fff;border-color:var(--c5);}
+.mcb.wrng{background:var(--c6);color:#fff;border-color:var(--c6);}
+.mcf{font-size:11px;font-weight:800;margin-top:4px;padding:3px 8px;border-radius:7px;display:none;}
+.mcf.show{display:block;}
+.mcf.ok{background:var(--c5d);color:#1a4731;}
+.mcf.no{background:var(--c6d);color:#7f1d1d;}
+.ec{background:var(--cream);border:2px solid var(--border);border-radius:10px;padding:9px 11px;margin-bottom:6px;}
+.ecn{font-size:10px;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px;}
+.ecw{background:var(--c6d);border:2px solid rgba(230,57,70,.2);border-radius:7px;padding:6px 9px;font-size:13px;font-weight:800;color:#7f1d1d;margin-bottom:6px;}
+.ecw .err{text-decoration:line-through;opacity:.6;}
+.eci{width:100%;border:2px solid var(--border);border-radius:7px;padding:6px 9px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--text);outline:none;background:#fff;}
+.eci:focus{border-color:var(--c1);}
+.eci.ok{border-color:var(--c5);background:var(--c5d);}
+.eci.no{border-color:var(--c6);background:var(--c6d);}
+.wl{display:flex;align-items:flex-start;gap:6px;margin-bottom:6px;}
+.wln{width:20px;height:20px;background:var(--c1);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;flex-shrink:0;margin-top:4px;}
+.wli{flex:1;border:none;border-bottom:2px solid var(--border);background:transparent;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--text);outline:none;padding:2px 3px 3px;}
+.wli:focus{border-bottom-color:var(--c1);}
+.btn{width:100%;color:#fff;border:none;border-radius:11px;padding:11px;font-family:'Fredoka One',cursive;font-size:15px;cursor:pointer;margin-top:10px;transition:transform .15s;}
+.btn:hover{transform:translateY(-1px);}
+.score-card{border-radius:14px;padding:16px 18px;text-align:center;display:none;margin-top:10px;}
+.score-card.show{display:block;}
+.sc-n{font-family:'Fredoka One',cursive;font-size:46px;color:#fff;line-height:1;}
+.sc-n span{font-size:15px;}
+.sc-t{font-family:'Fredoka One',cursive;font-size:17px;color:#fff;margin:4px 0 2px;}
+.sc-b{font-size:12px;color:rgba(255,255,255,.88);font-weight:700;}
+.tip{border-radius:10px;padding:8px 12px;font-size:12.5px;font-weight:700;line-height:1.6;margin-bottom:10px;display:flex;gap:7px;}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="hw-hdr" style="background:linear-gradient(135deg,#f59e0b,#10b981,#6366f1);">
+  <div class="hw-tag">📚 Lesson 8 Homework</div>
+  <h1>Homework 8 — Storytelling + Full Review</h1>
+  <p>Connectors + full Simple Past review — 100 points!</p>
+  <div class="meta"><span>⏱ 25-30 min</span><span>📝 100 points</span><span>✅ All lesson types + storytelling</span></div>
+</div>
+<div class="part">
+  <div class="ph"><span class="pb-num" style="background:linear-gradient(135deg,#f59e0b,#10b981);">1</span><h2>Complete the story — connectors + verbs</h2><span class="pts">30 pts</span></div>
+  <div class="pb"><div class="instr">📋 Fill in the correct connector or past verb. <span style="color:#92400e;">(Doğru bağlayıcı veya geçmiş fiilin yaz.)</span></div><div style="background:rgba(99,102,241,.08);border:2px solid rgba(99,102,241,.25);border-radius:12px;padding:14px 15px;font-size:13.5px;font-weight:700;line-height:2.3;color:#2d3748;">Last Saturday, Sara decided to visit a new café. <input class="fii" id="s1" placeholder="connector" autocomplete="off"><button class="chk" onclick="cf('s1','first')">✓</button>, she <input class="fii" id="s2" placeholder="[get]" autocomplete="off"><button class="chk" onclick="cf('s2','got')">✓</button> the bus into town. <input class="fii" id="s3" placeholder="connector" autocomplete="off"><button class="chk" onclick="cf('s3','then')">✓</button>, she <input class="fii" id="s4" placeholder="[find]" autocomplete="off"><button class="chk" onclick="cf('s4','found')">✓</button> a table by the window. She <input class="fii" id="s5" placeholder="[order]" autocomplete="off"><button class="chk" onclick="cf('s5','ordered')">✓</button> a coffee and a cake. <input class="fii" id="s6" placeholder="connector" autocomplete="off"><button class="chk" onclick="cf('s6','however')">✓</button>, the café <input class="fii" id="s7" placeholder="didn't have" autocomplete="off"><button class="chk" onclick="cf('s7','didn't have')">✓</button> the cake she wanted, so she <input class="fii" id="s8" placeholder="[try]" autocomplete="off"><button class="chk" onclick="cf('s8','tried')">✓</button> a new one. It <input class="fii" id="s9" placeholder="[be]" autocomplete="off"><button class="chk" onclick="cf('s9','was')">✓</button> delicious! <input class="fii" id="s10" placeholder="connector" autocomplete="off"><button class="chk" onclick="cf('s10','finally')">✓</button>, she <input class="fii" id="s11" placeholder="[go]" autocomplete="off"><button class="chk" onclick="cf('s11','went')">✓</button> home very happy.</div><button class="btn" style="background:linear-gradient(135deg,#f59e0b,#10b981);" onclick="chkP1()">✓ Check Part 1</button><div class="score-card" id="sc1"></div></div>
+</div><div class="part">
+  <div class="ph"><span class="pb-num" style="background:var(--c4);">2</span><h2>Mixed review — all lesson types</h2><span class="pts">30 pts</span></div>
+  <div class="pb"><div class="instr">📋 Complete with the correct form. <span style="color:#92400e;">(Tüm ders türleri — dikkatli ol!)</span></div><div class="fi"><div class="fn">1</div><span>She</span><input class="fii" id="p2a" placeholder="[study]" autocomplete="off" autocorrect="off"><span>hard for the exam.</span><button class="chk" onclick="cf('p2a','studied')">✓</button></div><div class="fi"><div class="fn">2</div><span>They</span><input class="fii" id="p2b" placeholder="was/were" autocomplete="off" autocorrect="off"><span>ready when we arrived.</span><button class="chk" onclick="cf('p2b','weren't')">✓</button></div><div class="fi"><div class="fn">3</div><span>I</span><input class="fii" id="p2c" placeholder="didn't [see]" autocomplete="off" autocorrect="off"><span>the end of the film.</span><button class="chk" onclick="cf('p2c','didn't see')">✓</button></div><div class="fi"><div class="fn">4</div><span></span><input class="fii" id="p2d" placeholder="Was the food" autocomplete="off" autocorrect="off"><span>good at the restaurant?</span><button class="chk" onclick="cf('p2d','was the food')">✓</button></div><div class="fi"><div class="fn">5</div><span>We</span><input class="fii" id="p2e" placeholder="[meet]" autocomplete="off" autocorrect="off"><span>some friends for coffee.</span><button class="chk" onclick="cf('p2e','met')">✓</button></div><div class="fi"><div class="fn">6</div><span></span><input class="fii" id="p2f" placeholder="Where did" autocomplete="off" autocorrect="off"><span>you go on your last holiday?</span><button class="chk" onclick="cf('p2f','where did')">✓</button></div></div>
+</div><div class="part">
+  <div class="ph"><span class="pb-num" style="background:var(--c1);">3</span><h2>Error correction — all lesson types</h2><span class="pts">20 pts</span></div>
+  <div class="pb"><div class="instr">📋 One error per sentence — any type from the course. Fix it! <span style="color:#92400e;">(Her cümlede bir hata var. Düzelt!)</span></div><div class="ec"><div class="ecn">Sentence 1</div><div class="ecw">She <span class="err">didn't went</span> to school yesterday.</div><input class="eci" id="ec1" autocomplete="off" placeholder="Write the correct sentence..."><button class="chk" style="margin-top:6px;" onclick="cec('ec1','didn't go')">✓</button></div><div class="ec"><div class="ecn">Sentence 2</div><div class="ecw">The students <span class="err">was</span> very excited about the trip.</div><input class="eci" id="ec2" autocomplete="off" placeholder="Write the correct sentence..."><button class="chk" style="margin-top:6px;" onclick="cec('ec2','were')">✓</button></div><div class="ec"><div class="ecn">Sentence 3</div><div class="ecw"><span class="err">Where they went</span> on holiday last summer?</div><input class="eci" id="ec3" autocomplete="off" placeholder="Write the correct sentence..."><button class="chk" style="margin-top:6px;" onclick="cec('ec3','where did they go')">✓</button></div></div>
+</div><div class="part">
+  <div class="ph"><span class="pb-num" style="background:linear-gradient(135deg,#6366f1,#f59e0b);">4</span><h2>★ Final Story — your best writing!</h2><span class="pts">20 pts</span></div>
+  <div class="pb"><div class="instr">📋 Write a 7-8 sentence story about the best day you can remember or imagine. Use connectors, irregular verbs, negatives and questions! <span style="color:#92400e;">(Hatırladığın en iyi gün hakkında 7-8 cümlelik bir hikaye yaz!)</span></div><div class="tip" style="background:rgba(99,102,241,.1);border:2px solid rgba(99,102,241,.3);"><span>💡</span><div>Include: First/Then/After that/Finally · 4+ irregular verbs · 1 negative (didn't/wasn't) · 1 question (Did/Was/Where did)</div></div><div class="wl"><div class="wln">1</div><input class="wli" placeholder="First, ..."></div><div class="wl"><div class="wln">2</div><input class="wli" placeholder="Then, ..."></div><div class="wl"><div class="wln">3</div><input class="wli" placeholder="After that, ..."></div><div class="wl"><div class="wln">4</div><input class="wli" placeholder="However, ..."></div><div class="wl"><div class="wln">5</div><input class="wli" placeholder="I didn't / wasn't ..."></div><div class="wl"><div class="wln">6</div><input class="wli" placeholder="Did you / Was it ...?"></div><div class="wl"><div class="wln">7</div><input class="wli" placeholder="Finally, ..."></div><div class="wl"><div class="wln">8</div><input class="wli" placeholder="In the end, ..."></div><button class="btn" style="background:linear-gradient(135deg,#f59e0b,#6366f1);" onclick="subHW8()">⭐ Submit Homework</button><div class="score-card" id="finalSc"></div></div>
+</div>
+</div>
+<script>
+
+function cf(id,a,b2){const el=document.getElementById(id);if(!el)return;const v=el.value.trim().toLowerCase();const ok=v===a||(b2&&v===b2);el.classList.toggle('ok',ok);el.classList.toggle('no',!ok);}
+function cec(id,kw){const el=document.getElementById(id);if(!el)return;const v=el.value.trim().toLowerCase();const ok=v.includes(kw);el.classList.toggle('ok',ok);el.classList.toggle('no',!ok);}
+function smc(pid,btn,val,correct){const par=document.getElementById(pid);par.querySelectorAll('.mcb').forEach(b=>b.classList.remove('cor','wrng'));const ok=val===correct;btn.classList.add(ok?'cor':'wrng');if(!ok)par.querySelectorAll('.mcb').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('cor');});const fb=document.getElementById('f-'+pid);fb.textContent=ok?'✅ Correct!':'❌ Correct answer highlighted in green.';fb.className='mcf show '+(ok?'ok':'no');}
+function showSc(id,got,total,bg){const el=document.getElementById(id);if(!el)return;const p=Math.round(got/total*100);el.style.background=bg||'linear-gradient(135deg,#e85d4a,#f4a261)';el.innerHTML=`<div class="sc-n">${got}<span>/${total}</span></div><div class="sc-t">${p>=80?'🌟 Excellent!':p>=60?'👍 Good job!':'💪 Keep practising!'}</div><p class="sc-b">${p>=80?'Great work! Review any red answers.':'Check the red answers and try again.'}</p>`;el.classList.add('show');el.scrollIntoView({behavior:'smooth',block:'nearest'});}
+
+
+function chkP1(){const a={s1:'first',s2:'got',s3:'then',s4:'found',s5:'ordered',s6:'however',s7:"didn't have",s8:'tried',s9:'was',s10:'finally',s11:'went'};let ok=0;Object.entries(a).forEach(([id,v])=>{cf(id,v);if(document.getElementById(id)?.classList.contains('ok'))ok++;});showSc('sc1',ok,11,'linear-gradient(135deg,#f59e0b,#10b981)');}
+function subHW8(){const a={s1:'first',s2:'got',s3:'then',s4:'found',s5:'ordered',s6:'however',s7:"didn't have",s8:'tried',s9:'was',s10:'finally',s11:'went',p2a:'studied',p2b:"weren't",p2c:"didn't see",p2d:'was the food',p2e:'met',p2f:'where did'};let ok=0;Object.entries(a).forEach(([id,v])=>{cf(id,v);if(document.getElementById(id)?.classList.contains('ok'))ok++;});showSc('finalSc',ok,17,'linear-gradient(135deg,#f59e0b,#6366f1)');}
+
+</script>
+</body>
+</html>
