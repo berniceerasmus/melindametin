@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homework 7 — Past Questions</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fffbf0;--c1:#e85d4a;--c1d:rgba(232,93,74,.1);--c2:#2a9d8f;--c2d:rgba(42,157,143,.1);--c3:#f4a261;--c3d:rgba(244,162,97,.12);--c4:#4a90d9;--c4d:rgba(74,144,217,.1);--c5:#52b788;--c5d:rgba(82,183,136,.12);--c6:#e63946;--c6d:rgba(230,57,70,.1);--c7:#7c5cbf;--c7d:rgba(124,92,191,.1);--text:#2d3748;--muted:#718096;--border:#ede0d0;--surf:#fff;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);line-height:1.7;}
+.page{max-width:780px;margin:0 auto;padding:30px 16px 80px;}
+.hw-hdr{border-radius:20px;padding:22px 26px 26px;margin-bottom:18px;}
+.hw-hdr h1{font-family:'Fredoka One',cursive;font-size:clamp(18px,4.5vw,32px);color:#fff;margin-bottom:5px;}
+.hw-hdr p{font-size:13px;color:rgba(255,255,255,.85);font-weight:700;margin-bottom:12px;}
+.hw-tag{display:inline-block;background:rgba(255,255,255,.22);border:2px solid rgba(255,255,255,.35);border-radius:50px;padding:3px 12px;font-size:10px;font-weight:900;color:#fff;letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px;}
+.meta{display:flex;gap:6px;flex-wrap:wrap;}
+.meta span{background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.3);border-radius:50px;padding:2px 10px;font-size:11px;font-weight:800;color:#fff;}
+.part{background:var(--surf);border:2px solid var(--border);border-radius:16px;margin-bottom:12px;overflow:hidden;}
+.ph{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:2px dashed var(--border);}
+.pb-num{font-family:'Fredoka One',cursive;font-size:12px;padding:3px 11px;border-radius:50px;color:#fff;}
+.ph h2{font-family:'Fredoka One',cursive;font-size:14px;color:var(--text);flex:1;}
+.ph .pts{font-size:11px;font-weight:900;color:var(--muted);}
+.pb{padding:14px 16px 18px;}
+.instr{background:var(--c3d);border:2px solid var(--c3);border-radius:9px;padding:7px 11px;font-size:12px;font-weight:700;color:#78350f;margin-bottom:10px;line-height:1.6;}
+.fi{display:flex;flex-wrap:wrap;align-items:center;gap:5px;background:var(--cream);border:2px solid var(--border);border-radius:10px;padding:8px 10px;margin-bottom:5px;font-size:13px;font-weight:700;line-height:1.8;}
+.fn{background:var(--c1);color:#fff;border-radius:50%;width:21px;height:21px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;flex-shrink:0;}
+.fii{border:none;border-bottom:2.5px solid var(--border);background:transparent;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;color:var(--text);outline:none;min-width:85px;text-align:center;padding:2px 4px;}
+.fii:focus{border-bottom-color:var(--c1);}
+.fii.ok{border-bottom-color:var(--c5);color:var(--c5);background:rgba(82,183,136,.08);border-radius:4px;}
+.fii.no{border-bottom-color:var(--c6);color:var(--c6);background:var(--c6d);border-radius:4px;}
+.chk{background:var(--c1);color:#fff;border:none;border-radius:50px;padding:3px 9px;font-family:'Nunito',sans-serif;font-size:10px;font-weight:900;cursor:pointer;}
+.chk:hover{background:var(--c2);}
+.mc{background:var(--cream);border:2px solid var(--border);border-radius:10px;padding:9px 11px;margin-bottom:6px;}
+.mcq{font-size:13px;font-weight:800;margin-bottom:6px;line-height:1.5;}
+.mco{display:flex;gap:5px;flex-wrap:wrap;}
+.mcb{padding:4px 12px;border:2.5px solid var(--border);border-radius:50px;background:#fff;font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;color:var(--muted);cursor:pointer;transition:all .15s;}
+.mcb:hover{border-color:var(--c1);color:var(--c1);}
+.mcb.cor{background:var(--c5);color:#fff;border-color:var(--c5);}
+.mcb.wrng{background:var(--c6);color:#fff;border-color:var(--c6);}
+.mcf{font-size:11px;font-weight:800;margin-top:4px;padding:3px 8px;border-radius:7px;display:none;}
+.mcf.show{display:block;}
+.mcf.ok{background:var(--c5d);color:#1a4731;}
+.mcf.no{background:var(--c6d);color:#7f1d1d;}
+.ec{background:var(--cream);border:2px solid var(--border);border-radius:10px;padding:9px 11px;margin-bottom:6px;}
+.ecn{font-size:10px;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px;}
+.ecw{background:var(--c6d);border:2px solid rgba(230,57,70,.2);border-radius:7px;padding:6px 9px;font-size:13px;font-weight:800;color:#7f1d1d;margin-bottom:6px;}
+.ecw .err{text-decoration:line-through;opacity:.6;}
+.eci{width:100%;border:2px solid var(--border);border-radius:7px;padding:6px 9px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--text);outline:none;background:#fff;}
+.eci:focus{border-color:var(--c1);}
+.eci.ok{border-color:var(--c5);background:var(--c5d);}
+.eci.no{border-color:var(--c6);background:var(--c6d);}
+.wl{display:flex;align-items:flex-start;gap:6px;margin-bottom:6px;}
+.wln{width:20px;height:20px;background:var(--c1);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;flex-shrink:0;margin-top:4px;}
+.wli{flex:1;border:none;border-bottom:2px solid var(--border);background:transparent;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--text);outline:none;padding:2px 3px 3px;}
+.wli:focus{border-bottom-color:var(--c1);}
+.btn{width:100%;color:#fff;border:none;border-radius:11px;padding:11px;font-family:'Fredoka One',cursive;font-size:15px;cursor:pointer;margin-top:10px;transition:transform .15s;}
+.btn:hover{transform:translateY(-1px);}
+.score-card{border-radius:14px;padding:16px 18px;text-align:center;display:none;margin-top:10px;}
+.score-card.show{display:block;}
+.sc-n{font-family:'Fredoka One',cursive;font-size:46px;color:#fff;line-height:1;}
+.sc-n span{font-size:15px;}
+.sc-t{font-family:'Fredoka One',cursive;font-size:17px;color:#fff;margin:4px 0 2px;}
+.sc-b{font-size:12px;color:rgba(255,255,255,.88);font-weight:700;}
+.tip{border-radius:10px;padding:8px 12px;font-size:12.5px;font-weight:700;line-height:1.6;margin-bottom:10px;display:flex;gap:7px;}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="hw-hdr" style="background:linear-gradient(135deg,#4a90d9,#7c5cbf,#2a9d8f);">
+  <div class="hw-tag">📚 Lesson 7 Homework</div>
+  <h1>Homework 7 — Past Questions</h1>
+  <p>Did / Was / Were / WH-questions — 100 points!</p>
+  <div class="meta"><span>⏱ 20-25 min</span><span>📝 100 points</span><span>✅ Yes/No + WH questions</span></div>
+</div>
+<div class="part">
+  <div class="ph"><span class="pb-num" style="background:linear-gradient(135deg,#4a90d9,#7c5cbf);">1</span><h2>Turn statements into Did questions</h2><span class="pts">30 pts</span></div>
+  <div class="pb"><div class="instr">📋 Rewrite each statement as a question using Did. Base verb! <span style="color:#92400e;">(Did ile soru — yalın fiil!)</span></div><div class="ec"><div class="ecn">Statement 1</div><div class="ecw">She went to the market on Saturday.</div><input class="eci" id="q1" autocomplete="off" placeholder="Did she go to the market on Saturday?"><button class="chk" style="margin-top:6px;" onclick="cec('q1','did she go')">✓</button></div><div class="ec"><div class="ecn">Statement 2</div><div class="ecw">They bought tickets for the concert.</div><input class="eci" id="q2" autocomplete="off" placeholder="Did they buy tickets?"><button class="chk" style="margin-top:6px;" onclick="cec('q2','did they buy')">✓</button></div><div class="ec"><div class="ecn">Statement 3</div><div class="ecw">He made a pizza for the family.</div><input class="eci" id="q3" autocomplete="off" placeholder="Did he make a pizza?"><button class="chk" style="margin-top:6px;" onclick="cec('q3','did he make')">✓</button></div><div class="ec"><div class="ecn">Statement 4</div><div class="ecw">You saw the match last night.</div><input class="eci" id="q4" autocomplete="off" placeholder="Did you see the match last night?"><button class="chk" style="margin-top:6px;" onclick="cec('q4','did you see')">✓</button></div><button class="btn" style="background:linear-gradient(135deg,#4a90d9,#7c5cbf);" onclick="chkP1()">✓ Check Part 1</button><div class="score-card" id="sc1"></div></div>
+</div><div class="part">
+  <div class="ph"><span class="pb-num" style="background:var(--c2);">2</span><h2>Was / Were questions + WH-questions</h2><span class="pts">20 pts</span></div>
+  <div class="pb"><div class="instr">📋 Write was, were, or the correct WH-word + did/was. <span style="color:#92400e;">(was/were veya WH sorusu tamamla.)</span></div><div class="fi"><div class="fn">1</div><span></span><input class="fii" id="p2a" placeholder="Was/Were" autocomplete="off" autocorrect="off"><span>the weather nice last weekend?</span><button class="chk" onclick="cf('p2a','was')">✓</button></div><div class="fi"><div class="fn">2</div><span></span><input class="fii" id="p2b" placeholder="Was/Were" autocomplete="off" autocorrect="off"><span>there many people at the event?</span><button class="chk" onclick="cf('p2b','were')">✓</button></div><div class="fi"><div class="fn">3</div><span></span><input class="fii" id="p2c" placeholder="Where did" autocomplete="off" autocorrect="off"><span>you go on your last holiday?</span><button class="chk" onclick="cf('p2c','where did')">✓</button></div><div class="fi"><div class="fn">4</div><span></span><input class="fii" id="p2d" placeholder="How was" autocomplete="off" autocorrect="off"><span>the food at the new restaurant?</span><button class="chk" onclick="cf('p2d','how was')">✓</button></div></div>
+</div><div class="part">
+  <div class="ph"><span class="pb-num" style="background:var(--c1);">3</span><h2>Multiple Choice — correct question form</h2><span class="pts">20 pts</span></div>
+  <div class="pb"><div class="instr">📋 Which question is correct? <span style="color:#92400e;">(Doğru soru hangisi?)</span></div><div class="mc" id="hw7m1"><div class="mcq">1. Asking about her trip:</div><div class="mco"><button class="mcb" onclick="smc('hw7m1',this,'Did she go?','Did she go?')">Did she go?</button><button class="mcb" onclick="smc('hw7m1',this,'Did she went?','Did she go?')">Did she went?</button><button class="mcb" onclick="smc('hw7m1',this,'She did go?','Did she go?')">She did go?</button></div><div class="mcf" id="f-hw7m1"></div></div><div class="mc" id="hw7m2"><div class="mcq">2. Asking where they went:</div><div class="mco"><button class="mcb" onclick="smc('hw7m2',this,'Where they went?','Where did they go?')">Where they went?</button><button class="mcb" onclick="smc('hw7m2',this,'Where did they went?','Where did they go?')">Where did they went?</button><button class="mcb" onclick="smc('hw7m2',this,'Where did they go?','Where did they go?')">Where did they go?</button></div><div class="mcf" id="f-hw7m2"></div></div><div class="mc" id="hw7m3"><div class="mcq">3. Asking if the film was good:</div><div class="mco"><button class="mcb" onclick="smc('hw7m3',this,'Did the film be good?','Was the film good?')">Did the film be good?</button><button class="mcb" onclick="smc('hw7m3',this,'Was the film good?','Was the film good?')">Was the film good?</button><button class="mcb" onclick="smc('hw7m3',this,'The film was good?','Was the film good?')">The film was good?</button></div><div class="mcf" id="f-hw7m3"></div></div></div>
+</div><div class="part">
+  <div class="ph"><span class="pb-num" style="background:var(--c5);">4</span><h2>Interview — write questions and answers</h2><span class="pts">30 pts</span></div>
+  <div class="pb"><div class="instr">📋 Write 5 questions about a past event + 5 answers. Use Did, Was, Were and WH-words. <span style="color:#92400e;">(Geçmiş hakkında 5 soru ve 5 cevap yaz!)</span></div><div class="wl"><div class="wln">Q1</div><input class="wli" placeholder="Did you / Where did / What did ...?"></div><div class="wl"><div class="wln">A1</div><input class="wli" placeholder="Yes, I did. / I went to ..."></div><div class="wl"><div class="wln">Q2</div><input class="wli" placeholder="Was it / Were there ...?"></div><div class="wl"><div class="wln">A2</div><input class="wli" placeholder="Yes, it was. / No, it wasn't."></div><div class="wl"><div class="wln">Q3</div><input class="wli" placeholder="How was / When did ...?"></div><div class="wl"><div class="wln">A3</div><input class="wli" placeholder="It was ... / At ..."></div><div class="wl"><div class="wln">Q4</div><input class="wli" placeholder="Who did / What did ...?"></div><div class="wl"><div class="wln">A4</div><input class="wli" placeholder="I met / I saw / I ate ..."></div><div class="wl"><div class="wln">Q5</div><input class="wli" placeholder="(Your own question!)?"></div><div class="wl"><div class="wln">A5</div><input class="wli" placeholder="..."></div><button class="btn" style="background:linear-gradient(135deg,#4a90d9,#7c5cbf);" onclick="subHW7()">⭐ Submit Homework</button><div class="score-card" id="finalSc"></div></div>
+</div>
+</div>
+<script>
+
+function cf(id,a,b2){const el=document.getElementById(id);if(!el)return;const v=el.value.trim().toLowerCase();const ok=v===a||(b2&&v===b2);el.classList.toggle('ok',ok);el.classList.toggle('no',!ok);}
+function cec(id,kw){const el=document.getElementById(id);if(!el)return;const v=el.value.trim().toLowerCase();const ok=v.includes(kw);el.classList.toggle('ok',ok);el.classList.toggle('no',!ok);}
+function smc(pid,btn,val,correct){const par=document.getElementById(pid);par.querySelectorAll('.mcb').forEach(b=>b.classList.remove('cor','wrng'));const ok=val===correct;btn.classList.add(ok?'cor':'wrng');if(!ok)par.querySelectorAll('.mcb').forEach(b=>{if(b.textContent.trim()===correct)b.classList.add('cor');});const fb=document.getElementById('f-'+pid);fb.textContent=ok?'✅ Correct!':'❌ Correct answer highlighted in green.';fb.className='mcf show '+(ok?'ok':'no');}
+function showSc(id,got,total,bg){const el=document.getElementById(id);if(!el)return;const p=Math.round(got/total*100);el.style.background=bg||'linear-gradient(135deg,#e85d4a,#f4a261)';el.innerHTML=`<div class="sc-n">${got}<span>/${total}</span></div><div class="sc-t">${p>=80?'🌟 Excellent!':p>=60?'👍 Good job!':'💪 Keep practising!'}</div><p class="sc-b">${p>=80?'Great work! Review any red answers.':'Check the red answers and try again.'}</p>`;el.classList.add('show');el.scrollIntoView({behavior:'smooth',block:'nearest'});}
+
+
+function chkP1(){let ok=0;['q1','q2','q3','q4'].forEach((id,i)=>{const kws=['did she go','did they buy','did he make','did you see'];cec(id,kws[i]);if(document.getElementById(id)?.classList.contains('ok'))ok++;});showSc('sc1',ok,4,'linear-gradient(135deg,#4a90d9,#7c5cbf)');}
+function subHW7(){let ok=0;['q1','q2','q3','q4'].forEach((id,i)=>{const kws=['did she go','did they buy','did he make','did you see'];cec(id,kws[i]);if(document.getElementById(id)?.classList.contains('ok'))ok++;});const a={p2a:'was',p2b:'were',p2c:'where did',p2d:'how was'};Object.entries(a).forEach(([id,v])=>{cf(id,v);if(document.getElementById(id)?.classList.contains('ok'))ok++;});showSc('finalSc',ok,8,'linear-gradient(135deg,#4a90d9,#7c5cbf)');}
+
+</script>
+</body>
+</html>
