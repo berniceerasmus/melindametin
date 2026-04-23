@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lesson 9 – Comparatives</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="shared-lesson.css" />
 </head>
 <body>
@@ -64,14 +65,16 @@
     <h2>Practice</h2>
 
     <!-- 1. Fill in the blanks -->
-    <button class="accordion">1. Fill in the Blanks</button>
+    <div class="sec">
+<button class="accordion">1. Fill in the Blanks</button>
     <div class="panel">
-      <div class="card">
+      <div class="card" id="l9-fillcard">
         <p style="margin-bottom:14px; font-size:0.9rem; color:var(--muted);">Write the correct comparative form of the adjective in brackets.</p>
 
         <div class="exercise">
           <label>1. Istanbul is <input type="text" id="l9f1" data-answer="bigger" placeholder="big"> than Ankara.</label>
         </div>
+</div>
         <div class="exercise">
           <label>2. English grammar is <input type="text" id="l9f2" data-answer="easier" placeholder="easy"> than I thought.</label>
         </div>
@@ -93,7 +96,8 @@
     </div>
 
     <!-- 2. Sentence Ordering -->
-    <button class="accordion">2. Put the Words in Order</button>
+    <div class="sec">
+<button class="accordion">2. Put the Words in Order</button>
     <div class="panel">
       <div class="card">
         <p style="margin-bottom:14px; font-size:0.9rem; color:var(--muted);">Write a correct sentence using all the words.</p>
@@ -103,6 +107,7 @@
           <input type="text" id="l9o1" data-answer="my brother is taller than me" placeholder="Write the full sentence">
           <button class="check-btn" onclick="checkById('l9o1')">✓</button>
         </div>
+</div>
 
         <div class="order-sentence" style="margin-top:14px;">
           <p>2. more expensive / a car / is / than / a bike</p>
@@ -125,7 +130,8 @@
     </div>
 
     <!-- 3. Matching -->
-    <button class="accordion">3. Matching — Adjective &amp; Comparative</button>
+    <div class="sec">
+<button class="accordion">3. Matching — Adjective &amp; Comparative</button>
     <div class="panel">
       <div class="card">
         <p style="margin-bottom:14px; font-size:0.9rem; color:var(--muted);">Match each adjective with its correct comparative. Write the letter.</p>
@@ -139,6 +145,7 @@
             <p>4. happy</p>
             <p>5. far</p>
           </div>
+</div>
           <div>
             <p style="font-weight:700; margin-bottom:8px;">Comparatives</p>
             <p>A. farther</p>
@@ -158,7 +165,8 @@
     </div>
 
     <!-- 4. Writing Task -->
-    <button class="accordion">4. Writing Task</button>
+    <div class="sec">
+<button class="accordion">4. Writing Task</button>
     <div class="panel">
       <div class="card">
         <div class="writing-prompt">
@@ -167,11 +175,13 @@
           <p style="font-size:0.85rem; margin-top:6px; color:var(--muted);">Ideas: your city vs another city, two sports, two subjects at school, two animals, two friends.</p>
           <textarea rows="7" placeholder="Example: My city is bigger than my village.&#10;Volleyball is more exciting than football for me.&#10;..."></textarea>
         </div>
+</div>
       </div>
     </div>
 
     <!-- 5. Speaking -->
-    <button class="accordion">5. Speaking Task</button>
+    <div class="sec">
+<button class="accordion">5. Speaking Task</button>
     <div class="panel">
       <div class="card">
         <div class="speaking-prompt">
@@ -185,6 +195,7 @@
           <p style="margin-top:10px; font-size:0.85rem;">Use at least <strong>4 comparatives</strong>. Your teacher will listen and give feedback.</p>
           <textarea rows="4" placeholder="Notes / ideas for speaking..."></textarea>
         </div>
+</div>
       </div>
     </div>
 
@@ -206,6 +217,8 @@
     if(card) card.id = 'l9-fillcard';
   })();
 </script>
+
+
 <script src="shared-lesson.js"></script>
 </body>
 </html>
