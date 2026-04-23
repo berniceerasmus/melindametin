@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 14 – will</title>
+  <link rel="stylesheet" href="shared-lesson.css" />
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="lesson-badge-pill">Phase 2 · Lesson 14</div>
+    <h1>will ⚡</h1>
+    <p class="subtitle">Learn how to talk about spontaneous decisions, predictions, and promises.</p>
+  </header>
+
+  <!-- WARM-UP -->
+  <section class="lesson-section">
+    <h2>Warm-Up</h2>
+    <div class="warmup-box">
+      <h3>🔥 Predict the Future! (3 minutes)</h3>
+      <p>Make a prediction about the future. Start with "I think..."</p>
+      <ul style="margin-top:10px; margin-left:20px; line-height:2.4;">
+        <li>What will the weather be like tomorrow?</li>
+        <li>What will you do after school this year?</li>
+        <li>Who will win the next World Cup?</li>
+      </ul>
+      <p style="margin-top:10px; font-size:0.9rem; color:#6b7280;">Try to use "will" in your answers — even if you're not sure yet!</p>
+    </div>
+  </section>
+
+  <!-- PRESENTATION -->
+  <section class="lesson-section">
+    <h2>Presentation</h2>
+
+    <div class="grammar-box">
+      <h3>📌 Structure — will</h3>
+      <table>
+        <tr><th>Form</th><th>Structure</th><th>Example</th></tr>
+        <tr><td>Affirmative</td><td>Subject + <strong>will</strong> + base verb</td><td>I <strong>will help</strong> you with that.</td></tr>
+        <tr><td>Negative</td><td>Subject + <strong>will not / won't</strong> + base verb</td><td>She <strong>won't be</strong> late.</td></tr>
+        <tr><td>Question</td><td><strong>Will</strong> + subject + base verb?</td><td><strong>Will you come</strong> to the game?</td></tr>
+        <tr><td>Short answer</td><td>Yes, I will. / No, I won't.</td><td>—</td></tr>
+      </table>
+    </div>
+
+    <div class="example-box">
+      <strong>When do we use will?</strong><br><br>
+      ✅ <strong>Spontaneous decision</strong> (decided NOW): "The phone is ringing — I'll answer it!"<br>
+      ✅ <strong>Prediction</strong> (opinion about future): "I think Turkey will win the match."<br>
+      ✅ <strong>Promise / offer:</strong> "I will help you study for the test."<br><br>
+      <em>Contraction:</em> I will → I'll · He will → He'll · Will not → Won't
+    </div>
+
+    <div class="tip-box">
+      💡 <strong>will vs going to:</strong> Use <em>will</em> for decisions made at the moment of speaking. Use <em>going to</em> for plans already decided before.
+    </div>
+  </section>
+
+  <!-- PRACTICE -->
+  <section class="lesson-section">
+    <h2>Practice</h2>
+
+    <!-- 1 -->
+    <button class="accordion">1. Fill in the Blanks</button>
+    <div class="panel">
+      <div class="card" id="l14-card1">
+        <p style="margin-bottom:14px; font-size:0.9rem; color:var(--muted);">Complete with <em>will</em> or <em>won't</em> + the verb in brackets.</p>
+
+        <div class="exercise">
+          <label>1. Don't worry — I <input type="text" id="l14f1" data-answer="will help" placeholder="help"> you carry those bags.</label>
+        </div>
+        <div class="exercise">
+          <label>2. I think it <input type="text" id="l14f2" data-answer="will snow" placeholder="snow"> tomorrow.</label>
+        </div>
+        <div class="exercise">
+          <label>3. She <input type="text" id="l14f3" data-answer="won't come" placeholder="not come"> to the party — she's busy.</label>
+        </div>
+        <div class="exercise">
+          <label>4. <input type="text" id="l14f4" data-answer="will you lend" placeholder="you / lend"> me your pen?</label>
+        </div>
+        <div class="exercise">
+          <label>5. I promise I <input type="text" id="l14f5" data-answer="will practise" placeholder="practise"> every day.</label>
+        </div>
+        <div class="exercise">
+          <label>6. They <input type="text" id="l14f6" data-answer="will win" placeholder="win"> — they're so much better than the other team!</label>
+        </div>
+        <button class="check-all-btn" onclick="checkAll('l14-card1')">✓ Check All</button>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <button class="accordion">2. Sentence Ordering</button>
+    <div class="panel">
+      <div class="card">
+        <p style="margin-bottom:14px; font-size:0.9rem; color:var(--muted);">Put the words in the correct order.</p>
+
+        <div class="order-sentence">
+          <p>1. will / the / win / I think / team / our</p>
+          <input type="text" id="l14o1" data-answer="i think our team will win" placeholder="Write the full sentence">
+          <button class="check-btn" onclick="checkById('l14o1')">✓</button>
+        </div>
+
+        <div class="order-sentence" style="margin-top:14px;">
+          <p>2. won't / she / tomorrow / late / be</p>
+          <input type="text" id="l14o2" data-answer="she won't be late tomorrow" placeholder="Write the full sentence">
+          <button class="check-btn" onclick="checkById('l14o2')">✓</button>
+        </div>
+
+        <div class="order-sentence" style="margin-top:14px;">
+          <p>3. help / will / you / me / homework / my / with</p>
+          <input type="text" id="l14o3" data-answer="will you help me with my homework" placeholder="Write the full sentence">
+          <button class="check-btn" onclick="checkById('l14o3')">✓</button>
+        </div>
+
+        <div class="order-sentence" style="margin-top:14px;">
+          <p>4. study / hard / I / will / the / for / exam</p>
+          <input type="text" id="l14o4" data-answer="i will study hard for the exam" placeholder="Write the full sentence">
+          <button class="check-btn" onclick="checkById('l14o4')">✓</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <button class="accordion">3. Matching — will or going to?</button>
+    <div class="panel">
+      <div class="card">
+        <p style="margin-bottom:14px; font-size:0.9rem; color:var(--muted);">Match each situation to the reason we use <em>will</em> or <em>going to</em>. Write the letter.</p>
+
+        <div style="display:flex; gap:20px; flex-wrap:wrap; margin-bottom:16px;">
+          <div style="flex:1; min-width:180px;">
+            <p style="font-weight:700; margin-bottom:8px;">Sentence</p>
+            <p style="margin-bottom:6px;">1. "It's cold in here — I'll close the window."</p>
+            <p style="margin-bottom:6px;">2. "I am going to join a new volleyball team next term."</p>
+            <p style="margin-bottom:6px;">3. "I think she will be a great doctor one day."</p>
+            <p style="margin-bottom:6px;">4. "We're going to meet at the café at 5pm."</p>
+          </div>
+          <div style="flex:1; min-width:180px;">
+            <p style="font-weight:700; margin-bottom:8px;">Use</p>
+            <p style="margin-bottom:6px;">A. Already arranged plan</p>
+            <p style="margin-bottom:6px;">B. Prediction / opinion</p>
+            <p style="margin-bottom:6px;">C. Spontaneous decision</p>
+            <p style="margin-bottom:6px;">D. Intention decided before</p>
+          </div>
+        </div>
+
+        <div class="match-row"><span class="label">1.</span> <input type="text" id="l14m1" data-answer="c" placeholder="letter"> <button class="check-btn" onclick="checkById('l14m1')">✓</button></div>
+        <div class="match-row"><span class="label">2.</span> <input type="text" id="l14m2" data-answer="d" placeholder="letter"> <button class="check-btn" onclick="checkById('l14m2')">✓</button></div>
+        <div class="match-row"><span class="label">3.</span> <input type="text" id="l14m3" data-answer="b" placeholder="letter"> <button class="check-btn" onclick="checkById('l14m3')">✓</button></div>
+        <div class="match-row"><span class="label">4.</span> <input type="text" id="l14m4" data-answer="a" placeholder="letter"> <button class="check-btn" onclick="checkById('l14m4')">✓</button></div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <button class="accordion">4. Writing Task</button>
+    <div class="panel">
+      <div class="card">
+        <div class="writing-prompt">
+          <h4>✍️ Promises &amp; Predictions</h4>
+          <p>Write <strong>6 sentences</strong> using <em>will / won't</em>. Try to use different functions (prediction, promise, offer, spontaneous decision).</p>
+          <textarea rows="8" placeholder="I think the weather will be sunny tomorrow.&#10;I won't be late to training again.&#10;I'll help you with the exercise.&#10;..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <button class="accordion">5. Speaking Task</button>
+    <div class="panel">
+      <div class="card">
+        <div class="speaking-prompt">
+          <h4>🗣️ Future Predictions</h4>
+          <p>Tell your teacher your predictions about the future. Use "I think... will..."</p>
+          <ul style="margin-left:18px; margin-top:6px; line-height:2;">
+            <li>What will life be like in 20 years?</li>
+            <li>What will you be doing in 10 years?</li>
+            <li>Will technology change sport in the future?</li>
+          </ul>
+          <p style="margin-top:10px; font-size:0.85rem;">Speak for at least <strong>1 minute</strong>. Use will and won't both!</p>
+          <textarea rows="4" placeholder="Notes / ideas for speaking..."></textarea>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <nav class="page-nav">
+    <a href="L13_Going_To.html">← Previous Lesson</a>
+    <a href="L14_Will_HW.html" class="hw-link">📝 Homework</a>
+    <a href="L15_Present_Continuous_Future.html">Next Lesson →</a>
+    <a href="phase2_overview.html">Overview</a>
+  </nav>
+
+</div>
+<script src="shared-lesson.js"></script>
+</body>
+</html>

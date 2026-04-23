@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homework 13 – going to</title>
+  <link rel="stylesheet" href="shared-lesson.css" />
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="lesson-badge-pill">Homework · Lesson 13</div>
+    <h1>Homework 13: going to 📝</h1>
+    <p class="subtitle">Complete all exercises after the lesson.</p>
+  </header>
+
+  <section class="lesson-section">
+    <h2>Homework Practice</h2>
+
+    <!-- Exercise 1 -->
+    <button class="accordion">1. Complete the Sentences</button>
+    <div class="panel">
+      <div class="card" id="hw13-card1">
+        <p style="margin-bottom:14px; font-size:0.9rem; color:var(--muted);">Write the correct form of <em>going to</em> + verb in brackets.</p>
+        <div class="exercise">
+          <label>1. My parents <input type="text" id="hw13f1" data-answer="are going to buy" placeholder="buy"> a new car next month.</label>
+        </div>
+        <div class="exercise">
+          <label>2. I <input type="text" id="hw13f2" data-answer="am not going to eat" placeholder="not eat"> fast food this week.</label>
+        </div>
+        <div class="exercise">
+          <label>3. <input type="text" id="hw13f3" data-answer="is she going to play" placeholder="she / play"> in the final match?</label>
+        </div>
+        <div class="exercise">
+          <label>4. Look at that ball — he <input type="text" id="hw13f4" data-answer="is going to score" placeholder="score"> a goal!</label>
+        </div>
+        <div class="exercise">
+          <label>5. We <input type="text" id="hw13f5" data-answer="are going to watch" placeholder="watch"> the match together.</label>
+        </div>
+        <button class="check-all-btn" onclick="checkAll('hw13-card1')">✓ Check All</button>
+      </div>
+    </div>
+
+    <!-- Exercise 2 -->
+    <button class="accordion">2. Write the Correct Sentence</button>
+    <div class="panel">
+      <div class="card">
+        <p style="margin-bottom:14px; font-size:0.9rem; color:var(--muted);">Put the words in order.</p>
+
+        <div class="order-sentence">
+          <p>1. not / to / I / going / am / late / be</p>
+          <input type="text" id="hw13o1" data-answer="i am not going to be late" placeholder="Write the full sentence">
+          <button class="check-btn" onclick="checkById('hw13o1')">✓</button>
+        </div>
+
+        <div class="order-sentence" style="margin-top:14px;">
+          <p>2. going / she / is / to / hard / train / this / summer</p>
+          <input type="text" id="hw13o2" data-answer="she is going to train hard this summer" placeholder="Write the full sentence">
+          <button class="check-btn" onclick="checkById('hw13o2')">✓</button>
+        </div>
+
+        <div class="order-sentence" style="margin-top:14px;">
+          <p>3. the / visit / you / are / museum / going / to</p>
+          <input type="text" id="hw13o3" data-answer="are you going to visit the museum" placeholder="Write the full sentence">
+          <button class="check-btn" onclick="checkById('hw13o3')">✓</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exercise 3 -->
+    <button class="accordion">3. Writing Task</button>
+    <div class="panel">
+      <div class="card">
+        <div class="writing-prompt">
+          <h4>✍️ My Plans for This Month</h4>
+          <p>Write <strong>6 sentences</strong> about things you are going to do (or not do) this month. Be specific!</p>
+          <textarea rows="9" placeholder="1. &#10;2. &#10;3. &#10;4. &#10;5. &#10;6. "></textarea>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <nav class="page-nav">
+    <a href="L13_Going_To.html">← Back to Lesson 13</a>
+    <a href="L14_Will.html">Next Lesson →</a>
+    <a href="phase2_overview.html">Overview</a>
+  </nav>
+
+</div>
+<script src="shared-lesson.js"></script>
+</body>
+</html>

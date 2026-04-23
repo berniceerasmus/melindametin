@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homework 16 – Future Review</title>
+  <link rel="stylesheet" href="shared-lesson.css" />
+</head>
+<body>
+<div class="container">
+
+  <header class="page-header">
+    <div class="lesson-badge-pill">Homework · Lesson 16</div>
+    <h1>Homework 16: Future Review 📝</h1>
+    <p class="subtitle">Complete all exercises and finish your Phase 2 project.</p>
+  </header>
+
+  <section class="lesson-section">
+    <h2>Homework Practice</h2>
+
+    <!-- Exercise 1 -->
+    <button class="accordion">1. Mixed Future Forms</button>
+    <div class="panel">
+      <div class="card" id="hw16-card1">
+        <p style="margin-bottom:14px; font-size:0.9rem; color:var(--muted);">Fill in with the correct future form. The type is shown in brackets.</p>
+        <div class="exercise">
+          <label>1. She <input type="text" id="hw16f1" data-answer="is playing" placeholder="play – arrangement"> in the final on Sunday.</label>
+        </div>
+        <div class="exercise">
+          <label>2. I think I <input type="text" id="hw16f2" data-answer="will pass" placeholder="pass – prediction"> the exam.</label>
+        </div>
+        <div class="exercise">
+          <label>3. I've decided — I <input type="text" id="hw16f3" data-answer="am going to join" placeholder="join – intention"> the art club.</label>
+        </div>
+        <div class="exercise">
+          <label>4. Wait here — I <input type="text" id="hw16f4" data-answer="will get" placeholder="get – spontaneous"> you some water.</label>
+        </div>
+        <div class="exercise">
+          <label>5. They <input type="text" id="hw16f5" data-answer="aren't coming" placeholder="not come – arrangement"> to the party.</label>
+        </div>
+        <div class="exercise">
+          <label>6. Look out! That ball <input type="text" id="hw16f6" data-answer="is going to hit" placeholder="hit – evidence"> the window!</label>
+        </div>
+        <button class="check-all-btn" onclick="checkAll('hw16-card1')">✓ Check All</button>
+      </div>
+    </div>
+
+    <!-- Exercise 2 -->
+    <button class="accordion">2. Error Correction</button>
+    <div class="panel">
+      <div class="card">
+        <p style="margin-bottom:14px; font-size:0.9rem; color:var(--muted);">Correct the mistake in each sentence. Write the full corrected sentence.</p>
+
+        <div class="exercise">
+          <p>1. I am meeting the dentist tomorrow — the appointment is in my diary.</p>
+          <p style="color:var(--secondary); font-size:0.85rem;">✅ This is correct! Write "correct" below.</p>
+          <input type="text" id="hw16e1" data-answer="correct" placeholder="Is it correct or not?" style="width:200px;">
+          <button class="check-btn" onclick="checkById('hw16e1')">✓</button>
+        </div>
+
+        <div class="exercise" style="margin-top:14px;">
+          <p>2. I will to study tonight. (promise)</p>
+          <input type="text" id="hw16e2" data-answer="i will study tonight" placeholder="Correct sentence" style="width:100%; max-width:440px;">
+          <button class="check-btn" onclick="checkById('hw16e2')">✓</button>
+        </div>
+
+        <div class="exercise" style="margin-top:14px;">
+          <p>3. They going to travel to Spain next summer.</p>
+          <input type="text" id="hw16e3" data-answer="they are going to travel to spain next summer" placeholder="Correct sentence" style="width:100%; max-width:440px;">
+          <button class="check-btn" onclick="checkById('hw16e3')">✓</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exercise 3 — Final Project extension -->
+    <button class="accordion">3. ⭐ Final Project — Written Timeline</button>
+    <div class="panel">
+      <div class="card">
+        <div style="background: linear-gradient(135deg, var(--primary-light), var(--secondary-light)); border-radius:12px; padding:16px 20px; margin-bottom:16px; border-left:5px solid var(--secondary);">
+          <h4 style="color:var(--secondary); margin-bottom:8px;">📋 Phase 2 Final Project</h4>
+          <p style="font-size:0.9rem;">Complete your Future Timeline as a written piece. This is your <strong>Phase 2 portfolio piece</strong> — make it detailed and personal!</p>
+        </div>
+
+        <p style="font-size:0.9rem; font-weight:700; margin-bottom:6px;">Requirements:</p>
+        <ul style="margin-left:18px; margin-bottom:14px; line-height:2; font-size:0.9rem;">
+          <li>Minimum <strong>10 sentences</strong></li>
+          <li>All three future forms used correctly</li>
+          <li>Personal, real-life content</li>
+          <li>Organised clearly (this week / this year / in the future)</li>
+        </ul>
+
+        <div class="writing-prompt">
+          <h4>✍️ My Future — Full Written Version</h4>
+          <textarea rows="16" placeholder="MY FUTURE TIMELINE&#10;&#10;This week:&#10;...&#10;&#10;This month:&#10;...&#10;&#10;This year:&#10;...&#10;&#10;In 5 years:&#10;...&#10;&#10;In 10 years:&#10;..."></textarea>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <nav class="page-nav">
+    <a href="L16_Future_Review.html">← Back to Lesson 16</a>
+    <a href="phase2_overview.html">Phase 2 Overview</a>
+  </nav>
+
+</div>
+<script src="shared-lesson.js"></script>
+</body>
+</html>
