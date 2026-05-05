@@ -1,88 +1,200 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Homework 9 – Comparatives</title>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&amp;family=Nunito:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="shared-lesson.css" rel="stylesheet">
-</link></head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap');
+    :root{--primary:#e8622a;--primary-light:#fde8dc;--secondary:#2a9d8f;--secondary-light:#d4f1ee;--accent:#f4a261;--accent-light:#fef3e8;--bg:#faf8f4;--surface:#ffffff;--muted:#8a8070;--text:#2c2416;--border:#e8e0d4;--success:#2a9d8f;--error:#e63946;--radius:14px;--shadow:0 2px 12px rgba(0,0,0,0.07)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:0 0 60px}
+    .container{max-width:780px;margin:0 auto;padding:0 16px}
+    .page-header{background:linear-gradient(135deg,#e8622a 0%,#f4a261 40%,#2a9d8f 100%);border-radius:0 0 28px 28px;padding:36px 32px 32px;margin-bottom:28px;color:white}
+    .lesson-badge-pill{display:inline-block;background:rgba(255,255,255,0.22);border:1.5px solid rgba(255,255,255,0.5);color:white;font-size:0.78rem;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;padding:4px 14px;border-radius:999px;margin-bottom:14px}
+    .page-header h1{font-family:'Fredoka One',cursive;font-size:clamp(1.7rem,5vw,2.4rem);line-height:1.15;margin-bottom:8px;text-shadow:0 2px 8px rgba(0,0,0,0.15)}
+    .page-header .subtitle{font-size:0.95rem;opacity:0.92;font-weight:600;margin-bottom:16px}
+    .header-meta{display:flex;flex-wrap:wrap;gap:8px}
+    .meta-pill{background:rgba(255,255,255,0.2);border:1.5px solid rgba(255,255,255,0.4);border-radius:999px;padding:4px 14px;font-size:0.82rem;font-weight:700;color:white}
+    .sec{margin-bottom:14px}
+    .accordion{width:100%;text-align:left;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);padding:15px 20px 15px 54px;font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;color:var(--text);cursor:pointer;box-shadow:var(--shadow);transition:background 0.18s,border-color 0.18s;position:relative}
+    .accordion::before{content:'▾';position:absolute;left:16px;top:50%;transform:translateY(-50%) rotate(0deg);width:28px;height:28px;background:var(--primary);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;line-height:28px;text-align:center;transition:transform 0.2s}
+    .accordion.open::before{transform:translateY(-50%) rotate(180deg)}
+    .accordion:hover{background:#fdf5ef;border-color:var(--primary)}
+    .panel{display:none;padding:16px 4px 4px}
+    .panel.open{display:block}
+    .card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);margin-bottom:12px}
+    .exercise{padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);background:var(--surface);margin-bottom:10px;display:flex;align-items:center;gap:10px;font-size:0.95rem;font-weight:600;flex-wrap:wrap;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+    .exercise label{display:flex;align-items:center;gap:8px;flex-wrap:wrap;width:100%;font-weight:600}
+    .exercise input[type=text]{border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);padding:2px 6px;min-width:120px;max-width:240px;transition:border-color 0.2s}
+    .exercise input[type=text]:focus{border-bottom-color:var(--secondary)}
+    .exercise input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
+    .exercise input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
+    .check-btn{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:var(--primary);color:white;border:none;border-radius:50%;cursor:pointer;font-size:0.85rem;font-weight:800;flex-shrink:0;transition:background 0.18s,transform 0.12s}
+    .check-btn:hover{background:#c94f1e;transform:scale(1.1)}
+    .check-all-btn{margin-top:14px;display:inline-block;background:transparent;border:2px solid var(--primary);color:var(--primary);font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:800;padding:8px 20px;border-radius:999px;cursor:pointer;transition:background 0.18s,color 0.18s}
+    .check-all-btn:hover{background:var(--primary);color:white}
+    .grammar-box{background:linear-gradient(135deg,#fff9f5,#f0faf9);border:1.5px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+    .grammar-box h3{font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--primary);margin-bottom:14px}
+    .grammar-box table{width:100%;border-collapse:collapse;font-size:0.88rem}
+    .grammar-box th{background:var(--primary);color:white;padding:8px 12px;text-align:left;font-weight:800}
+    .grammar-box td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+    .grammar-box tr:nth-child(even) td{background:rgba(0,0,0,0.02)}
+    .example-box{background:#fff9f0;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:14px;font-size:0.9rem;line-height:1.8}
+    .tip-box{background:#f0faf9;border:1.5px solid #b2dfdb;border-radius:10px;padding:12px 16px;font-size:0.88rem;font-weight:600;color:#1a5e56;line-height:1.6}
+    .warmup-box{background:linear-gradient(135deg,#fff3eb,#e8f8f7);border:1.5px solid #f0d8c8;border-radius:var(--radius);padding:20px 22px}
+    .warmup-box h3{font-family:'Fredoka One',cursive;color:var(--primary);font-size:1.05rem;margin-bottom:10px}
+    .warmup-box ul{margin-left:20px;line-height:2.4}
+    .writing-prompt{background:#fffdf9;border:1.5px dashed var(--accent);border-radius:var(--radius);padding:18px 20px}
+    .writing-prompt h4{font-family:'Fredoka One',cursive;color:var(--primary);margin-bottom:8px}
+    .writing-prompt p{font-size:0.9rem;margin-bottom:4px}
+    .writing-prompt ul{margin-left:18px;line-height:2;font-size:0.9rem}
+    .writing-prompt textarea{width:100%;margin-top:10px;padding:12px;border:1.5px solid var(--border);border-radius:10px;font-family:'Nunito',sans-serif;font-size:0.9rem;resize:vertical;color:var(--text);background:white;outline:none;line-height:1.7}
+    .writing-prompt textarea:focus{border-color:var(--primary)}
+    .speaking-prompt{background:linear-gradient(135deg,#f0faf9,#e8f4f8);border:1.5px solid #b2dfdb;border-radius:var(--radius);padding:18px 20px}
+    .speaking-prompt h4{font-family:'Fredoka One',cursive;color:var(--secondary);margin-bottom:8px}
+    .speaking-prompt ul{margin-left:18px;line-height:2.2}
+    .speaking-prompt p{font-size:0.9rem;margin-bottom:6px}
+    .speaking-prompt textarea{width:100%;margin-top:12px;padding:10px 12px;border:1.5px solid #b2dfdb;border-radius:10px;font-family:'Nunito',sans-serif;font-size:0.9rem;resize:vertical;background:white;outline:none;line-height:1.7}
+    .order-sentence{background:#fafafa;border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:8px}
+    .order-sentence p{font-weight:700;margin-bottom:8px;font-size:0.9rem;color:var(--muted)}
+    .order-sentence input[type=text]{width:100%;max-width:420px;border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);padding:4px 6px;margin-right:10px}
+    .order-sentence input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
+    .order-sentence input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
+    .match-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;background:white}
+    .match-row .label{font-weight:800;min-width:24px}
+    .match-row input[type=text]{width:60px;border:none;border-bottom:2px solid var(--primary);outline:none;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.95rem;text-align:center;background:transparent;padding:2px}
+    .match-row input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
+    .match-row input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
+    .submit-btn{display:block;width:100%;max-width:340px;margin:28px auto 0;background:linear-gradient(135deg,var(--primary),var(--accent));color:white;border:none;border-radius:999px;padding:14px 28px;font-family:'Fredoka One',cursive;font-size:1.1rem;cursor:pointer;box-shadow:0 4px 16px rgba(232,98,42,0.35);transition:transform 0.15s,box-shadow 0.15s}
+    .submit-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,98,42,0.45)}
+    .page-nav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:32px;padding-top:20px;border-top:1.5px solid var(--border)}
+    .page-nav a{color:var(--primary);text-decoration:none;font-weight:800;font-size:0.9rem;padding:8px 16px;border:2px solid var(--primary);border-radius:999px;transition:background 0.18s,color 0.18s}
+    .page-nav a:hover{background:var(--primary);color:white}
+    .page-nav a.hw-link{background:var(--primary);color:white}
+    .page-nav a.hw-link:hover{background:#c94f1e}
+    .err-exercise{margin-bottom:14px;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;background:white}
+    .err-exercise p{font-weight:600;margin-bottom:8px;font-size:0.93rem}
+    .err-exercise input[type=text]{width:100%;max-width:440px;border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.93rem;font-weight:700;padding:4px 6px;color:var(--text)}
+    .err-exercise input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
+    .err-exercise input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
+    .note{font-size:0.82rem;color:var(--secondary);font-weight:700;margin-bottom:6px}
+    @media(max-width:600px){.page-header{padding:24px 18px 22px}.card{padding:16px 14px}.exercise{padding:10px 12px}}
+  </style>
+</head>
 <body>
 <div class="container">
 <header class="page-header">
-<div class="lesson-badge-pill">Homework · Lesson 9</div>
-<h1>Homework 9: Comparatives 📝</h1>
-<p class="subtitle">Complete all exercises after the lesson.</p>
-<div class="header-meta"><span class="meta-pill">⏱ 15–20 min</span><span class="meta-pill">📝 50 points</span><span class="meta-pill">✅ Fill-in + Writing</span></div></header>
-<div class="sec">
-<button class="accordion">1. Complete the Sentences</button>
-<div class="panel">
-<div class="card" id="hw9-card1">
-<p style="margin-bottom:14px; font-size:0.9rem; color:var(--muted);">Write the comparative form of the adjective in brackets.</p>
-<div class="exercise">
-<label>1. A lion is <input data-answer="stronger" id="hw9f1" placeholder="strong" type="text"/> than a cat.</label>
-</div>
-</div>
-<div class="exercise">
-<label>2. This exercise is <input data-answer="easier" id="hw9f2" placeholder="easy" type="text"/> than the last one.</label>
-</div>
-<div class="exercise">
-<label>3. My new bag is <input data-answer="heavier" id="hw9f3" placeholder="heavy" type="text"/> than the old one.</label>
-</div>
-<div class="exercise">
-<label>4. The restaurant was <input data-answer="more expensive" id="hw9f4" placeholder="expensive" type="text"/> than I expected.</label>
-</div>
-<div class="exercise">
-<label>5. Her English is <input data-answer="better" id="hw9f5" placeholder="good" type="text"/> than it was last year.</label>
-</div>
-<button class="check-all-btn" onclick="checkAll('hw9-card1')">✓ Check All</button>
-</div>
-</div><div class="sec">
-<button class="accordion">2. Write the Correct Sentence</button>
-<div class="panel">
-<div class="card">
-<p style="margin-bottom:14px; font-size:0.9rem; color:var(--muted);">Put the words in the correct order.</p>
-<div class="order-sentence">
-<p>1. English / easier / maths / is / than</p>
-<input data-answer="english is easier than maths" id="hw9o1" placeholder="Write the full sentence" type="text"/>
-<button class="check-btn" onclick="checkById('hw9o1')">✓</button>
-</div>
-</div>
-<div class="order-sentence" style="margin-top:14px;">
-<p>2. a bike / cheaper / than / a car / is</p>
-<input data-answer="a bike is cheaper than a car" id="hw9o2" placeholder="Write the full sentence" type="text"/>
-<button class="check-btn" onclick="checkById('hw9o2')">✓</button>
-</div>
-<div class="order-sentence" style="margin-top:14px;">
-<p>3. more interesting / science / history / than / is</p>
-<input data-answer="science is more interesting than history" id="hw9o3" placeholder="Write the full sentence" type="text"/>
-<button class="check-btn" onclick="checkById('hw9o3')">✓</button>
-</div>
-</div>
-</div><div class="sec">
-<button class="accordion">3. Writing Task</button>
-<div class="panel">
-<div class="card">
-<div class="writing-prompt">
-<h4>✍️ Write Your Own Sentences</h4>
-<p>Write <strong>6 sentences</strong> using comparatives. Compare things from your real life — school, sport, food, places, etc.</p>
-<textarea placeholder="1. 
-2. 
-3. 
-4. 
-5. 
-6. " rows="9"></textarea>
-</div>
-</div>
-</div>
-</div>
-<button class="submit-btn">⭐ Submit Homework</button><nav class="page-nav">
-<a href="L9_Comparatives.html">← Back to Lesson 9</a>
-<a href="L10_Superlatives.html">Next Lesson →</a>
+  <div class="lesson-badge-pill">Homework · Lesson 9</div>
+  <h1>Homework 9: Comparatives 📝</h1>
+  <p class="subtitle">Complete all exercises after the lesson.</p>
+  <div class="header-meta"><span class="meta-pill">⏱ 15–20 min</span><span class="meta-pill">📝 50 points</span><span class="meta-pill">✅ Fill-in + Writing</span></div>
+</header>
 
+<div class="sec"><button class="accordion open">1. Complete the Sentences</button><div class="panel open">
+  <div class="card" id="hw9-card1">
+    <p style="margin-bottom:14px;font-size:0.9rem;color:var(--muted);">Write the comparative form of the adjective in brackets.</p>
+    <div class="exercise"><label>1. A lion is <input data-answer="stronger" id="hw9f1" placeholder="strong" type="text"/> than a cat.</label></div>
+    <div class="exercise"><label>2. This exercise is <input data-answer="easier" id="hw9f2" placeholder="easy" type="text"/> than the last one.</label></div>
+    <div class="exercise"><label>3. My new bag is <input data-answer="heavier" id="hw9f3" placeholder="heavy" type="text"/> than the old one.</label></div>
+    <div class="exercise"><label>4. The restaurant was <input data-answer="more expensive" id="hw9f4" placeholder="expensive" type="text"/> than I expected.</label></div>
+    <div class="exercise"><label>5. Her English is <input data-answer="better" id="hw9f5" placeholder="good" type="text"/> than it was last year.</label></div>
+    <button class="check-all-btn" onclick="checkAll('hw9-card1')">✓ Check All</button>
+  </div>
+</div></div>
+
+<div class="sec"><button class="accordion">2. Write the Correct Sentence</button><div class="panel">
+  <div class="card">
+    <p style="margin-bottom:14px;font-size:0.9rem;color:var(--muted);">Put the words in the correct order.</p>
+    <div class="order-sentence">
+      <p>1. English / easier / maths / is / than</p>
+      <input data-answer="english is easier than maths" id="hw9o1" placeholder="Write the full sentence" type="text"/>
+      <button class="check-btn" onclick="checkById('hw9o1')">✓</button>
+    </div>
+    <div class="order-sentence">
+      <p>2. a bike / cheaper / than / a car / is</p>
+      <input data-answer="a bike is cheaper than a car" id="hw9o2" placeholder="Write the full sentence" type="text"/>
+      <button class="check-btn" onclick="checkById('hw9o2')">✓</button>
+    </div>
+    <div class="order-sentence">
+      <p>3. more interesting / science / history / than / is</p>
+      <input data-answer="science is more interesting than history" id="hw9o3" placeholder="Write the full sentence" type="text"/>
+      <button class="check-btn" onclick="checkById('hw9o3')">✓</button>
+    </div>
+  </div>
+</div></div>
+
+<div class="sec"><button class="accordion">3. Writing Task</button><div class="panel">
+  <div class="card">
+    <div class="writing-prompt">
+      <h4>✍️ Write Your Own Sentences</h4>
+      <p>Write <strong>6 sentences</strong> using comparatives. Compare things from your real life — school, sport, food, places, etc.</p>
+      <textarea placeholder="1.&#10;2.&#10;3.&#10;4.&#10;5.&#10;6." rows="9"></textarea>
+    </div>
+  </div>
+</div></div>
+
+<button class="submit-btn">⭐ Submit Homework</button>
+<nav class="page-nav">
+  <a href="L9_Comparatives.html">← Back to Lesson 9</a>
+  <a href="L10_Superlatives.html">Next Lesson →</a>
 </nav>
 </div>
-<script src="shared-lesson.js"></script>
+  <script>
+    // Accordion
+    document.querySelectorAll('.accordion').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const panel=btn.nextElementSibling;
+        const isOpen=btn.classList.contains('open');
+        btn.classList.toggle('open',!isOpen);
+        panel.classList.toggle('open',!isOpen);
+      });
+    });
+    // Open accordions that start open
+    document.querySelectorAll('.accordion.open').forEach(btn=>{
+      btn.nextElementSibling.classList.add('open');
+    });
+
+    function normalise(s){return s.trim().toLowerCase().replace(/['']/g,"'").replace(/\s+/g,' ');}
+
+    function checkById(id){
+      const inp=document.getElementById(id);
+      if(!inp)return;
+      const correct=normalise(inp.dataset.answer||'');
+      const val=normalise(inp.value);
+      if(!val){inp.classList.remove('correct','wrong');return;}
+      if(val===correct){inp.classList.add('correct');inp.classList.remove('wrong');}
+      else{inp.classList.add('wrong');inp.classList.remove('correct');}
+      showToast();
+    }
+
+    function checkAll(cardId){
+      const card=document.getElementById(cardId);
+      if(!card)return;
+      let total=0,correct=0;
+      card.querySelectorAll('input[data-answer]').forEach(inp=>{
+        if(normalise(inp.value)===normalise(inp.dataset.answer)){inp.classList.add('correct');inp.classList.remove('wrong');correct++;}
+        else if(inp.value.trim()){inp.classList.add('wrong');inp.classList.remove('correct');}
+        total++;
+      });
+      showToast(correct+'/'+total+' correct!');
+    }
+
+    let toastTimer;
+    function showToast(msg){
+      let t=document.getElementById('score-toast');
+      if(!t){t=document.createElement('div');t.id='score-toast';document.body.appendChild(t);
+        t.style.cssText='position:fixed;bottom:24px;right:24px;background:var(--primary);color:white;font-family:Fredoka One,cursive;font-size:1rem;padding:12px 24px;border-radius:999px;box-shadow:0 4px 20px rgba(0,0,0,0.2);opacity:0;transform:translateY(20px);transition:opacity 0.3s,transform 0.3s;pointer-events:none;z-index:999';}
+      t.textContent=msg||'✓ Checked!';
+      t.style.opacity='1';t.style.transform='translateY(0)';
+      clearTimeout(toastTimer);
+      toastTimer=setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(20px)';},2200);
+    }
+
+    // Submit button
+    document.querySelectorAll('.submit-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>showToast('⭐ Homework submitted!'));
+    });
+  </script>
 </body>
 </html>

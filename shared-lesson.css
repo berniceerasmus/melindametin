@@ -1,0 +1,366 @@
+/* ============================================================
+   shared-lesson.css  —  Melinda Metin English Course
+   Phase 2 · Everything uses the same centred accordion-card style
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+/* ── Tokens ─────────────────────────────────────────────────── */
+:root {
+  --cream:  #fff8f0;
+  --c1:     #e85d4a;
+  --c1d:    rgba(232,93,74,.10);
+  --c2:     #2a9d8f;
+  --c2d:    rgba(42,157,143,.10);
+  --c3:     #f4a261;
+  --c3d:    rgba(244,162,97,.13);
+  --c4:     #4a90d9;
+  --c4d:    rgba(74,144,217,.10);
+  --c5:     #52b788;
+  --c5d:    rgba(82,183,136,.12);
+  --c6:     #e63946;
+  --c6d:    rgba(230,57,70,.10);
+  --c7:     #7c5cbf;
+  --c7d:    rgba(124,92,191,.10);
+  --text:   #2d3748;
+  --muted:  #718096;
+  --border: #ede0d0;
+  --surf:   #fff;
+  /* legacy aliases used inline by HTML */
+  --primary:        #4a90d9;
+  --primary-dark:   #2a6db5;
+  --primary-light:  rgba(74,144,217,.12);
+  --secondary:      #2a9d8f;
+  --secondary-light:rgba(42,157,143,.12);
+  --accent:         #f4a261;
+  --accent-light:   rgba(244,162,97,.12);
+}
+
+/* ── Reset ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* subtle dot grid */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: radial-gradient(circle, rgba(232,93,74,.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none; z-index: 0;
+}
+
+/* ── Container — narrow, centred ─────────────────────────────── */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 28px 16px 70px;
+  position: relative; z-index: 1;
+}
+
+/* ── Page header ─────────────────────────────────────────────── */
+.page-header {
+  background: linear-gradient(135deg, #0891b2, #2a9d8f, #52b788);
+  border-radius: 22px;
+  padding: 26px 28px 22px;
+  margin-bottom: 18px;
+  position: relative; overflow: hidden; color: #fff;
+}
+.page-header::before, .page-header::after {
+  content: ''; position: absolute; border-radius: 50%;
+  opacity: .12; pointer-events: none; background: #fff;
+}
+.page-header::before { width:220px; height:220px; top:-60px; right:-60px; }
+.page-header::after  { width:140px; height:140px; bottom:-50px; left:30px; }
+
+.lesson-badge-pill {
+  display: inline-block;
+  background: rgba(255,255,255,.25);
+  border: 2px solid rgba(255,255,255,.38);
+  border-radius: 50px; padding: 3px 14px;
+  font-size: 11px; font-weight: 900; color: #fff;
+  letter-spacing: .1em; text-transform: uppercase; margin-bottom: 10px;
+}
+
+.page-header h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(22px, 5vw, 34px);
+  color: #fff; line-height: 1.15; margin-bottom: 7px;
+}
+.page-header .subtitle {
+  font-size: 13px; color: rgba(255,255,255,.88); font-weight: 700;
+}
+
+/* meta pills (⏱ pts ✅) */
+.header-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.meta-pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(255,255,255,.22);
+  border: 1.5px solid rgba(255,255,255,.32);
+  border-radius: 50px; padding: 3px 11px;
+  font-size: 11.5px; font-weight: 800; color: #fff; white-space: nowrap;
+}
+
+/* ── THE UNIVERSAL CARD STYLE ────────────────────────────────── */
+/*
+   Every content block — warm-up, grammar, example, tip,
+   AND every exercise section — uses .sec as its outer wrapper.
+   They all look identical: white card, rounded, same border.
+*/
+.sec {
+  background: var(--surf);
+  border: 2px solid var(--border);
+  border-radius: 18px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+/* ── Accordion button (the section header row) ───────────────── */
+.accordion {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 13px 18px;
+  border: none;
+  border-bottom: 2px dashed var(--border);
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  text-align: left;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 800;
+  transition: background .15s;
+  gap: 10px;
+}
+.accordion:hover { background: var(--c1d); }
+
+/* chevron */
+.accordion::after {
+  content: '›';
+  margin-left: auto;
+  font-size: 20px; font-weight: 900; color: var(--muted);
+  transition: transform .25s; line-height: 1;
+}
+.accordion.open::after { transform: rotate(90deg); }
+
+/* ── Panel (content inside the card) ────────────────────────── */
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, padding .3s;
+  padding: 0 18px;
+}
+.panel.open {
+  max-height: 9000px;
+  padding: 16px 18px 20px;
+}
+
+/* ── Warm-up, Grammar, Example, Tip boxes ────────────────────── */
+/* These now live inside .sec > .accordion + .panel — 
+   their internal colour still distinguishes them visually */
+
+.warmup-box {
+  background: var(--c3d);
+  border: 2px solid var(--c3);
+  border-radius: 12px; padding: 14px 16px;
+  font-size: 13px; font-weight: 700; line-height: 1.7;
+}
+.warmup-box h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 14px; color: #92400e; margin-bottom: 7px;
+}
+
+.grammar-box {
+  background: var(--c2d);
+  border: 2px solid var(--c2);
+  border-radius: 12px; padding: 14px 16px; margin-bottom: 10px;
+}
+.grammar-box h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 14px; color: var(--c2); margin-bottom: 8px;
+}
+.grammar-box table {
+  width: 100%; border-collapse: collapse;
+  font-size: 12.5px; border-radius: 10px; overflow: hidden;
+  border: 2px solid var(--border);
+}
+.grammar-box thead tr { background: linear-gradient(90deg, var(--c1), var(--c4)); }
+.grammar-box th {
+  padding: 7px 10px; font-weight: 900; color: #fff;
+  text-align: left; font-size: 10px;
+  text-transform: uppercase; letter-spacing: .07em;
+}
+.grammar-box tbody tr:nth-child(even) { background: var(--c1d); }
+.grammar-box tbody tr:nth-child(odd)  { background: #fff; }
+.grammar-box td { padding: 6px 10px; font-size: 12.5px; vertical-align: top; }
+
+.example-box {
+  background: var(--c5d); border: 2px solid var(--c5);
+  border-radius: 12px; padding: 10px 14px;
+  font-size: 13px; font-weight: 700; line-height: 1.9; margin-bottom: 10px;
+}
+
+.tip-box {
+  background: var(--c3d); border: 2px solid var(--c3);
+  border-radius: 12px; padding: 10px 14px;
+  font-size: 13px; font-weight: 700; line-height: 1.7;
+  display: flex; gap: 8px; align-items: flex-start;
+}
+
+/* ── Exercise rows ───────────────────────────────────────────── */
+.exercise {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 5px;
+  background: var(--cream); border: 2px solid var(--border);
+  border-radius: 10px; padding: 8px 12px; margin-bottom: 7px;
+  font-size: 13px; font-weight: 700; line-height: 1.85;
+}
+.exercise label { display: contents; }
+
+/* ── Inputs ──────────────────────────────────────────────────── */
+input[type="text"] {
+  border: none; border-bottom: 2.5px solid var(--border);
+  background: transparent;
+  font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 800;
+  color: var(--text); outline: none; min-width: 90px;
+  text-align: center; padding: 2px 4px;
+  transition: border-color .2s; vertical-align: middle;
+}
+input[type="text"]:focus { border-bottom-color: var(--c1); }
+input[type="text"].correct {
+  border-bottom-color: var(--c5); color: var(--c5);
+  background: rgba(82,183,136,.09); border-radius: 4px;
+}
+input[type="text"].incorrect {
+  border-bottom-color: var(--c6); color: var(--c6);
+  background: var(--c6d); border-radius: 4px;
+}
+
+/* ── Sentence ordering ───────────────────────────────────────── */
+.order-sentence {
+  background: var(--cream); border: 2px solid var(--border);
+  border-radius: 10px; padding: 9px 12px; margin-bottom: 8px;
+}
+.order-sentence p {
+  font-size: 12px; font-weight: 900; color: var(--muted);
+  margin-bottom: 6px; font-style: italic;
+}
+.order-sentence input[type="text"] { width: calc(100% - 54px); min-width: unset; text-align: left; }
+
+/* ── Match rows ──────────────────────────────────────────────── */
+.match-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+.match-row .label { font-weight: 900; color: var(--c1); min-width: 20px; }
+.match-row input[type="text"] { width: 70px; min-width: unset; text-align: center; }
+
+/* ── Textarea ────────────────────────────────────────────────── */
+textarea {
+  width: 100%; border: 2px solid var(--border); border-radius: 9px;
+  padding: 10px 12px; font-family: 'Nunito', sans-serif;
+  font-size: 13px; font-weight: 700; color: var(--text);
+  background: var(--cream); resize: vertical; margin-top: 8px;
+  transition: border-color .2s; line-height: 1.75; outline: none;
+}
+textarea:focus { border-color: var(--c1); background: #fff; }
+
+/* ── Writing / Speaking prompts ──────────────────────────────── */
+.writing-prompt {
+  background: var(--c2d); border: 2px solid rgba(42,157,143,.3);
+  border-radius: 12px; padding: 12px 14px;
+  font-size: 13px; font-weight: 700;
+}
+.writing-prompt h4 {
+  font-family: 'Fredoka One', cursive; font-size: 14px;
+  color: var(--c2); margin-bottom: 5px;
+}
+
+.speaking-prompt {
+  background: var(--c7d); border: 2px solid rgba(124,92,191,.3);
+  border-radius: 12px; padding: 12px 14px;
+  font-size: 13px; font-weight: 700;
+}
+.speaking-prompt h4 {
+  font-family: 'Fredoka One', cursive; font-size: 14px;
+  color: var(--c7); margin-bottom: 5px;
+}
+
+/* ── Instruction note ────────────────────────────────────────── */
+.instr {
+  background: var(--c3d); border: 2px solid var(--c3);
+  border-radius: 8px; padding: 7px 11px;
+  font-size: 12px; font-weight: 700; color: #78350f;
+  margin-bottom: 10px; line-height: 1.6;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.check-btn {
+  background: var(--c1); color: #fff; border: none;
+  border-radius: 50px; padding: 4px 10px;
+  font-family: 'Nunito', sans-serif; font-size: 11px; font-weight: 900;
+  cursor: pointer; transition: background .15s, transform .1s;
+  vertical-align: middle; margin-left: 3px; flex-shrink: 0;
+}
+.check-btn:hover { background: var(--c2); transform: translateY(-1px); }
+
+.check-all-btn {
+  width: 100%; color: #fff; border: none; border-radius: 11px;
+  padding: 11px; font-family: 'Fredoka One', cursive; font-size: 15px;
+  cursor: pointer; margin-top: 11px;
+  background: linear-gradient(135deg, var(--c1), var(--c4));
+  box-shadow: 0 4px 14px rgba(232,93,74,.2);
+  transition: transform .15s, box-shadow .15s;
+}
+.check-all-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(232,93,74,.3); }
+
+.submit-btn {
+  display: block; width: 100%; padding: 15px; margin-top: 18px;
+  border: none; border-radius: 15px;
+  background: linear-gradient(135deg, var(--c1), var(--c4));
+  color: #fff; font-family: 'Fredoka One', cursive; font-size: 19px;
+  cursor: pointer; box-shadow: 0 6px 20px rgba(232,93,74,.25);
+  transition: transform .15s, box-shadow .15s; text-align: center;
+}
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,93,74,.33); }
+
+/* ── Feedback ────────────────────────────────────────────────── */
+.feedback-msg { font-size: 11px; font-weight: 900; margin-left: 4px; vertical-align: middle; }
+.feedback-msg.ok  { color: var(--c5); }
+.feedback-msg.bad { color: var(--c6); }
+
+/* ── Page nav ────────────────────────────────────────────────── */
+.page-nav {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-top: 24px; gap: 8px; flex-wrap: wrap;
+}
+.page-nav a {
+  display: inline-block; padding: 9px 20px; border-radius: 50px;
+  border: 2.5px solid var(--border); background: #fff;
+  font-family: 'Fredoka One', cursive; font-size: 13px;
+  cursor: pointer; transition: all .18s; color: var(--muted); text-decoration: none;
+}
+.page-nav a:hover { transform: translateY(-2px); border-color: var(--c1); color: var(--c1); }
+.page-nav a.hw-link {
+  color: #fff; border-color: transparent;
+  background: linear-gradient(135deg, var(--c1), var(--c4));
+  box-shadow: 0 4px 12px rgba(232,93,74,.25);
+}
+.page-nav a.hw-link:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(232,93,74,.33); }
+
+/* ── section / lesson-section wrappers — just spacing ───────── */
+.lesson-section { margin-bottom: 4px; }
+.lesson-section > h2 { display: none; } /* section titles now live in accordion buttons */
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .page-header { padding: 20px 16px 18px; }
+  .page-header h1 { font-size: 22px; }
+  .accordion { padding: 11px 14px; font-size: 13px; }
+  .panel.open { padding: 12px 14px 16px; }
+  .order-sentence input[type="text"] { width: 100%; margin-bottom: 5px; }
+  .page-nav a { padding: 8px 14px; font-size: 12px; }
+}
