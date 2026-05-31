@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Homework 13 – going to</title>
+<title>Homework 13 – going to (Melinda)</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap');
-    :root{--primary:#e8622a;--primary-light:#fde8dc;--secondary:#2a9d8f;--secondary-light:#d4f1ee;--accent:#f4a261;--accent-light:#fef3e8;--bg:#faf8f4;--surface:#ffffff;--muted:#8a8070;--text:#2c2416;--border:#e8e0d4;--success:#2a9d8f;--error:#e63946;--radius:14px;--shadow:0 2px 12px rgba(0,0,0,0.07)}
+    :root{--primary:#e8622a;--primary-light:#fde8dc;--secondary:#2a9d8f;--secondary-light:#d4f1ee;--accent:#f4a261;--bg:#faf8f4;--surface:#ffffff;--muted:#8a8070;--text:#2c2416;--border:#e8e0d4;--success:#2a9d8f;--error:#e63946;--radius:14px;--shadow:0 2px 12px rgba(0,0,0,0.07)}
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:0 0 60px}
     .container{max-width:780px;margin:0 auto;padding:0 16px}
@@ -26,7 +26,7 @@
     .card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);margin-bottom:12px}
     .exercise{padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);background:var(--surface);margin-bottom:10px;display:flex;align-items:center;gap:10px;font-size:0.95rem;font-weight:600;flex-wrap:wrap;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
     .exercise label{display:flex;align-items:center;gap:8px;flex-wrap:wrap;width:100%;font-weight:600}
-    .exercise input[type=text]{border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);padding:2px 6px;min-width:120px;max-width:240px;transition:border-color 0.2s}
+    .exercise input[type=text]{border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);padding:2px 6px;min-width:120px;max-width:260px;transition:border-color 0.2s}
     .exercise input[type=text]:focus{border-bottom-color:var(--secondary)}
     .exercise input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
     .exercise input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
@@ -34,64 +34,82 @@
     .check-btn:hover{background:#c94f1e;transform:scale(1.1)}
     .check-all-btn{margin-top:14px;display:inline-block;background:transparent;border:2px solid var(--primary);color:var(--primary);font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:800;padding:8px 20px;border-radius:999px;cursor:pointer;transition:background 0.18s,color 0.18s}
     .check-all-btn:hover{background:var(--primary);color:white}
-    .grammar-box{background:linear-gradient(135deg,#fff9f5,#f0faf9);border:1.5px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
-    .grammar-box h3{font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--primary);margin-bottom:14px}
-    .grammar-box table{width:100%;border-collapse:collapse;font-size:0.88rem}
-    .grammar-box th{background:var(--primary);color:white;padding:8px 12px;text-align:left;font-weight:800}
-    .grammar-box td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
-    .grammar-box tr:nth-child(even) td{background:rgba(0,0,0,0.02)}
-    .example-box{background:#fff9f0;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:14px;font-size:0.9rem;line-height:1.8}
-    .tip-box{background:#f0faf9;border:1.5px solid #b2dfdb;border-radius:10px;padding:12px 16px;font-size:0.88rem;font-weight:600;color:#1a5e56;line-height:1.6}
-    .warmup-box{background:linear-gradient(135deg,#fff3eb,#e8f8f7);border:1.5px solid #f0d8c8;border-radius:var(--radius);padding:20px 22px}
-    .warmup-box h3{font-family:'Fredoka One',cursive;color:var(--primary);font-size:1.05rem;margin-bottom:10px}
-    .warmup-box ul{margin-left:20px;line-height:2.4}
     .writing-prompt{background:#fffdf9;border:1.5px dashed var(--accent);border-radius:var(--radius);padding:18px 20px}
     .writing-prompt h4{font-family:'Fredoka One',cursive;color:var(--primary);margin-bottom:8px}
     .writing-prompt p{font-size:0.9rem;margin-bottom:4px}
     .writing-prompt ul{margin-left:18px;line-height:2;font-size:0.9rem}
     .writing-prompt textarea{width:100%;margin-top:10px;padding:12px;border:1.5px solid var(--border);border-radius:10px;font-family:'Nunito',sans-serif;font-size:0.9rem;resize:vertical;color:var(--text);background:white;outline:none;line-height:1.7}
     .writing-prompt textarea:focus{border-color:var(--primary)}
-    .speaking-prompt{background:linear-gradient(135deg,#f0faf9,#e8f4f8);border:1.5px solid #b2dfdb;border-radius:var(--radius);padding:18px 20px}
-    .speaking-prompt h4{font-family:'Fredoka One',cursive;color:var(--secondary);margin-bottom:8px}
-    .speaking-prompt ul{margin-left:18px;line-height:2.2}
-    .speaking-prompt p{font-size:0.9rem;margin-bottom:6px}
-    .speaking-prompt textarea{width:100%;margin-top:12px;padding:10px 12px;border:1.5px solid #b2dfdb;border-radius:10px;font-family:'Nunito',sans-serif;font-size:0.9rem;resize:vertical;background:white;outline:none;line-height:1.7}
     .order-sentence{background:#fafafa;border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:8px}
     .order-sentence p{font-weight:700;margin-bottom:8px;font-size:0.9rem;color:var(--muted)}
-    .order-sentence input[type=text]{width:100%;max-width:420px;border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);padding:4px 6px;margin-right:10px}
+    .order-sentence input[type=text]{width:100%;max-width:500px;border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);padding:4px 6px;margin-right:10px}
     .order-sentence input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
     .order-sentence input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
-    .match-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;background:white}
-    .match-row .label{font-weight:800;min-width:24px}
-    .match-row input[type=text]{width:60px;border:none;border-bottom:2px solid var(--primary);outline:none;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.95rem;text-align:center;background:transparent;padding:2px}
-    .match-row input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
-    .match-row input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
+    .err-exercise{margin-bottom:14px;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;background:white}
+    .err-exercise p{font-weight:600;margin-bottom:8px;font-size:0.93rem}
+    .err-exercise input[type=text]{width:100%;max-width:500px;border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.93rem;font-weight:700;padding:4px 6px;color:var(--text)}
+    .err-exercise input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
+    .err-exercise input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
     .submit-btn{display:block;width:100%;max-width:340px;margin:28px auto 0;background:linear-gradient(135deg,var(--primary),var(--accent));color:white;border:none;border-radius:999px;padding:14px 28px;font-family:'Fredoka One',cursive;font-size:1.1rem;cursor:pointer;box-shadow:0 4px 16px rgba(232,98,42,0.35);transition:transform 0.15s,box-shadow 0.15s}
     .submit-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,98,42,0.45)}
     .page-nav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:32px;padding-top:20px;border-top:1.5px solid var(--border)}
     .page-nav a{color:var(--primary);text-decoration:none;font-weight:800;font-size:0.9rem;padding:8px 16px;border:2px solid var(--primary);border-radius:999px;transition:background 0.18s,color 0.18s}
     .page-nav a:hover{background:var(--primary);color:white}
-    .page-nav a.hw-link{background:var(--primary);color:white}
-    .page-nav a.hw-link:hover{background:#c94f1e}
-    .err-exercise{margin-bottom:14px;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;background:white}
-    .err-exercise p{font-weight:600;margin-bottom:8px;font-size:0.93rem}
-    .err-exercise input[type=text]{width:100%;max-width:440px;border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.93rem;font-weight:700;padding:4px 6px;color:var(--text)}
-    .err-exercise input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
-    .err-exercise input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
-    .note{font-size:0.82rem;color:var(--secondary);font-weight:700;margin-bottom:6px}
+    .reading-box{background:linear-gradient(135deg,#fffdf9,#f0faf9);border:1.5px solid var(--border);border-radius:var(--radius);padding:20px 22px;margin-bottom:16px;font-size:0.93rem;line-height:1.9}
+    .reading-box h4{font-family:'Fredoka One',cursive;color:var(--secondary);font-size:1.05rem;margin-bottom:12px}
+    .vocab-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+    @media(max-width:560px){.vocab-grid{grid-template-columns:1fr}}
+    .vocab-item{background:#fafafa;border:1.5px solid var(--border);border-radius:9px;padding:10px 14px;display:flex;align-items:center;gap:8px;font-size:0.9rem;font-weight:700}
+    .vocab-item input[type=text]{flex:1;border:none;border-bottom:2px solid var(--primary);outline:none;font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:700;background:transparent;padding:2px 4px}
+    .vocab-item input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
+    .vocab-item input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
+    .mc-item{margin-bottom:14px;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;background:white}
+    .mc-item p{font-weight:700;margin-bottom:10px;font-size:0.93rem}
+    .mc-options{display:flex;flex-direction:column;gap:6px}
+    .mc-options label{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem;font-weight:600;padding:6px 10px;border-radius:8px;transition:background 0.15s}
+    .mc-options label:hover{background:#fdf5ef}
+    .mc-options input[type=radio]{accent-color:var(--primary);width:16px;height:16px;flex-shrink:0}
+    .mc-options label.correct-choice{background:#e8f8f5;color:var(--success)}
+    .mc-options label.wrong-choice{background:#fde8e8;color:var(--error)}
+    .tf-item{margin-bottom:10px;padding:12px 16px;border:1.5px solid var(--border);border-radius:10px;background:white;display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
+    .tf-item p{flex:1;font-weight:600;font-size:0.92rem;min-width:200px}
+    .tf-btns{display:flex;gap:8px;flex-shrink:0}
+    .tf-btn{padding:5px 14px;border-radius:999px;border:2px solid var(--border);font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:800;cursor:pointer;background:white;transition:background 0.15s,border-color 0.15s}
+    .tf-btn:hover{border-color:var(--primary)}
+    .tf-btn.selected-correct{background:#e8f8f5;border-color:var(--success);color:var(--success)}
+    .tf-btn.selected-wrong{background:#fde8e8;border-color:var(--error);color:var(--error)}
     @media(max-width:600px){.page-header{padding:24px 18px 22px}.card{padding:16px 14px}.exercise{padding:10px 12px}}
   </style>
 </head>
 <body>
 <div class="container">
 <header class="page-header">
-  <div class="lesson-badge-pill">Homework · Lesson 13</div>
+  <div class="lesson-badge-pill">Homework · Lesson 13 · Melinda</div>
   <h1>Homework 13: going to 📝</h1>
-  <p class="subtitle">Complete all exercises after the lesson.</p>
-  <div class="header-meta"><span class="meta-pill">⏱ 15–20 min</span><span class="meta-pill">📝 50 points</span><span class="meta-pill">✅ Fill-in + Writing</span></div>
+  <p class="subtitle">Practise using <em>going to</em> for plans and intentions.</p>
+  <div class="header-meta"><span class="meta-pill">⏱ ~60 min</span><span class="meta-pill">📝 100 points</span><span class="meta-pill">✅ 7 Sections</span></div>
 </header>
 
-<div class="sec"><button class="accordion open">1. Complete the Sentences</button><div class="panel open">
+<!-- SECTION 1: VOCAB -->
+<div class="sec"><button class="accordion open">1. Vocabulary — Plans &amp; Intentions</button><div class="panel open">
+  <div class="card" id="hw13-vocab">
+    <p style="margin-bottom:14px;font-size:0.9rem;color:var(--muted);">Match each verb to its correct meaning. Write the letter.<br><strong>Verbs:</strong> <em>travel · join · practise · save · visit · quit · train · prepare</em></p>
+    <div class="vocab-grid">
+      <div class="vocab-item"><span>1. to go somewhere far →</span><input data-answer="travel" id="vv1" type="text" placeholder="?"/></div>
+      <div class="vocab-item"><span>2. to become a member of →</span><input data-answer="join" id="vv2" type="text" placeholder="?"/></div>
+      <div class="vocab-item"><span>3. to do something again and again to improve →</span><input data-answer="practise" id="vv3" type="text" placeholder="?"/></div>
+      <div class="vocab-item"><span>4. to keep money for later →</span><input data-answer="save" id="vv4" type="text" placeholder="?"/></div>
+      <div class="vocab-item"><span>5. to go and see a person or place →</span><input data-answer="visit" id="vv5" type="text" placeholder="?"/></div>
+      <div class="vocab-item"><span>6. to stop doing something →</span><input data-answer="quit" id="vv6" type="text" placeholder="?"/></div>
+      <div class="vocab-item"><span>7. to exercise / work hard for sport →</span><input data-answer="train" id="vv7" type="text" placeholder="?"/></div>
+      <div class="vocab-item"><span>8. to get ready for something →</span><input data-answer="prepare" id="vv8" type="text" placeholder="?"/></div>
+    </div>
+    <button class="check-all-btn" onclick="checkAll('hw13-vocab')" style="margin-top:16px">✓ Check All</button>
+  </div>
+</div></div>
+
+<!-- SECTION 2: FILL IN -->
+<div class="sec"><button class="accordion open">2. Complete the Sentences</button><div class="panel open">
   <div class="card" id="hw13-card1">
     <p style="margin-bottom:14px;font-size:0.9rem;color:var(--muted);">Write the correct form of <em>going to</em> + verb in brackets.</p>
     <div class="exercise"><label>1. My parents <input data-answer="are going to buy" id="hw13f1" placeholder="buy" type="text"/> a new car next month.</label></div>
@@ -99,13 +117,19 @@
     <div class="exercise"><label>3. <input data-answer="is she going to play" id="hw13f3" placeholder="she / play" type="text"/> in the final match?</label></div>
     <div class="exercise"><label>4. Look at that ball — he <input data-answer="is going to score" id="hw13f4" placeholder="score" type="text"/> a goal!</label></div>
     <div class="exercise"><label>5. We <input data-answer="are going to watch" id="hw13f5" placeholder="watch" type="text"/> the match together.</label></div>
+    <div class="exercise"><label>6. My sister <input data-answer="is going to join" id="hw13f6" placeholder="join" type="text"/> a dance class next term.</label></div>
+    <div class="exercise"><label>7. <input data-answer="are you going to travel" id="hw13f7" placeholder="you / travel" type="text"/> abroad this summer?</label></div>
+    <div class="exercise"><label>8. We <input data-answer="are not going to be" id="hw13f8" placeholder="not be" type="text"/> late — we left early.</label></div>
+    <div class="exercise"><label>9. He <input data-answer="is going to train" id="hw13f9" placeholder="train" type="text"/> every day until the competition.</label></div>
+    <div class="exercise"><label>10. They <input data-answer="are going to visit" id="hw13f10" placeholder="visit" type="text"/> their grandparents in Ankara next weekend.</label></div>
     <button class="check-all-btn" onclick="checkAll('hw13-card1')">✓ Check All</button>
   </div>
 </div></div>
 
-<div class="sec"><button class="accordion">2. Write the Correct Sentence</button><div class="panel">
+<!-- SECTION 3: WORD ORDER -->
+<div class="sec"><button class="accordion">3. Put the Words in Order</button><div class="panel">
   <div class="card">
-    <p style="margin-bottom:14px;font-size:0.9rem;color:var(--muted);">Put the words in order.</p>
+    <p style="margin-bottom:14px;font-size:0.9rem;color:var(--muted);">Put the words in order to make correct sentences.</p>
     <div class="order-sentence">
       <p>1. not / to / I / going / am / late / be</p>
       <input data-answer="i am not going to be late" id="hw13o1" placeholder="Write the full sentence" type="text"/>
@@ -121,15 +145,104 @@
       <input data-answer="are you going to visit the museum" id="hw13o3" placeholder="Write the full sentence" type="text"/>
       <button class="check-btn" onclick="checkById('hw13o3')">✓</button>
     </div>
+    <div class="order-sentence">
+      <p>4. money / going / save / she / is / to / her</p>
+      <input data-answer="she is going to save her money" id="hw13o4" placeholder="Write the full sentence" type="text"/>
+      <button class="check-btn" onclick="checkById('hw13o4')">✓</button>
+    </div>
+    <div class="order-sentence">
+      <p>5. they / to / the / prepare / exam / are / going / for</p>
+      <input data-answer="they are going to prepare for the exam" id="hw13o5" placeholder="Write the full sentence" type="text"/>
+      <button class="check-btn" onclick="checkById('hw13o5')">✓</button>
+    </div>
   </div>
 </div></div>
 
-<div class="sec"><button class="accordion">3. Writing Task</button><div class="panel">
+<!-- SECTION 4: READING + TF -->
+<div class="sec"><button class="accordion">4. Reading — True, False or Not Given</button><div class="panel">
+  <div class="card">
+    <div class="reading-box">
+      <h4>📖 Ali's Big Plans</h4>
+      <p>Ali is a 17-year-old student from Eskişehir. He has made lots of plans for the summer. He is going to study English every day because he wants to improve before university. He is also going to visit his cousin in İzmir for two weeks. Ali is not going to buy a new phone this year because he is going to save money for a laptop instead. His parents are going to help him with the cost. Ali is not going to travel abroad this year, but he hopes to go to Europe next summer.</p>
+    </div>
+    <div class="tf-item"><p>1. Ali is going to study English every day this summer.</p><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'T','T')">T</button><button class="tf-btn" onclick="checkTF(this,'F','T')">F</button><button class="tf-btn" onclick="checkTF(this,'NG','T')">NG</button></div></div>
+    <div class="tf-item"><p>2. Ali is going to visit his cousin in Ankara.</p><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'T','F')">T</button><button class="tf-btn" onclick="checkTF(this,'F','F')">F</button><button class="tf-btn" onclick="checkTF(this,'NG','F')">NG</button></div></div>
+    <div class="tf-item"><p>3. Ali is going to buy a new laptop.</p><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'T','T')">T</button><button class="tf-btn" onclick="checkTF(this,'F','T')">F</button><button class="tf-btn" onclick="checkTF(this,'NG','T')">NG</button></div></div>
+    <div class="tf-item"><p>4. Ali's parents are going to pay for the laptop by themselves.</p><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'T','NG')">T</button><button class="tf-btn" onclick="checkTF(this,'F','NG')">F</button><button class="tf-btn" onclick="checkTF(this,'NG','NG')">NG</button></div></div>
+    <div class="tf-item"><p>5. Ali is not going to travel outside Turkey this summer.</p><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'T','T')">T</button><button class="tf-btn" onclick="checkTF(this,'F','T')">F</button><button class="tf-btn" onclick="checkTF(this,'NG','T')">NG</button></div></div>
+  </div>
+</div></div>
+
+<!-- SECTION 5: MC -->
+<div class="sec"><button class="accordion">5. Multiple Choice</button><div class="panel">
+  <div class="card">
+    <div class="mc-item">
+      <p>1. Look at those clouds! It _______ rain.</p>
+      <div class="mc-options" id="mc1">
+        <label><input type="radio" name="mc1" value="a"/> a) will</label>
+        <label><input type="radio" name="mc1" value="b"/> b) is going to</label>
+        <label><input type="radio" name="mc1" value="c"/> c) going to</label>
+      </div>
+    </div>
+    <div class="mc-item">
+      <p>2. We _______ visit Paris next year. We've already booked the hotel!</p>
+      <div class="mc-options" id="mc2">
+        <label><input type="radio" name="mc2" value="a"/> a) are going to</label>
+        <label><input type="radio" name="mc2" value="b"/> b) going to</label>
+        <label><input type="radio" name="mc2" value="c"/> c) is going to</label>
+      </div>
+    </div>
+    <div class="mc-item">
+      <p>3. Which sentence is NOT correct?</p>
+      <div class="mc-options" id="mc3">
+        <label><input type="radio" name="mc3" value="a"/> a) He is going to study medicine.</label>
+        <label><input type="radio" name="mc3" value="b"/> b) She going to start a new job.</label>
+        <label><input type="radio" name="mc3" value="c"/> c) Are they going to move house?</label>
+      </div>
+    </div>
+    <button class="check-all-btn" onclick="checkMC()">✓ Check All</button>
+  </div>
+</div></div>
+
+<!-- SECTION 6: ERROR CORRECTION -->
+<div class="sec"><button class="accordion">6. Error Correction</button><div class="panel">
+  <div class="card">
+    <p style="margin-bottom:14px;font-size:0.9rem;color:var(--muted);">Each sentence has ONE mistake. Write the corrected version.</p>
+    <div class="err-exercise">
+      <p>1. She going to visit her grandmother next Sunday.</p>
+      <input data-answer="she is going to visit her grandmother next sunday" id="ec1" type="text" placeholder="Correct sentence"/>
+      <button class="check-btn" onclick="checkById('ec1')" style="margin-left:8px">✓</button>
+    </div>
+    <div class="err-exercise">
+      <p>2. Are they going to travels abroad this summer?</p>
+      <input data-answer="are they going to travel abroad this summer" id="ec2" type="text" placeholder="Correct sentence"/>
+      <button class="check-btn" onclick="checkById('ec2')" style="margin-left:8px">✓</button>
+    </div>
+    <div class="err-exercise">
+      <p>3. I am not going to eating fast food this week.</p>
+      <input data-answer="i am not going to eat fast food this week" id="ec3" type="text" placeholder="Correct sentence"/>
+      <button class="check-btn" onclick="checkById('ec3')" style="margin-left:8px">✓</button>
+    </div>
+    <div class="err-exercise">
+      <p>4. He is going to studies harder next term.</p>
+      <input data-answer="he is going to study harder next term" id="ec4" type="text" placeholder="Correct sentence"/>
+      <button class="check-btn" onclick="checkById('ec4')" style="margin-left:8px">✓</button>
+    </div>
+  </div>
+</div></div>
+
+<!-- SECTION 7: WRITING -->
+<div class="sec"><button class="accordion">7. Free Writing — My Plans</button><div class="panel">
   <div class="card">
     <div class="writing-prompt">
       <h4>✍️ My Plans for This Month</h4>
-      <p>Write <strong>6 sentences</strong> about things you are going to do (or not do) this month. Be specific!</p>
-      <textarea placeholder="1.&#10;2.&#10;3.&#10;4.&#10;5.&#10;6." rows="9"></textarea>
+      <p>Write 8–10 sentences about things <strong>you are going to do (or not do)</strong> this month. Be specific and personal. Include:</p>
+      <ul>
+        <li>At least 3 positive plans (<em>I am going to…</em>)</li>
+        <li>At least 2 negative plans (<em>I am not going to…</em>)</li>
+        <li>At least 1 question form (<em>Are you going to…? Yes, I am / No, I'm not.</em>)</li>
+      </ul>
+      <textarea placeholder="This month I am going to...&#10;I am not going to...&#10;..." rows="13"></textarea>
     </div>
   </div>
 </div></div>
@@ -140,61 +253,18 @@
   <a href="L14_Will.html">Next Lesson →</a>
 </nav>
 </div>
-  <script>
-    // Accordion
-    document.querySelectorAll('.accordion').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const panel=btn.nextElementSibling;
-        const isOpen=btn.classList.contains('open');
-        btn.classList.toggle('open',!isOpen);
-        panel.classList.toggle('open',!isOpen);
-      });
-    });
-    // Open accordions that start open
-    document.querySelectorAll('.accordion.open').forEach(btn=>{
-      btn.nextElementSibling.classList.add('open');
-    });
-
-    function normalise(s){return s.trim().toLowerCase().replace(/['']/g,"'").replace(/\s+/g,' ');}
-
-    function checkById(id){
-      const inp=document.getElementById(id);
-      if(!inp)return;
-      const correct=normalise(inp.dataset.answer||'');
-      const val=normalise(inp.value);
-      if(!val){inp.classList.remove('correct','wrong');return;}
-      if(val===correct){inp.classList.add('correct');inp.classList.remove('wrong');}
-      else{inp.classList.add('wrong');inp.classList.remove('correct');}
-      showToast();
-    }
-
-    function checkAll(cardId){
-      const card=document.getElementById(cardId);
-      if(!card)return;
-      let total=0,correct=0;
-      card.querySelectorAll('input[data-answer]').forEach(inp=>{
-        if(normalise(inp.value)===normalise(inp.dataset.answer)){inp.classList.add('correct');inp.classList.remove('wrong');correct++;}
-        else if(inp.value.trim()){inp.classList.add('wrong');inp.classList.remove('correct');}
-        total++;
-      });
-      showToast(correct+'/'+total+' correct!');
-    }
-
-    let toastTimer;
-    function showToast(msg){
-      let t=document.getElementById('score-toast');
-      if(!t){t=document.createElement('div');t.id='score-toast';document.body.appendChild(t);
-        t.style.cssText='position:fixed;bottom:24px;right:24px;background:var(--primary);color:white;font-family:Fredoka One,cursive;font-size:1rem;padding:12px 24px;border-radius:999px;box-shadow:0 4px 20px rgba(0,0,0,0.2);opacity:0;transform:translateY(20px);transition:opacity 0.3s,transform 0.3s;pointer-events:none;z-index:999';}
-      t.textContent=msg||'✓ Checked!';
-      t.style.opacity='1';t.style.transform='translateY(0)';
-      clearTimeout(toastTimer);
-      toastTimer=setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(20px)';},2200);
-    }
-
-    // Submit button
-    document.querySelectorAll('.submit-btn').forEach(btn=>{
-      btn.addEventListener('click',()=>showToast('⭐ Homework submitted!'));
-    });
-  </script>
+<script>
+  document.querySelectorAll('.accordion').forEach(btn=>{btn.addEventListener('click',()=>{const panel=btn.nextElementSibling;const isOpen=btn.classList.contains('open');btn.classList.toggle('open',!isOpen);panel.classList.toggle('open',!isOpen);});});
+  document.querySelectorAll('.accordion.open').forEach(btn=>{btn.nextElementSibling.classList.add('open');});
+  function normalise(s){return s.trim().toLowerCase().replace(/['']/g,"'").replace(/\s+/g,' ');}
+  function checkById(id){const inp=document.getElementById(id);if(!inp)return;const v=normalise(inp.value),a=normalise(inp.dataset.answer||'');if(!v){inp.classList.remove('correct','wrong');return;}if(v===a){inp.classList.add('correct');inp.classList.remove('wrong');}else{inp.classList.add('wrong');inp.classList.remove('correct');}showToast();}
+  function checkAll(cardId){const card=document.getElementById(cardId);if(!card)return;let total=0,correct=0;card.querySelectorAll('input[data-answer]').forEach(inp=>{const v=normalise(inp.value),a=normalise(inp.dataset.answer);if(v===a){inp.classList.add('correct');inp.classList.remove('wrong');correct++;}else if(inp.value.trim()){inp.classList.add('wrong');inp.classList.remove('correct');}total++;});showToast(correct+'/'+total+' correct!');}
+  const MC_ANSWERS={mc1:'b',mc2:'a',mc3:'b'};
+  function checkMC(){let c=0,t=0;Object.keys(MC_ANSWERS).forEach(name=>{const opts=document.querySelectorAll(`#${name} label`);const sel=document.querySelector(`input[name=${name}]:checked`);opts.forEach(l=>l.classList.remove('correct-choice','wrong-choice'));if(sel){if(sel.value===MC_ANSWERS[name]){sel.parentElement.classList.add('correct-choice');c++;}else{sel.parentElement.classList.add('wrong-choice');document.querySelector(`#${name} input[value="${MC_ANSWERS[name]}"]`).parentElement.classList.add('correct-choice');}}t++;});showToast(c+'/'+t+' correct!');}
+  function checkTF(btn,chosen,correct){const row=btn.closest('.tf-item');row.querySelectorAll('.tf-btn').forEach(b=>b.classList.remove('selected-correct','selected-wrong'));btn.classList.add(chosen===correct?'selected-correct':'selected-wrong');showToast(chosen===correct?'✓ Correct!':'✗ Try again!');}
+  let toastTimer;
+  function showToast(msg){let t=document.getElementById('score-toast');if(!t){t=document.createElement('div');t.id='score-toast';document.body.appendChild(t);t.style.cssText='position:fixed;bottom:24px;right:24px;background:var(--primary);color:white;font-family:Fredoka One,cursive;font-size:1rem;padding:12px 24px;border-radius:999px;box-shadow:0 4px 20px rgba(0,0,0,0.2);opacity:0;transform:translateY(20px);transition:opacity 0.3s,transform 0.3s;pointer-events:none;z-index:999';}t.textContent=msg||'✓ Checked!';t.style.opacity='1';t.style.transform='translateY(0)';clearTimeout(toastTimer);toastTimer=setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(20px)';},2200);}
+  document.querySelectorAll('.submit-btn').forEach(btn=>{btn.addEventListener('click',()=>showToast('⭐ Homework submitted!'));});
+</script>
 </body>
 </html>

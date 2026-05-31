@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Homework 12 – Comparison Review</title>
+<title>Homework 12 – Comparison Review (Melinda)</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap');
     :root{--primary:#e8622a;--primary-light:#fde8dc;--secondary:#2a9d8f;--secondary-light:#d4f1ee;--accent:#f4a261;--accent-light:#fef3e8;--bg:#faf8f4;--surface:#ffffff;--muted:#8a8070;--text:#2c2416;--border:#e8e0d4;--success:#2a9d8f;--error:#e63946;--radius:14px;--shadow:0 2px 12px rgba(0,0,0,0.07)}
@@ -34,64 +34,80 @@
     .check-btn:hover{background:#c94f1e;transform:scale(1.1)}
     .check-all-btn{margin-top:14px;display:inline-block;background:transparent;border:2px solid var(--primary);color:var(--primary);font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:800;padding:8px 20px;border-radius:999px;cursor:pointer;transition:background 0.18s,color 0.18s}
     .check-all-btn:hover{background:var(--primary);color:white}
-    .grammar-box{background:linear-gradient(135deg,#fff9f5,#f0faf9);border:1.5px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
-    .grammar-box h3{font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--primary);margin-bottom:14px}
-    .grammar-box table{width:100%;border-collapse:collapse;font-size:0.88rem}
-    .grammar-box th{background:var(--primary);color:white;padding:8px 12px;text-align:left;font-weight:800}
-    .grammar-box td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
-    .grammar-box tr:nth-child(even) td{background:rgba(0,0,0,0.02)}
-    .example-box{background:#fff9f0;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:14px;font-size:0.9rem;line-height:1.8}
-    .tip-box{background:#f0faf9;border:1.5px solid #b2dfdb;border-radius:10px;padding:12px 16px;font-size:0.88rem;font-weight:600;color:#1a5e56;line-height:1.6}
-    .warmup-box{background:linear-gradient(135deg,#fff3eb,#e8f8f7);border:1.5px solid #f0d8c8;border-radius:var(--radius);padding:20px 22px}
-    .warmup-box h3{font-family:'Fredoka One',cursive;color:var(--primary);font-size:1.05rem;margin-bottom:10px}
-    .warmup-box ul{margin-left:20px;line-height:2.4}
     .writing-prompt{background:#fffdf9;border:1.5px dashed var(--accent);border-radius:var(--radius);padding:18px 20px}
     .writing-prompt h4{font-family:'Fredoka One',cursive;color:var(--primary);margin-bottom:8px}
     .writing-prompt p{font-size:0.9rem;margin-bottom:4px}
     .writing-prompt ul{margin-left:18px;line-height:2;font-size:0.9rem}
     .writing-prompt textarea{width:100%;margin-top:10px;padding:12px;border:1.5px solid var(--border);border-radius:10px;font-family:'Nunito',sans-serif;font-size:0.9rem;resize:vertical;color:var(--text);background:white;outline:none;line-height:1.7}
     .writing-prompt textarea:focus{border-color:var(--primary)}
-    .speaking-prompt{background:linear-gradient(135deg,#f0faf9,#e8f4f8);border:1.5px solid #b2dfdb;border-radius:var(--radius);padding:18px 20px}
-    .speaking-prompt h4{font-family:'Fredoka One',cursive;color:var(--secondary);margin-bottom:8px}
-    .speaking-prompt ul{margin-left:18px;line-height:2.2}
-    .speaking-prompt p{font-size:0.9rem;margin-bottom:6px}
-    .speaking-prompt textarea{width:100%;margin-top:12px;padding:10px 12px;border:1.5px solid #b2dfdb;border-radius:10px;font-family:'Nunito',sans-serif;font-size:0.9rem;resize:vertical;background:white;outline:none;line-height:1.7}
-    .order-sentence{background:#fafafa;border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:8px}
-    .order-sentence p{font-weight:700;margin-bottom:8px;font-size:0.9rem;color:var(--muted)}
-    .order-sentence input[type=text]{width:100%;max-width:420px;border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);padding:4px 6px;margin-right:10px}
-    .order-sentence input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
-    .order-sentence input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
-    .match-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;background:white}
-    .match-row .label{font-weight:800;min-width:24px}
-    .match-row input[type=text]{width:60px;border:none;border-bottom:2px solid var(--primary);outline:none;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.95rem;text-align:center;background:transparent;padding:2px}
-    .match-row input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
-    .match-row input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
+    .err-exercise{margin-bottom:14px;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;background:white}
+    .err-exercise p{font-weight:600;margin-bottom:8px;font-size:0.93rem}
+    .err-exercise input[type=text]{width:100%;max-width:480px;border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.93rem;font-weight:700;padding:4px 6px;color:var(--text)}
+    .err-exercise input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
+    .err-exercise input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
     .submit-btn{display:block;width:100%;max-width:340px;margin:28px auto 0;background:linear-gradient(135deg,var(--primary),var(--accent));color:white;border:none;border-radius:999px;padding:14px 28px;font-family:'Fredoka One',cursive;font-size:1.1rem;cursor:pointer;box-shadow:0 4px 16px rgba(232,98,42,0.35);transition:transform 0.15s,box-shadow 0.15s}
     .submit-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,98,42,0.45)}
     .page-nav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:32px;padding-top:20px;border-top:1.5px solid var(--border)}
     .page-nav a{color:var(--primary);text-decoration:none;font-weight:800;font-size:0.9rem;padding:8px 16px;border:2px solid var(--primary);border-radius:999px;transition:background 0.18s,color 0.18s}
     .page-nav a:hover{background:var(--primary);color:white}
-    .page-nav a.hw-link{background:var(--primary);color:white}
-    .page-nav a.hw-link:hover{background:#c94f1e}
-    .err-exercise{margin-bottom:14px;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;background:white}
-    .err-exercise p{font-weight:600;margin-bottom:8px;font-size:0.93rem}
-    .err-exercise input[type=text]{width:100%;max-width:440px;border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.93rem;font-weight:700;padding:4px 6px;color:var(--text)}
-    .err-exercise input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
-    .err-exercise input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
     .note{font-size:0.82rem;color:var(--secondary);font-weight:700;margin-bottom:6px}
+    .reading-box{background:linear-gradient(135deg,#fffdf9,#f0faf9);border:1.5px solid var(--border);border-radius:var(--radius);padding:20px 22px;margin-bottom:16px;font-size:0.93rem;line-height:1.9}
+    .reading-box h4{font-family:'Fredoka One',cursive;color:var(--secondary);font-size:1.05rem;margin-bottom:12px}
+    .vocab-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+    @media(max-width:560px){.vocab-grid{grid-template-columns:1fr}}
+    .vocab-item{background:#fafafa;border:1.5px solid var(--border);border-radius:9px;padding:10px 14px;display:flex;align-items:center;gap:8px;font-size:0.9rem;font-weight:700}
+    .vocab-item input[type=text]{flex:1;border:none;border-bottom:2px solid var(--primary);outline:none;font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:700;background:transparent;padding:2px 4px}
+    .vocab-item input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
+    .vocab-item input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
+    .mc-item{margin-bottom:14px;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;background:white}
+    .mc-item p{font-weight:700;margin-bottom:10px;font-size:0.93rem}
+    .mc-options{display:flex;flex-direction:column;gap:6px}
+    .mc-options label{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem;font-weight:600;padding:6px 10px;border-radius:8px;transition:background 0.15s}
+    .mc-options label:hover{background:#fdf5ef}
+    .mc-options input[type=radio]{accent-color:var(--primary);width:16px;height:16px;flex-shrink:0}
+    .mc-options label.correct-choice{background:#e8f8f5;color:var(--success)}
+    .mc-options label.wrong-choice{background:#fde8e8;color:var(--error)}
+    .tf-item{margin-bottom:10px;padding:12px 16px;border:1.5px solid var(--border);border-radius:10px;background:white;display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
+    .tf-item p{flex:1;font-weight:600;font-size:0.92rem;min-width:200px}
+    .tf-btns{display:flex;gap:8px;flex-shrink:0}
+    .tf-btn{padding:5px 14px;border-radius:999px;border:2px solid var(--border);font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:800;cursor:pointer;background:white;transition:background 0.15s,border-color 0.15s}
+    .tf-btn:hover{border-color:var(--primary)}
+    .tf-btn.selected-correct{background:#e8f8f5;border-color:var(--success);color:var(--success)}
+    .tf-btn.selected-wrong{background:#fde8e8;border-color:var(--error);color:var(--error)}
     @media(max-width:600px){.page-header{padding:24px 18px 22px}.card{padding:16px 14px}.exercise{padding:10px 12px}}
   </style>
 </head>
 <body>
 <div class="container">
 <header class="page-header">
-  <div class="lesson-badge-pill">Homework · Lesson 12</div>
+  <div class="lesson-badge-pill">Homework · Lesson 12 · Melinda</div>
   <h1>Homework 12: Comparison Review 📝</h1>
-  <p class="subtitle">Complete all exercises after the lesson.</p>
-  <div class="header-meta"><span class="meta-pill">⏱ 20–25 min</span><span class="meta-pill">📝 60 points</span><span class="meta-pill">✅ Mixed review</span></div>
+  <p class="subtitle">Review all three comparison structures: comparative, superlative, and as…as.</p>
+  <div class="header-meta"><span class="meta-pill">⏱ ~60 min</span><span class="meta-pill">📝 100 points</span><span class="meta-pill">✅ 7 Sections</span></div>
 </header>
 
-<div class="sec"><button class="accordion open">1. Mixed Comparisons</button><div class="panel open">
+<!-- SECTION 1: VOCAB -->
+<div class="sec"><button class="accordion open">1. Vocabulary — Adjective Forms</button><div class="panel open">
+  <div class="card" id="hw12-vocab">
+    <p style="margin-bottom:12px;font-size:0.9rem;color:var(--muted);">Write the <strong>comparative</strong> and <strong>superlative</strong> form of each adjective.</p>
+    <div style="overflow-x:auto">
+    <table style="width:100%;border-collapse:collapse;font-size:0.9rem">
+      <thead><tr style="background:var(--primary);color:white"><th style="padding:8px 12px;text-align:left">Adjective</th><th style="padding:8px 12px;text-align:left">Comparative (+ than)</th><th style="padding:8px 12px;text-align:left">Superlative (the +)</th></tr></thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;font-weight:700">tall</td><td style="padding:8px 12px"><input data-answer="taller than" id="ct1" type="text" placeholder="?" style="border:none;border-bottom:2px solid var(--primary);font-family:Nunito,sans-serif;font-weight:700;font-size:0.9rem;background:transparent;outline:none;width:140px"/></td><td style="padding:8px 12px"><input data-answer="the tallest" id="st1" type="text" placeholder="?" style="border:none;border-bottom:2px solid var(--primary);font-family:Nunito,sans-serif;font-weight:700;font-size:0.9rem;background:transparent;outline:none;width:140px"/></td></tr>
+        <tr style="border-bottom:1px solid var(--border);background:rgba(0,0,0,0.02)"><td style="padding:8px 12px;font-weight:700">good</td><td style="padding:8px 12px"><input data-answer="better than" id="ct2" type="text" placeholder="?" style="border:none;border-bottom:2px solid var(--primary);font-family:Nunito,sans-serif;font-weight:700;font-size:0.9rem;background:transparent;outline:none;width:140px"/></td><td style="padding:8px 12px"><input data-answer="the best" id="st2" type="text" placeholder="?" style="border:none;border-bottom:2px solid var(--primary);font-family:Nunito,sans-serif;font-weight:700;font-size:0.9rem;background:transparent;outline:none;width:140px"/></td></tr>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 12px;font-weight:700">bad</td><td style="padding:8px 12px"><input data-answer="worse than" id="ct3" type="text" placeholder="?" style="border:none;border-bottom:2px solid var(--primary);font-family:Nunito,sans-serif;font-weight:700;font-size:0.9rem;background:transparent;outline:none;width:140px"/></td><td style="padding:8px 12px"><input data-answer="the worst" id="st3" type="text" placeholder="?" style="border:none;border-bottom:2px solid var(--primary);font-family:Nunito,sans-serif;font-weight:700;font-size:0.9rem;background:transparent;outline:none;width:140px"/></td></tr>
+        <tr style="border-bottom:1px solid var(--border);background:rgba(0,0,0,0.02)"><td style="padding:8px 12px;font-weight:700">beautiful</td><td style="padding:8px 12px"><input data-answer="more beautiful than" id="ct4" type="text" placeholder="?" style="border:none;border-bottom:2px solid var(--primary);font-family:Nunito,sans-serif;font-weight:700;font-size:0.9rem;background:transparent;outline:none;width:180px"/></td><td style="padding:8px 12px"><input data-answer="the most beautiful" id="st4" type="text" placeholder="?" style="border:none;border-bottom:2px solid var(--primary);font-family:Nunito,sans-serif;font-weight:700;font-size:0.9rem;background:transparent;outline:none;width:180px"/></td></tr>
+        <tr><td style="padding:8px 12px;font-weight:700">hot</td><td style="padding:8px 12px"><input data-answer="hotter than" id="ct5" type="text" placeholder="?" style="border:none;border-bottom:2px solid var(--primary);font-family:Nunito,sans-serif;font-weight:700;font-size:0.9rem;background:transparent;outline:none;width:140px"/></td><td style="padding:8px 12px"><input data-answer="the hottest" id="st5" type="text" placeholder="?" style="border:none;border-bottom:2px solid var(--primary);font-family:Nunito,sans-serif;font-weight:700;font-size:0.9rem;background:transparent;outline:none;width:140px"/></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <button class="check-all-btn" onclick="checkTableVocab()" style="margin-top:14px">✓ Check All</button>
+  </div>
+</div></div>
+
+<!-- SECTION 2: MIXED FILL IN -->
+<div class="sec"><button class="accordion open">2. Mixed Comparisons — Fill in the Blanks</button><div class="panel open">
   <div class="card" id="hw12-card1">
     <p style="margin-bottom:14px;font-size:0.9rem;color:var(--muted);">Fill in each blank with the correct form. The type of comparison is shown in brackets.</p>
     <div class="exercise"><label>1. The Nile is <input data-answer="the longest" id="hw12f1" placeholder="long – superlative" type="text"/> river in the world.</label></div>
@@ -100,11 +116,71 @@
     <div class="exercise"><label>4. My English is <input data-answer="better than" id="hw12f4" placeholder="good – comparative" type="text"/> last year.</label></div>
     <div class="exercise"><label>5. She is <input data-answer="as talented as" id="hw12f5" placeholder="talented – equal" type="text"/> her sister.</label></div>
     <div class="exercise"><label>6. That was <input data-answer="the worst" id="hw12f6" placeholder="bad – superlative" type="text"/> training session ever.</label></div>
+    <div class="exercise"><label>7. This museum is <input data-answer="more interesting than" id="hw12f7" placeholder="interesting – comparative" type="text"/> the science one.</label></div>
+    <div class="exercise"><label>8. Today's weather is <input data-answer="as warm as" id="hw12f8" placeholder="warm – equal" type="text"/> yesterday.</label></div>
+    <div class="exercise"><label>9. He is <input data-answer="the most hardworking" id="hw12f9" placeholder="hardworking – superlative" type="text"/> student in the class.</label></div>
+    <div class="exercise"><label>10. The small car is <input data-answer="not as fast as" id="hw12f10" placeholder="fast – not equal" type="text"/> the sports car.</label></div>
     <button class="check-all-btn" onclick="checkAll('hw12-card1')">✓ Check All</button>
   </div>
 </div></div>
 
-<div class="sec"><button class="accordion">2. Error Correction</button><div class="panel">
+<!-- SECTION 3: READING + TF -->
+<div class="sec"><button class="accordion">3. Reading — True, False or Not Given</button><div class="panel">
+  <div class="card">
+    <div class="reading-box">
+      <h4>📖 City Break — Istanbul vs Ankara</h4>
+      <p>Fatma has visited both Istanbul and Ankara. She thinks Istanbul is the most visited city in Turkey and probably one of the most famous cities in the world. Ankara, the capital, is not as large as Istanbul, but it is more modern in some areas. The food in Istanbul is, in Fatma's opinion, better than in any other Turkish city — especially the seafood. However, Ankara is not as expensive as Istanbul, which makes it a more practical choice for many students. Fatma says the two cities are not as different as people think — both are vibrant, welcoming and full of culture.</p>
+    </div>
+    <div class="tf-item"><p>1. Istanbul is the most visited city in Turkey, according to Fatma.</p><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'T','T')">T</button><button class="tf-btn" onclick="checkTF(this,'F','T')">F</button><button class="tf-btn" onclick="checkTF(this,'NG','T')">NG</button></div></div>
+    <div class="tf-item"><p>2. Ankara is larger than Istanbul.</p><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'T','F')">T</button><button class="tf-btn" onclick="checkTF(this,'F','F')">F</button><button class="tf-btn" onclick="checkTF(this,'NG','F')">NG</button></div></div>
+    <div class="tf-item"><p>3. Fatma prefers the seafood in Ankara.</p><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'T','F')">T</button><button class="tf-btn" onclick="checkTF(this,'F','F')">F</button><button class="tf-btn" onclick="checkTF(this,'NG','F')">NG</button></div></div>
+    <div class="tf-item"><p>4. Ankara is a cheaper option for students than Istanbul.</p><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'T','T')">T</button><button class="tf-btn" onclick="checkTF(this,'F','T')">F</button><button class="tf-btn" onclick="checkTF(this,'NG','T')">NG</button></div></div>
+    <div class="tf-item"><p>5. Fatma has lived in both cities for at least a year.</p><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'T','NG')">T</button><button class="tf-btn" onclick="checkTF(this,'F','NG')">F</button><button class="tf-btn" onclick="checkTF(this,'NG','NG')">NG</button></div></div>
+  </div>
+</div></div>
+
+<!-- SECTION 4: MC -->
+<div class="sec"><button class="accordion">4. Multiple Choice</button><div class="panel">
+  <div class="card">
+    <p style="margin-bottom:14px;font-size:0.9rem;color:var(--muted);">Choose the correct option.</p>
+    <div class="mc-item">
+      <p>1. Mount Everest is _______ mountain in the world.</p>
+      <div class="mc-options" id="mc1">
+        <label><input type="radio" name="mc1" value="a"/> a) taller</label>
+        <label><input type="radio" name="mc1" value="b"/> b) the tallest</label>
+        <label><input type="radio" name="mc1" value="c"/> c) as tall as</label>
+      </div>
+    </div>
+    <div class="mc-item">
+      <p>2. This test is not _______ I thought.</p>
+      <div class="mc-options" id="mc2">
+        <label><input type="radio" name="mc2" value="a"/> a) as difficult than</label>
+        <label><input type="radio" name="mc2" value="b"/> b) as difficult as</label>
+        <label><input type="radio" name="mc2" value="c"/> c) more difficult as</label>
+      </div>
+    </div>
+    <div class="mc-item">
+      <p>3. She works _______ her colleague — they always finish at the same time.</p>
+      <div class="mc-options" id="mc3">
+        <label><input type="radio" name="mc3" value="a"/> a) as hard as</label>
+        <label><input type="radio" name="mc3" value="b"/> b) harder than</label>
+        <label><input type="radio" name="mc3" value="c"/> c) the hardest</label>
+      </div>
+    </div>
+    <div class="mc-item">
+      <p>4. Which sentence has a mistake?</p>
+      <div class="mc-options" id="mc4">
+        <label><input type="radio" name="mc4" value="a"/> a) He is more intelligent than his brother.</label>
+        <label><input type="radio" name="mc4" value="b"/> b) This is the most cheap option available.</label>
+        <label><input type="radio" name="mc4" value="c"/> c) She is as kind as her mother.</label>
+      </div>
+    </div>
+    <button class="check-all-btn" onclick="checkMC()">✓ Check All</button>
+  </div>
+</div></div>
+
+<!-- SECTION 5: ERROR CORRECTION -->
+<div class="sec"><button class="accordion">5. Error Correction</button><div class="panel">
   <div class="card">
     <p style="margin-bottom:14px;font-size:0.9rem;color:var(--muted);">Each sentence has ONE mistake. Write the corrected sentence.</p>
     <div class="err-exercise">
@@ -122,15 +198,53 @@
       <input data-answer="this test is not as difficult as i thought" id="hw12e3" placeholder="Correct sentence" type="text"/>
       <button class="check-btn" onclick="checkById('hw12e3')" style="margin-left:8px;">✓</button>
     </div>
+    <div class="err-exercise">
+      <p>4. My bag is the more heavy in the class.</p>
+      <input data-answer="my bag is the heaviest in the class" id="hw12e4" placeholder="Correct sentence" type="text"/>
+      <button class="check-btn" onclick="checkById('hw12e4')" style="margin-left:8px;">✓</button>
+    </div>
+    <div class="err-exercise">
+      <p>5. She is so talented as her sister.</p>
+      <input data-answer="she is as talented as her sister" id="hw12e5" placeholder="Correct sentence" type="text"/>
+      <button class="check-btn" onclick="checkById('hw12e5')" style="margin-left:8px;">✓</button>
+    </div>
   </div>
 </div></div>
 
-<div class="sec"><button class="accordion">3. Writing Task</button><div class="panel">
+<!-- SECTION 6: SENTENCE TRANSFORMATION -->
+<div class="sec"><button class="accordion">6. Sentence Transformation</button><div class="panel">
+  <div class="card">
+    <p style="margin-bottom:14px;font-size:0.9rem;color:var(--muted);">Rewrite each sentence using the word(s) given. Keep the meaning the same.</p>
+    <div class="err-exercise">
+      <p>1. No mountain in the world is higher than Everest. (THE HIGHEST)</p>
+      <input data-answer="everest is the highest mountain in the world" id="tr1" placeholder="Everest is..." type="text"/>
+      <button class="check-btn" onclick="checkById('tr1')" style="margin-left:8px;">✓</button>
+    </div>
+    <div class="err-exercise">
+      <p>2. My phone is cheaper than yours. (NOT AS)</p>
+      <input data-answer="your phone is not as cheap as mine" id="tr2" placeholder="Your phone..." type="text"/>
+      <button class="check-btn" onclick="checkById('tr2')" style="margin-left:8px;">✓</button>
+    </div>
+    <div class="err-exercise">
+      <p>3. Maths and English are equally difficult for me. (AS…AS)</p>
+      <input data-answer="maths is as difficult as english for me" id="tr3" placeholder="Maths is..." type="text"/>
+      <button class="check-btn" onclick="checkById('tr3')" style="margin-left:8px;">✓</button>
+    </div>
+  </div>
+</div></div>
+
+<!-- SECTION 7: FREE WRITING -->
+<div class="sec"><button class="accordion">7. Free Writing — Comparison Paragraph</button><div class="panel">
   <div class="card">
     <div class="writing-prompt">
       <h4>✍️ Full Comparison Paragraph</h4>
-      <p>Write a short paragraph (8–10 sentences) comparing two things you know well — two sports, two cities, two seasons, or two people. Use all three comparison structures at least once each.</p>
-      <textarea placeholder="I am going to compare... and...&#10;Firstly, ... is more ... than ...&#10;Also, ... is the most ...&#10;Finally, ... is as ... as ..." rows="10"></textarea>
+      <p>Write a paragraph (8–10 sentences) comparing two things you know well — two sports, two cities, two seasons, or two people. Use <strong>all three comparison structures</strong> at least once each.</p>
+      <ul>
+        <li>Comparative: <em>... is more/___er than ...</em></li>
+        <li>Superlative: <em>... is the most/___est ...</em></li>
+        <li>As…as: <em>... is (not) as ___ as ...</em></li>
+      </ul>
+      <textarea placeholder="I am going to compare... and...&#10;Firstly, ... is more ... than ...&#10;Also, ... is the most ...&#10;Finally, ... is as ... as ...&#10;In my opinion, ..." rows="12"></textarea>
     </div>
   </div>
 </div></div>
@@ -141,61 +255,89 @@
   <a href="L13_Going_To.html">Next Lesson →</a>
 </nav>
 </div>
-  <script>
-    // Accordion
-    document.querySelectorAll('.accordion').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const panel=btn.nextElementSibling;
-        const isOpen=btn.classList.contains('open');
-        btn.classList.toggle('open',!isOpen);
-        panel.classList.toggle('open',!isOpen);
-      });
+<script>
+  document.querySelectorAll('.accordion').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const panel=btn.nextElementSibling;
+      const isOpen=btn.classList.contains('open');
+      btn.classList.toggle('open',!isOpen);
+      panel.classList.toggle('open',!isOpen);
     });
-    // Open accordions that start open
-    document.querySelectorAll('.accordion.open').forEach(btn=>{
-      btn.nextElementSibling.classList.add('open');
+  });
+  document.querySelectorAll('.accordion.open').forEach(btn=>{btn.nextElementSibling.classList.add('open');});
+
+  function normalise(s){return s.trim().toLowerCase().replace(/['']/g,"'").replace(/\s+/g,' ');}
+
+  function checkById(id){
+    const inp=document.getElementById(id);
+    if(!inp)return;
+    const v=normalise(inp.value), a=normalise(inp.dataset.answer||'');
+    if(!v){inp.classList.remove('correct','wrong');return;}
+    if(v===a){inp.classList.add('correct');inp.classList.remove('wrong');}
+    else{inp.classList.add('wrong');inp.classList.remove('correct');}
+    showToast();
+  }
+
+  function checkAll(cardId){
+    const card=document.getElementById(cardId);
+    if(!card)return;
+    let total=0,correct=0;
+    card.querySelectorAll('input[data-answer]').forEach(inp=>{
+      const v=normalise(inp.value), a=normalise(inp.dataset.answer);
+      if(v===a){inp.classList.add('correct');inp.classList.remove('wrong');correct++;}
+      else if(inp.value.trim()){inp.classList.add('wrong');inp.classList.remove('correct');}
+      total++;
     });
+    showToast(correct+'/'+total+' correct!');
+  }
 
-    function normalise(s){return s.trim().toLowerCase().replace(/['']/g,"'").replace(/\s+/g,' ');}
-
-    function checkById(id){
+  function checkTableVocab(){
+    const ids=['ct1','st1','ct2','st2','ct3','st3','ct4','st4','ct5','st5'];
+    let c=0,t=ids.length;
+    ids.forEach(id=>{
       const inp=document.getElementById(id);
       if(!inp)return;
-      const correct=normalise(inp.dataset.answer||'');
-      const val=normalise(inp.value);
-      if(!val){inp.classList.remove('correct','wrong');return;}
-      if(val===correct){inp.classList.add('correct');inp.classList.remove('wrong');}
-      else{inp.classList.add('wrong');inp.classList.remove('correct');}
-      showToast();
-    }
-
-    function checkAll(cardId){
-      const card=document.getElementById(cardId);
-      if(!card)return;
-      let total=0,correct=0;
-      card.querySelectorAll('input[data-answer]').forEach(inp=>{
-        if(normalise(inp.value)===normalise(inp.dataset.answer)){inp.classList.add('correct');inp.classList.remove('wrong');correct++;}
-        else if(inp.value.trim()){inp.classList.add('wrong');inp.classList.remove('correct');}
-        total++;
-      });
-      showToast(correct+'/'+total+' correct!');
-    }
-
-    let toastTimer;
-    function showToast(msg){
-      let t=document.getElementById('score-toast');
-      if(!t){t=document.createElement('div');t.id='score-toast';document.body.appendChild(t);
-        t.style.cssText='position:fixed;bottom:24px;right:24px;background:var(--primary);color:white;font-family:Fredoka One,cursive;font-size:1rem;padding:12px 24px;border-radius:999px;box-shadow:0 4px 20px rgba(0,0,0,0.2);opacity:0;transform:translateY(20px);transition:opacity 0.3s,transform 0.3s;pointer-events:none;z-index:999';}
-      t.textContent=msg||'✓ Checked!';
-      t.style.opacity='1';t.style.transform='translateY(0)';
-      clearTimeout(toastTimer);
-      toastTimer=setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(20px)';},2200);
-    }
-
-    // Submit button
-    document.querySelectorAll('.submit-btn').forEach(btn=>{
-      btn.addEventListener('click',()=>showToast('⭐ Homework submitted!'));
+      const v=normalise(inp.value), a=normalise(inp.dataset.answer);
+      if(v===a){inp.classList.add('correct');inp.classList.remove('wrong');c++;}
+      else if(inp.value.trim()){inp.classList.add('wrong');inp.classList.remove('correct');}
     });
-  </script>
+    showToast(c+'/'+t+' correct!');
+  }
+
+  const MC_ANSWERS={mc1:'b',mc2:'b',mc3:'a',mc4:'b'};
+  function checkMC(){
+    let c=0,t=0;
+    Object.keys(MC_ANSWERS).forEach(name=>{
+      const opts=document.querySelectorAll(`#${name} label`);
+      const sel=document.querySelector(`input[name=${name}]:checked`);
+      opts.forEach(l=>l.classList.remove('correct-choice','wrong-choice'));
+      if(sel){
+        if(sel.value===MC_ANSWERS[name]){sel.parentElement.classList.add('correct-choice');c++;}
+        else{sel.parentElement.classList.add('wrong-choice');document.querySelector(`#${name} input[value="${MC_ANSWERS[name]}"]`).parentElement.classList.add('correct-choice');}
+      }
+      t++;
+    });
+    showToast(c+'/'+t+' correct!');
+  }
+
+  function checkTF(btn,chosen,correct){
+    const row=btn.closest('.tf-item');
+    row.querySelectorAll('.tf-btn').forEach(b=>b.classList.remove('selected-correct','selected-wrong'));
+    btn.classList.add(chosen===correct?'selected-correct':'selected-wrong');
+    showToast(chosen===correct?'✓ Correct!':'✗ Try again!');
+  }
+
+  let toastTimer;
+  function showToast(msg){
+    let t=document.getElementById('score-toast');
+    if(!t){t=document.createElement('div');t.id='score-toast';document.body.appendChild(t);
+      t.style.cssText='position:fixed;bottom:24px;right:24px;background:var(--primary);color:white;font-family:Fredoka One,cursive;font-size:1rem;padding:12px 24px;border-radius:999px;box-shadow:0 4px 20px rgba(0,0,0,0.2);opacity:0;transform:translateY(20px);transition:opacity 0.3s,transform 0.3s;pointer-events:none;z-index:999';}
+    t.textContent=msg||'✓ Checked!';
+    t.style.opacity='1';t.style.transform='translateY(0)';
+    clearTimeout(toastTimer);
+    toastTimer=setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(20px)';},2200);
+  }
+  document.querySelectorAll('.submit-btn').forEach(btn=>{btn.addEventListener('click',()=>showToast('⭐ Homework submitted!'));});
+</script>
 </body>
 </html>

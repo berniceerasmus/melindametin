@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Homework 14 – will</title>
+<title>Homework 14 – will (Melinda)</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap');
-    :root{--primary:#e8622a;--primary-light:#fde8dc;--secondary:#2a9d8f;--secondary-light:#d4f1ee;--accent:#f4a261;--accent-light:#fef3e8;--bg:#faf8f4;--surface:#ffffff;--muted:#8a8070;--text:#2c2416;--border:#e8e0d4;--success:#2a9d8f;--error:#e63946;--radius:14px;--shadow:0 2px 12px rgba(0,0,0,0.07)}
+    :root{--primary:#e8622a;--primary-light:#fde8dc;--secondary:#2a9d8f;--secondary-light:#d4f1ee;--accent:#f4a261;--bg:#faf8f4;--surface:#ffffff;--muted:#8a8070;--text:#2c2416;--border:#e8e0d4;--success:#2a9d8f;--error:#e63946;--radius:14px;--shadow:0 2px 12px rgba(0,0,0,0.07)}
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:0 0 60px}
     .container{max-width:780px;margin:0 auto;padding:0 16px}
@@ -26,7 +26,7 @@
     .card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);margin-bottom:12px}
     .exercise{padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);background:var(--surface);margin-bottom:10px;display:flex;align-items:center;gap:10px;font-size:0.95rem;font-weight:600;flex-wrap:wrap;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
     .exercise label{display:flex;align-items:center;gap:8px;flex-wrap:wrap;width:100%;font-weight:600}
-    .exercise input[type=text]{border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);padding:2px 6px;min-width:120px;max-width:240px;transition:border-color 0.2s}
+    .exercise input[type=text]{border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);padding:2px 6px;min-width:100px;max-width:220px;transition:border-color 0.2s}
     .exercise input[type=text]:focus{border-bottom-color:var(--secondary)}
     .exercise input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
     .exercise input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
@@ -34,64 +34,80 @@
     .check-btn:hover{background:#c94f1e;transform:scale(1.1)}
     .check-all-btn{margin-top:14px;display:inline-block;background:transparent;border:2px solid var(--primary);color:var(--primary);font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:800;padding:8px 20px;border-radius:999px;cursor:pointer;transition:background 0.18s,color 0.18s}
     .check-all-btn:hover{background:var(--primary);color:white}
-    .grammar-box{background:linear-gradient(135deg,#fff9f5,#f0faf9);border:1.5px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
-    .grammar-box h3{font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--primary);margin-bottom:14px}
-    .grammar-box table{width:100%;border-collapse:collapse;font-size:0.88rem}
-    .grammar-box th{background:var(--primary);color:white;padding:8px 12px;text-align:left;font-weight:800}
-    .grammar-box td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
-    .grammar-box tr:nth-child(even) td{background:rgba(0,0,0,0.02)}
-    .example-box{background:#fff9f0;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:14px;font-size:0.9rem;line-height:1.8}
-    .tip-box{background:#f0faf9;border:1.5px solid #b2dfdb;border-radius:10px;padding:12px 16px;font-size:0.88rem;font-weight:600;color:#1a5e56;line-height:1.6}
-    .warmup-box{background:linear-gradient(135deg,#fff3eb,#e8f8f7);border:1.5px solid #f0d8c8;border-radius:var(--radius);padding:20px 22px}
-    .warmup-box h3{font-family:'Fredoka One',cursive;color:var(--primary);font-size:1.05rem;margin-bottom:10px}
-    .warmup-box ul{margin-left:20px;line-height:2.4}
     .writing-prompt{background:#fffdf9;border:1.5px dashed var(--accent);border-radius:var(--radius);padding:18px 20px}
     .writing-prompt h4{font-family:'Fredoka One',cursive;color:var(--primary);margin-bottom:8px}
     .writing-prompt p{font-size:0.9rem;margin-bottom:4px}
     .writing-prompt ul{margin-left:18px;line-height:2;font-size:0.9rem}
     .writing-prompt textarea{width:100%;margin-top:10px;padding:12px;border:1.5px solid var(--border);border-radius:10px;font-family:'Nunito',sans-serif;font-size:0.9rem;resize:vertical;color:var(--text);background:white;outline:none;line-height:1.7}
     .writing-prompt textarea:focus{border-color:var(--primary)}
-    .speaking-prompt{background:linear-gradient(135deg,#f0faf9,#e8f4f8);border:1.5px solid #b2dfdb;border-radius:var(--radius);padding:18px 20px}
-    .speaking-prompt h4{font-family:'Fredoka One',cursive;color:var(--secondary);margin-bottom:8px}
-    .speaking-prompt ul{margin-left:18px;line-height:2.2}
-    .speaking-prompt p{font-size:0.9rem;margin-bottom:6px}
-    .speaking-prompt textarea{width:100%;margin-top:12px;padding:10px 12px;border:1.5px solid #b2dfdb;border-radius:10px;font-family:'Nunito',sans-serif;font-size:0.9rem;resize:vertical;background:white;outline:none;line-height:1.7}
     .order-sentence{background:#fafafa;border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:8px}
     .order-sentence p{font-weight:700;margin-bottom:8px;font-size:0.9rem;color:var(--muted)}
-    .order-sentence input[type=text]{width:100%;max-width:420px;border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);padding:4px 6px;margin-right:10px}
+    .order-sentence input[type=text]{width:100%;max-width:500px;border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.95rem;font-weight:700;color:var(--text);padding:4px 6px;margin-right:10px}
     .order-sentence input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
     .order-sentence input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
-    .match-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;padding:8px 12px;border:1.5px solid var(--border);border-radius:8px;background:white}
-    .match-row .label{font-weight:800;min-width:24px}
-    .match-row input[type=text]{width:60px;border:none;border-bottom:2px solid var(--primary);outline:none;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.95rem;text-align:center;background:transparent;padding:2px}
-    .match-row input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
-    .match-row input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
+    .err-exercise{margin-bottom:14px;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;background:white}
+    .err-exercise p{font-weight:600;margin-bottom:8px;font-size:0.93rem}
+    .err-exercise input[type=text]{width:100%;max-width:500px;border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.93rem;font-weight:700;padding:4px 6px;color:var(--text)}
+    .err-exercise input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
+    .err-exercise input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
     .submit-btn{display:block;width:100%;max-width:340px;margin:28px auto 0;background:linear-gradient(135deg,var(--primary),var(--accent));color:white;border:none;border-radius:999px;padding:14px 28px;font-family:'Fredoka One',cursive;font-size:1.1rem;cursor:pointer;box-shadow:0 4px 16px rgba(232,98,42,0.35);transition:transform 0.15s,box-shadow 0.15s}
     .submit-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,98,42,0.45)}
     .page-nav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:32px;padding-top:20px;border-top:1.5px solid var(--border)}
     .page-nav a{color:var(--primary);text-decoration:none;font-weight:800;font-size:0.9rem;padding:8px 16px;border:2px solid var(--primary);border-radius:999px;transition:background 0.18s,color 0.18s}
     .page-nav a:hover{background:var(--primary);color:white}
-    .page-nav a.hw-link{background:var(--primary);color:white}
-    .page-nav a.hw-link:hover{background:#c94f1e}
-    .err-exercise{margin-bottom:14px;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;background:white}
-    .err-exercise p{font-weight:600;margin-bottom:8px;font-size:0.93rem}
-    .err-exercise input[type=text]{width:100%;max-width:440px;border:none;border-bottom:2px solid var(--primary);outline:none;background:transparent;font-family:'Nunito',sans-serif;font-size:0.93rem;font-weight:700;padding:4px 6px;color:var(--text)}
-    .err-exercise input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
-    .err-exercise input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
-    .note{font-size:0.82rem;color:var(--secondary);font-weight:700;margin-bottom:6px}
+    .reading-box{background:linear-gradient(135deg,#fffdf9,#f0faf9);border:1.5px solid var(--border);border-radius:var(--radius);padding:20px 22px;margin-bottom:16px;font-size:0.93rem;line-height:1.9}
+    .reading-box h4{font-family:'Fredoka One',cursive;color:var(--secondary);font-size:1.05rem;margin-bottom:12px}
+    .vocab-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+    @media(max-width:560px){.vocab-grid{grid-template-columns:1fr}}
+    .vocab-item{background:#fafafa;border:1.5px solid var(--border);border-radius:9px;padding:10px 14px;display:flex;align-items:center;gap:8px;font-size:0.9rem;font-weight:700}
+    .vocab-item input[type=text]{flex:1;border:none;border-bottom:2px solid var(--primary);outline:none;font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:700;background:transparent;padding:2px 4px}
+    .vocab-item input.correct{border-bottom-color:var(--success)!important;color:var(--success)!important}
+    .vocab-item input.wrong{border-bottom-color:var(--error)!important;color:var(--error)!important}
+    .mc-item{margin-bottom:14px;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;background:white}
+    .mc-item p{font-weight:700;margin-bottom:10px;font-size:0.93rem}
+    .mc-options{display:flex;flex-direction:column;gap:6px}
+    .mc-options label{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:0.9rem;font-weight:600;padding:6px 10px;border-radius:8px;transition:background 0.15s}
+    .mc-options label:hover{background:#fdf5ef}
+    .mc-options input[type=radio]{accent-color:var(--primary);width:16px;height:16px;flex-shrink:0}
+    .mc-options label.correct-choice{background:#e8f8f5;color:var(--success)}
+    .mc-options label.wrong-choice{background:#fde8e8;color:var(--error)}
+    .tf-item{margin-bottom:10px;padding:12px 16px;border:1.5px solid var(--border);border-radius:10px;background:white;display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
+    .tf-item p{flex:1;font-weight:600;font-size:0.92rem;min-width:200px}
+    .tf-btns{display:flex;gap:8px;flex-shrink:0}
+    .tf-btn{padding:5px 14px;border-radius:999px;border:2px solid var(--border);font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:800;cursor:pointer;background:white;transition:background 0.15s,border-color 0.15s}
+    .tf-btn:hover{border-color:var(--primary)}
+    .tf-btn.selected-correct{background:#e8f8f5;border-color:var(--success);color:var(--success)}
+    .tf-btn.selected-wrong{background:#fde8e8;border-color:var(--error);color:var(--error)}
     @media(max-width:600px){.page-header{padding:24px 18px 22px}.card{padding:16px 14px}.exercise{padding:10px 12px}}
   </style>
 </head>
 <body>
 <div class="container">
 <header class="page-header">
-  <div class="lesson-badge-pill">Homework · Lesson 14</div>
+  <div class="lesson-badge-pill">Homework · Lesson 14 · Melinda</div>
   <h1>Homework 14: will 📝</h1>
-  <p class="subtitle">Complete all exercises after the lesson.</p>
-  <div class="header-meta"><span class="meta-pill">⏱ 15–20 min</span><span class="meta-pill">📝 50 points</span><span class="meta-pill">✅ Fill-in + Writing</span></div>
+  <p class="subtitle">Practise <em>will</em> and <em>won't</em> for predictions, promises, and offers.</p>
+  <div class="header-meta"><span class="meta-pill">⏱ ~60 min</span><span class="meta-pill">📝 100 points</span><span class="meta-pill">✅ 7 Sections</span></div>
 </header>
 
-<div class="sec"><button class="accordion open">1. Complete the Sentences</button><div class="panel open">
+<!-- 1: VOCAB -->
+<div class="sec"><button class="accordion open">1. Vocabulary — Uses of 'will'</button><div class="panel open">
+  <div class="card" id="hw14-vocab">
+    <p style="margin-bottom:14px;font-size:0.9rem;color:var(--muted);">Match each sentence to its use. Write: <strong>prediction / promise / offer / decision</strong></p>
+    <div class="vocab-grid">
+      <div class="vocab-item"><span>"I'll carry that for you!" →</span><input data-answer="offer" id="u1" type="text" placeholder="?"/></div>
+      <div class="vocab-item"><span>"I think it will be cold tomorrow." →</span><input data-answer="prediction" id="u2" type="text" placeholder="?"/></div>
+      <div class="vocab-item"><span>"I will never lie to you." →</span><input data-answer="promise" id="u3" type="text" placeholder="?"/></div>
+      <div class="vocab-item"><span>"I'll have the soup, please." →</span><input data-answer="decision" id="u4" type="text" placeholder="?"/></div>
+      <div class="vocab-item"><span>"Will you help me with this?" "Of course I will!" →</span><input data-answer="offer" id="u5" type="text" placeholder="?"/></div>
+      <div class="vocab-item"><span>"I don't think he will pass." →</span><input data-answer="prediction" id="u6" type="text" placeholder="?"/></div>
+    </div>
+    <button class="check-all-btn" onclick="checkAll('hw14-vocab')" style="margin-top:16px">✓ Check All</button>
+  </div>
+</div></div>
+
+<!-- 2: FILL IN -->
+<div class="sec"><button class="accordion open">2. Complete the Sentences</button><div class="panel open">
   <div class="card" id="hw14-card1">
     <p style="margin-bottom:14px;font-size:0.9rem;color:var(--muted);">Write <em>will</em> or <em>won't</em> + the verb in brackets.</p>
     <div class="exercise"><label>1. I <input data-answer="will call" id="hw14f1" placeholder="call" type="text"/> you when I arrive.</label></div>
@@ -99,13 +115,18 @@
     <div class="exercise"><label>3. I think it <input data-answer="will be" id="hw14f3" placeholder="be" type="text"/> a great match tonight.</label></div>
     <div class="exercise"><label>4. <input data-answer="will you help" id="hw14f4" placeholder="you / help" type="text"/> me practise after school?</label></div>
     <div class="exercise"><label>5. Don't worry — they <input data-answer="will win" id="hw14f5" placeholder="win" type="text"/> — they're the best team!</label></div>
+    <div class="exercise"><label>6. It looks very hot outside. I think it <input data-answer="won't rain" id="hw14f6" placeholder="not rain" type="text"/> today.</label></div>
+    <div class="exercise"><label>7. <input data-answer="will she come" id="hw14f7" placeholder="she / come" type="text"/> to the party on Saturday?</label></div>
+    <div class="exercise"><label>8. Don't worry — I <input data-answer="will help" id="hw14f8" placeholder="help" type="text"/> you with those bags.</label></div>
+    <div class="exercise"><label>9. I promise I <input data-answer="won't tell" id="hw14f9" placeholder="not tell" type="text"/> anyone your secret.</label></div>
+    <div class="exercise"><label>10. I think robots <input data-answer="will do" id="hw14f10" placeholder="do" type="text"/> most jobs in the future.</label></div>
     <button class="check-all-btn" onclick="checkAll('hw14-card1')">✓ Check All</button>
   </div>
 </div></div>
 
-<div class="sec"><button class="accordion">2. Write the Correct Sentence</button><div class="panel">
+<!-- 3: WORD ORDER -->
+<div class="sec"><button class="accordion">3. Put the Words in Order</button><div class="panel">
   <div class="card">
-    <p style="margin-bottom:14px;font-size:0.9rem;color:var(--muted);">Put the words in order.</p>
     <div class="order-sentence">
       <p>1. be / I / won't / today / late</p>
       <input data-answer="i won't be late today" id="hw14o1" placeholder="Write the full sentence" type="text"/>
@@ -121,15 +142,104 @@
       <input data-answer="i will open the door" id="hw14o3" placeholder="Write the full sentence" type="text"/>
       <button class="check-btn" onclick="checkById('hw14o3')">✓</button>
     </div>
+    <div class="order-sentence">
+      <p>4. help / will / with / you / me / homework / my</p>
+      <input data-answer="will you help me with my homework" id="hw14o4" placeholder="Write the full sentence" type="text"/>
+      <button class="check-btn" onclick="checkById('hw14o4')">✓</button>
+    </div>
+    <div class="order-sentence">
+      <p>5. I / think / pass / don't / exam / he / will / the</p>
+      <input data-answer="i don't think he will pass the exam" id="hw14o5" placeholder="Write the full sentence" type="text"/>
+      <button class="check-btn" onclick="checkById('hw14o5')">✓</button>
+    </div>
   </div>
 </div></div>
 
-<div class="sec"><button class="accordion">3. Writing Task</button><div class="panel">
+<!-- 4: READING + TF -->
+<div class="sec"><button class="accordion">4. Reading — True, False or Not Given</button><div class="panel">
+  <div class="card">
+    <div class="reading-box">
+      <h4>📖 A Letter to the Future</h4>
+      <p>Dear Future Me, I think life will be very different in ten years. I believe technology will be much more advanced. Cars probably won't need drivers, and robots will help in hospitals. I think I will live in a big city and I won't need a car because transport will be much faster and cheaper. I hope I will have a job I love — I think I will work in design or art. I won't forget the important things: my family, my health, and my friends. Whatever happens, I will try to be happy. See you in the future! — Zeynep</p>
+    </div>
+    <div class="tf-item"><p>1. Zeynep believes cars will drive themselves in the future.</p><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'T','T')">T</button><button class="tf-btn" onclick="checkTF(this,'F','T')">F</button><button class="tf-btn" onclick="checkTF(this,'NG','T')">NG</button></div></div>
+    <div class="tf-item"><p>2. Zeynep thinks she will work in medicine.</p><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'T','F')">T</button><button class="tf-btn" onclick="checkTF(this,'F','F')">F</button><button class="tf-btn" onclick="checkTF(this,'NG','F')">NG</button></div></div>
+    <div class="tf-item"><p>3. Zeynep says she will buy a car in the future.</p><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'T','F')">T</button><button class="tf-btn" onclick="checkTF(this,'F','F')">F</button><button class="tf-btn" onclick="checkTF(this,'NG','F')">NG</button></div></div>
+    <div class="tf-item"><p>4. Zeynep mentions that she currently lives in a city.</p><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'T','NG')">T</button><button class="tf-btn" onclick="checkTF(this,'F','NG')">F</button><button class="tf-btn" onclick="checkTF(this,'NG','NG')">NG</button></div></div>
+    <div class="tf-item"><p>5. Zeynep says family and friends are important to her.</p><div class="tf-btns"><button class="tf-btn" onclick="checkTF(this,'T','T')">T</button><button class="tf-btn" onclick="checkTF(this,'F','T')">F</button><button class="tf-btn" onclick="checkTF(this,'NG','T')">NG</button></div></div>
+  </div>
+</div></div>
+
+<!-- 5: MC -->
+<div class="sec"><button class="accordion">5. Multiple Choice</button><div class="panel">
+  <div class="card">
+    <div class="mc-item">
+      <p>1. "The phone is ringing!" — "I _______ get it!"</p>
+      <div class="mc-options" id="mc1">
+        <label><input type="radio" name="mc1" value="a"/> a) am going to</label>
+        <label><input type="radio" name="mc1" value="b"/> b) will</label>
+        <label><input type="radio" name="mc1" value="c"/> c) won't</label>
+      </div>
+    </div>
+    <div class="mc-item">
+      <p>2. I _______ you as soon as the meeting finishes.</p>
+      <div class="mc-options" id="mc2">
+        <label><input type="radio" name="mc2" value="a"/> a) will call</label>
+        <label><input type="radio" name="mc2" value="b"/> b) won't call</label>
+        <label><input type="radio" name="mc2" value="c"/> c) call</label>
+      </div>
+    </div>
+    <div class="mc-item">
+      <p>3. Which sentence uses 'will' correctly?</p>
+      <div class="mc-options" id="mc3">
+        <label><input type="radio" name="mc3" value="a"/> a) She will to come tomorrow.</label>
+        <label><input type="radio" name="mc3" value="b"/> b) I think it will snow tonight.</label>
+        <label><input type="radio" name="mc3" value="c"/> c) They wills finish the project.</label>
+      </div>
+    </div>
+    <button class="check-all-btn" onclick="checkMC()">✓ Check All</button>
+  </div>
+</div></div>
+
+<!-- 6: ERROR CORRECTION -->
+<div class="sec"><button class="accordion">6. Error Correction</button><div class="panel">
+  <div class="card">
+    <div class="err-exercise">
+      <p>1. I will to call you tonight.</p>
+      <input data-answer="i will call you tonight" id="ec1" type="text" placeholder="Correct sentence"/>
+      <button class="check-btn" onclick="checkById('ec1')" style="margin-left:8px">✓</button>
+    </div>
+    <div class="err-exercise">
+      <p>2. She wills not forget her promise.</p>
+      <input data-answer="she won't forget her promise" id="ec2" type="text" placeholder="Correct sentence"/>
+      <button class="check-btn" onclick="checkById('ec2')" style="margin-left:8px">✓</button>
+    </div>
+    <div class="err-exercise">
+      <p>3. Will they coming to the concert?</p>
+      <input data-answer="will they come to the concert" id="ec3" type="text" placeholder="Correct sentence"/>
+      <button class="check-btn" onclick="checkById('ec3')" style="margin-left:8px">✓</button>
+    </div>
+    <div class="err-exercise">
+      <p>4. I think it won't be snow tomorrow.</p>
+      <input data-answer="i think it won't snow tomorrow" id="ec4" type="text" placeholder="Correct sentence"/>
+      <button class="check-btn" onclick="checkById('ec4')" style="margin-left:8px">✓</button>
+    </div>
+  </div>
+</div></div>
+
+<!-- 7: WRITING -->
+<div class="sec"><button class="accordion">7. Free Writing — My Future</button><div class="panel">
   <div class="card">
     <div class="writing-prompt">
       <h4>✍️ My Future</h4>
-      <p>Write <strong>6 sentences</strong> about your future using <em>will</em> and <em>won't</em>. Include at least one promise, one prediction, and one offer.</p>
-      <textarea placeholder="1. (prediction) I think I will...&#10;2. (promise) I will never...&#10;3. (offer) I will help...&#10;4.&#10;5.&#10;6." rows="9"></textarea>
+      <p>Write 8–10 sentences about your future using <em>will</em> and <em>won't</em>. Include at least:</p>
+      <ul>
+        <li>2 predictions (<em>I think / I don't think…</em>)</li>
+        <li>2 promises (<em>I will / I won't always…</em>)</li>
+        <li>1 offer (<em>I will help… / I'll…</em>)</li>
+        <li>1 spontaneous decision</li>
+      </ul>
+      <textarea placeholder="1. (prediction) I think I will...&#10;2. (prediction) I don't think...&#10;3. (promise) I will always...&#10;4. (promise) I will never...&#10;5. (offer) I'll help...&#10;6. (decision) I'll have...&#10;7.&#10;8." rows="13"></textarea>
     </div>
   </div>
 </div></div>
@@ -140,61 +250,18 @@
   <a href="L15_Present_Continuous_Future.html">Next Lesson →</a>
 </nav>
 </div>
-  <script>
-    // Accordion
-    document.querySelectorAll('.accordion').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const panel=btn.nextElementSibling;
-        const isOpen=btn.classList.contains('open');
-        btn.classList.toggle('open',!isOpen);
-        panel.classList.toggle('open',!isOpen);
-      });
-    });
-    // Open accordions that start open
-    document.querySelectorAll('.accordion.open').forEach(btn=>{
-      btn.nextElementSibling.classList.add('open');
-    });
-
-    function normalise(s){return s.trim().toLowerCase().replace(/['']/g,"'").replace(/\s+/g,' ');}
-
-    function checkById(id){
-      const inp=document.getElementById(id);
-      if(!inp)return;
-      const correct=normalise(inp.dataset.answer||'');
-      const val=normalise(inp.value);
-      if(!val){inp.classList.remove('correct','wrong');return;}
-      if(val===correct){inp.classList.add('correct');inp.classList.remove('wrong');}
-      else{inp.classList.add('wrong');inp.classList.remove('correct');}
-      showToast();
-    }
-
-    function checkAll(cardId){
-      const card=document.getElementById(cardId);
-      if(!card)return;
-      let total=0,correct=0;
-      card.querySelectorAll('input[data-answer]').forEach(inp=>{
-        if(normalise(inp.value)===normalise(inp.dataset.answer)){inp.classList.add('correct');inp.classList.remove('wrong');correct++;}
-        else if(inp.value.trim()){inp.classList.add('wrong');inp.classList.remove('correct');}
-        total++;
-      });
-      showToast(correct+'/'+total+' correct!');
-    }
-
-    let toastTimer;
-    function showToast(msg){
-      let t=document.getElementById('score-toast');
-      if(!t){t=document.createElement('div');t.id='score-toast';document.body.appendChild(t);
-        t.style.cssText='position:fixed;bottom:24px;right:24px;background:var(--primary);color:white;font-family:Fredoka One,cursive;font-size:1rem;padding:12px 24px;border-radius:999px;box-shadow:0 4px 20px rgba(0,0,0,0.2);opacity:0;transform:translateY(20px);transition:opacity 0.3s,transform 0.3s;pointer-events:none;z-index:999';}
-      t.textContent=msg||'✓ Checked!';
-      t.style.opacity='1';t.style.transform='translateY(0)';
-      clearTimeout(toastTimer);
-      toastTimer=setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(20px)';},2200);
-    }
-
-    // Submit button
-    document.querySelectorAll('.submit-btn').forEach(btn=>{
-      btn.addEventListener('click',()=>showToast('⭐ Homework submitted!'));
-    });
-  </script>
+<script>
+  document.querySelectorAll('.accordion').forEach(btn=>{btn.addEventListener('click',()=>{const panel=btn.nextElementSibling;const isOpen=btn.classList.contains('open');btn.classList.toggle('open',!isOpen);panel.classList.toggle('open',!isOpen);});});
+  document.querySelectorAll('.accordion.open').forEach(btn=>{btn.nextElementSibling.classList.add('open');});
+  function normalise(s){return s.trim().toLowerCase().replace(/['']/g,"'").replace(/\s+/g,' ');}
+  function checkById(id){const inp=document.getElementById(id);if(!inp)return;const v=normalise(inp.value),a=normalise(inp.dataset.answer||'');if(!v){inp.classList.remove('correct','wrong');return;}if(v===a){inp.classList.add('correct');inp.classList.remove('wrong');}else{inp.classList.add('wrong');inp.classList.remove('correct');}showToast();}
+  function checkAll(cardId){const card=document.getElementById(cardId);if(!card)return;let total=0,correct=0;card.querySelectorAll('input[data-answer]').forEach(inp=>{const v=normalise(inp.value),a=normalise(inp.dataset.answer);if(v===a){inp.classList.add('correct');inp.classList.remove('wrong');correct++;}else if(inp.value.trim()){inp.classList.add('wrong');inp.classList.remove('correct');}total++;});showToast(correct+'/'+total+' correct!');}
+  const MC_ANSWERS={mc1:'b',mc2:'a',mc3:'b'};
+  function checkMC(){let c=0,t=0;Object.keys(MC_ANSWERS).forEach(name=>{const opts=document.querySelectorAll(`#${name} label`);const sel=document.querySelector(`input[name=${name}]:checked`);opts.forEach(l=>l.classList.remove('correct-choice','wrong-choice'));if(sel){if(sel.value===MC_ANSWERS[name]){sel.parentElement.classList.add('correct-choice');c++;}else{sel.parentElement.classList.add('wrong-choice');document.querySelector(`#${name} input[value="${MC_ANSWERS[name]}"]`).parentElement.classList.add('correct-choice');}}t++;});showToast(c+'/'+t+' correct!');}
+  function checkTF(btn,chosen,correct){const row=btn.closest('.tf-item');row.querySelectorAll('.tf-btn').forEach(b=>b.classList.remove('selected-correct','selected-wrong'));btn.classList.add(chosen===correct?'selected-correct':'selected-wrong');showToast(chosen===correct?'✓ Correct!':'✗ Try again!');}
+  let toastTimer;
+  function showToast(msg){let t=document.getElementById('score-toast');if(!t){t=document.createElement('div');t.id='score-toast';document.body.appendChild(t);t.style.cssText='position:fixed;bottom:24px;right:24px;background:var(--primary);color:white;font-family:Fredoka One,cursive;font-size:1rem;padding:12px 24px;border-radius:999px;box-shadow:0 4px 20px rgba(0,0,0,0.2);opacity:0;transform:translateY(20px);transition:opacity 0.3s,transform 0.3s;pointer-events:none;z-index:999';}t.textContent=msg||'✓ Checked!';t.style.opacity='1';t.style.transform='translateY(0)';clearTimeout(toastTimer);toastTimer=setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(20px)';},2200);}
+  document.querySelectorAll('.submit-btn').forEach(btn=>{btn.addEventListener('click',()=>showToast('⭐ Homework submitted!'));});
+</script>
 </body>
 </html>
